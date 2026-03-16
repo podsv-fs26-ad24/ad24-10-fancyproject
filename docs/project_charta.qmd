@@ -29,7 +29,9 @@ Formulate success criteria (from the client/stakeholder perspective): qualitativ
 It is also helpful to specify what is explicitly excluded from the project objectives (out of scope).
 
 From a stakeholder perspective, the project aims to:
+
 - Provide a clear visual overview of business travel activities and their CO₂ emissions
+
 - Allow users to explore travel data across categories such as transport mode, travel distance, business unit, and time
 - Enable comparisons between different travel options in terms of emissions and travel duration
 - Support users in identifying travel patterns and emission-intensive travel behaviour
@@ -53,7 +55,7 @@ Out of Scope: The project will not include recommendations for specific travel o
 
 ## Stakeholder Analysis
 List the people involved in and affected by the project. Describe their goals and relationships with each other. Visualisation in the form of a stakeholder map can provide a quick overview.
-??????
+?????? Séverine Stadler
 
 ## User Analysis
 Analyse the target audience of the visualization product and create at least 2 personas with **relevant attributes** such as domain expertise, data literacy, technical environment (devices, screen sizes), frequency of use etc. Amend each persona with the dimensions of the customer profile side in the Value Proposition Canvas @Osterwalder2014:
@@ -82,7 +84,7 @@ Gains:
 - Ability to quickly identify and analyze travel patterns and emissions
 - Improved decision-making capabilities based on data-driven insights
 
-Persona 2: Business Unit Manager
+Persona 2: Business Unit Manager -ändern! Séverine Stadler
 Name: Mark Johnson
 Role: Business Unit Manager
 Domain Expertise: Medium (knowledgeable about business operations but not an expert in sustainability)
@@ -129,7 +131,7 @@ software/tools:
 Constraints and risks:
 ??
 
-## Visualization Concept
+## Visualization Concept Lia
 Translate the project objectives into a concrete visualization concept. This corresponds to the value map side of the Value Proposition Canvas [@Osterwalder2014] – describe how the proposed visualization product addresses the users' tasks, relieves their pains and creates gains. Address the following aspects:
 
 * **Product form**: Composition of the visualization product – dashboard, data story, infographic, exploratory tool, etc.
@@ -147,7 +149,7 @@ For each design decision, articulate the intended value along three dimensions:
 Justify the concept by mapping it explicitly to the project objectives and the user needs identified in the user analysis.
 
 
-## Project Plan
+## Project Plan Séverine Stadler
 Divide the project into individual phases, describe them briefly and draw up a preliminary timetable, e.g. as a Gantt chart:
 
 ```{mermaid}
