@@ -2,6 +2,25 @@
 ## Context and Scope
 Describe the context (domain/business area) and topic of the visualization project. Which topical aspects should be addressed? Which question(s) should the data visualization project answer? What are the expected benefits of the project? Where should the visualization product be published (e.g. website, app, intranet)?
 
+Business travel is common in many companies. Employees travel for meetings, conferences, or to work with colleagues in other locations. However, business travel - especially flights - also produces CO₂ emissions, which has an impact on the environment.
+
+In this project, we will analyse and visualize a dataset about business travel. The dataset contains information about trips such as transport mode, travel distance, travel duration, costs, and estimated CO₂ emissions.
+
+The dataset covers business trips from 2017 to early 2026 and seems to represent travel activities within one company with several business units.
+
+The dashboard should help answer questions such as:
+
+- How have travel emissions changed over time?
+- Which transport modes produce the most CO₂ emissions?
+- Which business units travel the most?
+- How are emissions related to travel distance?
+- How do different travel options compare in terms of CO₂ emissions and travel duration?
+
+The dashboard should also help users compare different travel options and support decisions about how to travel. For example, if a trip can be done by train instead of plane, the dashboard can show the potential emissions savings.
+When the company has a budget for travel, the dashboard can help to decide if the travel is possible to make. 
+
+The visualization product will be available on a website.
+
 ## Project Objectives and Success Criteria
 Describe the objectives **from the client/stakeholder perspective**. For example: "Enable users to understand the distribution of sales across different regions". Try to be as specific as possible, but restrict to the concrete needs formulated by the client/stakeholders. For example: if a dashboard is needed explicitly, then state it here, otherwise leave the form of the visualization product open.
 
@@ -9,8 +28,32 @@ Formulate success criteria (from the client/stakeholder perspective): qualitativ
 
 It is also helpful to specify what is explicitly excluded from the project objectives (out of scope).
 
+From a stakeholder perspective, the project aims to:
+- Provide a clear visual overview of business travel activities and their CO₂ emissions
+- Allow users to explore travel data across categories such as transport mode, travel distance, business unit, and time
+- Enable comparisons between different travel options in terms of emissions and travel duration
+- Support users in identifying travel patterns and emission-intensive travel behaviour
+
+The final outcome of the project will be an interactive dashboard that enables exploratory analysis of the travel dataset.
+
+Success Criteria
+Qualitative success criteria:
+- Users can easily understand the relationship between travel behaviour and CO₂ emissions.
+- The dashboard provides a clear overview of travel patterns in the dataset.
+- Users are able to compare transportation options and recognize differences in emissions and travel duration.
+- Users are able to compare transportation options and recognize differences in emissions and travel duration.
+
+Quantitative success criteria:
+- The dashboard contains at least five different visualizations presenting key aspects of the dataset.
+- Users can filter the data by at least three attributes (e.g., year, transport mode, business unit).
+- Test users can identify at least two insights about travel patterns within one minute of interacting with the dashboard.
+
+
+Out of Scope: The project will not include recommendations for specific travel options or policies. 
+
 ## Stakeholder Analysis
 List the people involved in and affected by the project. Describe their goals and relationships with each other. Visualisation in the form of a stakeholder map can provide a quick overview.
+??????
 
 ## User Analysis
 Analyse the target audience of the visualization product and create at least 2 personas with **relevant attributes** such as domain expertise, data literacy, technical environment (devices, screen sizes), frequency of use etc. Amend each persona with the dimensions of the customer profile side in the Value Proposition Canvas @Osterwalder2014:
@@ -19,10 +62,72 @@ Analyse the target audience of the visualization product and create at least 2 p
 * **Pains**: What obstacles, risks or undesired outcomes do users currently face? What makes their current approach frustrating or inefficient?
 * **Gains**: What outcomes and benefits do users expect or desire? What would exceed their expectations?
 
+Persona 1: Sustainability Manager
+Name: Laura Smith
+Role: Sustainability Manager
+Domain Expertise: High (expert in sustainability and environmental impact)
+Data Literacy: Medium (comfortable with data but not an expert)
+Technical Environment: Desktop computer with large monitor, occasional use of mobile devices
+Frequency of Use: Weekly
+
+User Tasks:
+- Monitor and report on the company's CO₂ emissions from business travel
+- Identify trends and patterns in travel behaviour and emissions
+- prepare reports and presentations for senior management and stakeholders
+
+Pains:
+- Difficulty in accessing and analyzing travel data from multiple sources
+- Time-consuming process to create reports and visualizations manually
+Gains:
+- Ability to quickly identify and analyze travel patterns and emissions
+- Improved decision-making capabilities based on data-driven insights
+
+Persona 2: Business Unit Manager
+Name: Mark Johnson
+Role: Business Unit Manager
+Domain Expertise: Medium (knowledgeable about business operations but not an expert in sustainability)
+Data Literacy: Low (limited experience with data analysis and visualization)
+Technical Environment: Desktop computer with standard office software, limited use of mobile devices
+Frequency of Use: Monthly
+
+User Tasks:
+- Review and analyze travel data for budgeting and planning purposes
+- Communicate travel-related insights to team members and stakeholders
+
+Pains:
+- Lack of easy access to consolidated travel data
+- Limited ability to create meaningful visualizations without technical expertise
+Gains:
+- Simplified access to relevant travel information
+- Enhanced ability to communicate travel insights effectively
+
 
 ## Situation Assessment
 Describe the available resources (data, personnel, material, software/tools, infrastructure, etc.) and time as well as restrictions and constraints. Possible risks that may arise during the project are also identified.
 
+Dataset:
+The dataset contains approcimately 25,000 business travel recorde with variables such as:
+- `date` - of travel
+- `transport_mode` - transport mode (e.g., flight, train, rental car, etc.)
+- `km` - travel distance 
+- `CO2e` - estimated CO₂ emissions
+- `cost_CHF` - travel costs in Swiss Francs
+
+Personnel:
+- Jasmin Fankhauser
+- Séverine Stadler
+- Lia Sifrig
+- Anna Kaufmann
+
+Material: 
+?
+
+software/tools:
+- Python for data exploration and visualization
+- matplotlib for data visualization
+
+Constraints and risks:
+??
 
 ## Visualization Concept
 Translate the project objectives into a concrete visualization concept. This corresponds to the value map side of the Value Proposition Canvas [@Osterwalder2014] – describe how the proposed visualization product addresses the users' tasks, relieves their pains and creates gains. Address the following aspects:
