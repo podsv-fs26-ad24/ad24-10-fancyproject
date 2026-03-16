@@ -1,4 +1,4 @@
-# Sample Projectt
+# Sample Project
 This is a template for a data visualization project using Python, uv for environment and package management and Quarto for documentation.
 
 To adapt to your individual project change `sample` to the respective project name in the commands below
