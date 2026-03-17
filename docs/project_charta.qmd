@@ -58,22 +58,23 @@ List the people involved in and affected by the project. Describe their goals an
 ?????? Séverine Stadler
 
 ```{mermaid}
-%%{init: {"quadrantChart": {"quadrant1Fill": "#ccffcc", "quadrant2Fill": "#cce5ff", "quadrant3Fill": "#ffffcc", "quadrant4Fill": "#ffcccc"}}}%%
+%%{init: {"theme": "base", "themeVariables": {"quadrant1Fill": "#ccffcc", "quadrant2Fill": "#cce5ff", "quadrant3Fill": "#ffffcc", "quadrant4Fill": "#ffcccc"}}}%%
 quadrantChart
-    title Stakeholder Priorisierung Matrix
-    x-axis "Niedriges Interesse" --> "Hohes Interesse"
-    y-axis "Geringer Einfluss" --> "Hoher Einfluss"
-    quadrant-1 "Eng managen (Key Player)"
-    quadrant-2 "Zufriedenstellen"
-    quadrant-3 "Beobachten"
-    quadrant-4 "Informiert halten"
+    title Stakeholder Matrix
+    x-axis "Low interest" --> "High interest"
+    y-axis "Low Power" --> "High Power"
+    quadrant-1 "Manage Closely"
+    quadrant-2 "Keep Satisfied"
+    quadrant-3 "Monitor"
+    quadrant-4 "Keep Informed"
     
     "Laura Smith": [0.85, 0.85]
-    "Geschäftsleitung": [0.65, 0.90]
+    "Management": [0.65, 0.90]
     "Business Unit Manager": [0.75, 0.70]
-    "Projektteam": [0.90, 0.60]
+    "Project Team": [0.90, 0.60]
     "IT / Web-Admin": [0.25, 0.75]
-    "Mitarbeitende": [0.80, 0.25]
+    "Employee": [0.80, 0.10]
+
 ```
 
 ## User Analysis
