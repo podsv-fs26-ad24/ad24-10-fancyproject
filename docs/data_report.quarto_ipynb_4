@@ -87,7 +87,7 @@
         "\n",
         "This is an example on how to incorporate executable Python code and show a figure output:"
       ],
-      "id": "568e5da4"
+      "id": "c8e641c8"
     },
     {
       "cell_type": "code",
@@ -164,7 +164,7 @@
         "### Details Processed Dataset 2\n",
         "..."
       ],
-      "id": "04ce8458"
+      "id": "afdf8314"
     }
   ],
   "metadata": {

@@ -154,18 +154,18 @@ Gains:
 - **Target Tracking:** A simple, visual overview showing how the business unit is performing against corporate CO₂ reduction targets.
 - **Data-Driven Leadership:** Easy-to-export visuals that help communicate the "why" behind travel policies to the team and foster a more sustainable mindset.
 
-#### **Use Case Scenario: Mark Johnson (Business Unit Manager)**
+#### **Use Case Scenario:**
 
-- **Context:** It is the end of the quarter, and Mark is preparing for a management meeting where he needs to report on his unit's budget and progress toward corporate CO₂ reduction targets.
-- **The Action:** Mark opens the Business Travel Dashboard and filters the data specifically for his Business Unit for the current year.
+- **Context:** Mark is preparing for a meeting where he needs to report on his unit's budget and progress toward the CO₂ reduction targets.
+- **The Action:** The Dashboard filters the data specifically for his Unit for the current year.
 
 **The Insight (How the dashboard helps):**
 
-- **Spotting Inefficiencies:** He immediately sees a prominent bar chart indicating that short-haul flights between Zurich and Frankfurt account for 40% of his team's total travel emissions.
-- **Comparing Options:** He uses the dashboard's comparison feature to look at the alternative: traveling by train on the same route. The data clearly visualizes that while the train takes roughly 1.5 hours longer door-to-door, the CO₂ emissions are reduced by over 80%, and the financial cost is significantly lower.
+- **Spotting Inefficiencies:** He immediately sees a prominent bar chart indicating that short flights account for 40% of his team's total travel emissions.
+- **Comparing Options:** He uses the dashboard's comparison feature to look at the alternative: traveling by train or Car on the same route. The data visualizes that while the train takes roughly 1.5 hours longer door-to-door, the CO₂ emissions are reduced by over 80%, and the financial cost is significantly lower.
 
 **The Outcome:**
-Mark exports this specific visualization from the dashboard and shares it in his next team meeting. Using the clear, undeniable data, he establishes a new internal guideline: All travel to Frankfurt must now be done by train unless there is an urgent exception. Mark is happy because he successfully reduced his unit's footprint and saved money, without needing to be a data expert to find this insight.
+Mark exports this visualization from the dashboard and shares it in his next team meeting. Using the clear data, he establishes a new internal guideline: All travel to Frankfurt must now be done by train unless there is an urgent exception. Mark is happy because he successfully reduced his unit's footprint and saved money, without needing to be a data expert to find this insight.
 
 ## Situation Assessment
 Describe the available resources (data, personnel, material, software/tools, infrastructure, etc.) and time as well as restrictions and constraints. Possible risks that may arise during the project are also identified.
