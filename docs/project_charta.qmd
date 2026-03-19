@@ -91,23 +91,27 @@ Analyse the target audience of the visualization product and create at least 2 p
 * **Pains**: What obstacles, risks or undesired outcomes do users currently face? What makes their current approach frustrating or inefficient?
 * **Gains**: What outcomes and benefits do users expect or desire? What would exceed their expectations?
 
-Persona 1: Sustainability Manager
-Name: Laura Smith
-Role: Sustainability Manager
-Domain Expertise: High (expert in sustainability and environmental impact)
-Data Literacy: Medium (comfortable with data but not an expert)
-Technical Environment: Desktop computer with large monitor, occasional use of mobile devices
-Frequency of Use: Weekly
+### **Persona 1: Sustainability Manager**
+- **Name**: Laura Smith
+- **Role**: Sustainability Manager
+- **Domain Expertise**: High (expert in sustainability and environmental impact)
+- **Data Literacy**: Medium (comfortable with data but not an expert)
+- **Technical Environment**: Desktop computer with large monitor, occasional use of mobile devices
+- **Frequency of Use**: Weekly
 
-User Tasks:
+**User Tasks:**
+
 - Monitor and report on the company's CO₂ emissions from business travel
 - Identify trends and patterns in travel behaviour and emissions
 - prepare reports and presentations for senior management and stakeholders
 
-Pains:
+**Pains:**
+
 - Difficulty in accessing and analyzing travel data from multiple sources
 - Time-consuming process to create reports and visualizations manually
-Gains:
+
+**Gains:**
+
 - Ability to quickly identify and analyze travel patterns and emissions
 - Improved decision-making capabilities based on data-driven insights
 
@@ -130,6 +134,45 @@ Gains:
 - Simplified access to relevant travel information
 - Enhanced ability to communicate travel insights effectively
 
+### Persona 2: Business Unit Manager
+- **Name**: Mark Johnson
+- **Role**: Business Unit Manager
+- **Domain Expertise**: High in business operations; Medium in sustainability (growing awareness due to new corporate ESG mandates).
+- **Data Literacy**: Medium (comfortable with business KPIs and budget dashboards, but needs pre-processed visual data for quick insights).
+- **Technical Environment**: Desktop/Laptop with standard office software, frequent use of mobile devices while on the go.
+- **Frequency of Use**: Monthly (for reporting) and ad-hoc (when approving team travel requests).
+
+**User Tasks (Jobs):**
+
+- Manage and balance the unit's financial travel budget and their allocated CO₂ emission budget.
+- Align the team's operational needs (e.g., client meetings, conferences) with strict corporate sustainability requirements.
+- Report the business unit's ecological footprint and reduction progress to senior management.
+- Guide team members towards greener travel choices.
+
+**Pains:**
+
+- **Conflicting Goals:** High pressure from upper management to reduce the unit's carbon footprint without negatively impacting business performance or client relationships.
+- **Lack of Visibility:** It is currently very difficult to assess the exact environmental impact of team travel and identify the biggest "CO₂ drivers" within the unit.
+- **Persuasion Hurdle:** Hard to convince employees to take longer, more sustainable routes (like trains) instead of quick flights without having clear, hard data to justify the decision.
+
+**Gains:**
+
+- **Clear Trade-offs:** An intuitive dashboard that instantly compares travel options (e.g., Cost vs. Time vs. CO₂ emissions), making approvals much easier.
+- **Target Tracking:** A simple, visual overview showing how the business unit is performing against corporate CO₂ reduction targets.
+- **Data-Driven Leadership:** Easy-to-export visuals that help communicate the "why" behind travel policies to the team and foster a more sustainable mindset.
+
+#### **Use Case Scenario: Mark Johnson (Business Unit Manager)**
+
+- **Context:** It is the end of the quarter, and Mark is preparing for a management meeting where he needs to report on his unit's budget and progress toward corporate CO₂ reduction targets.
+- **The Action:** Mark opens the Business Travel Dashboard and filters the data specifically for his Business Unit for the current year.
+
+**The Insight (How the dashboard helps):**
+
+- **Spotting Inefficiencies:** He immediately sees a prominent bar chart indicating that short-haul flights between Zurich and Frankfurt account for 40% of his team's total travel emissions.
+- **Comparing Options:** He uses the dashboard's comparison feature to look at the alternative: traveling by train on the same route. The data clearly visualizes that while the train takes roughly 1.5 hours longer door-to-door, the CO₂ emissions are reduced by over 80%, and the financial cost is significantly lower.
+
+**The Outcome:**
+Mark exports this specific visualization from the dashboard and shares it in his next team meeting. Using the clear, undeniable data, he establishes a new internal guideline: All travel to Frankfurt must now be done by train unless there is an urgent exception. Mark is happy because he successfully reduced his unit's footprint and saved money, without needing to be a data expert to find this insight.
 
 ## Situation Assessment
 Describe the available resources (data, personnel, material, software/tools, infrastructure, etc.) and time as well as restrictions and constraints. Possible risks that may arise during the project are also identified.
