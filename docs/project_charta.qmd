@@ -114,25 +114,10 @@ Analyse the target audience of the visualization product and create at least 2 p
 
 - Ability to quickly identify and analyze travel patterns and emissions
 - Improved decision-making capabilities based on data-driven insights
+- Enhanced communication of sustainability efforts to stakeholders through clear visualizations
 
-Persona 2: Business Unit Manager -ändern! Séverine Stadler
-Name: Mark Johnson
-Role: Business Unit Manager
-Domain Expertise: Medium (knowledgeable about business operations but not an expert in sustainability)
-Data Literacy: Low (limited experience with data analysis and visualization)
-Technical Environment: Desktop computer with standard office software, limited use of mobile devices
-Frequency of Use: Monthly
+#### **Use Case Scenario: Persona 1**
 
-User Tasks:
-- Review and analyze travel data for budgeting and planning purposes
-- Communicate travel-related insights to team members and stakeholders
-
-Pains:
-- Lack of easy access to consolidated travel data
-- Limited ability to create meaningful visualizations without technical expertise
-Gains:
-- Simplified access to relevant travel information
-- Enhanced ability to communicate travel insights effectively
 
 ### Persona 2: Business Unit Manager
 - **Name**: Mark Johnson
@@ -161,7 +146,7 @@ Gains:
 - **Target Tracking:** A simple, visual overview showing how the business unit is performing against corporate CO₂ reduction targets.
 - **Data-Driven Leadership:** Easy-to-export visuals that help communicate the "why" behind travel policies to the team and foster a more sustainable mindset.
 
-#### **Use Case Scenario:**
+#### **Use Case Scenario: Persona 2**
 
 - **Context:** Mark is preparing for a meeting where he needs to report on his unit's budget and progress toward the CO₂ reduction targets.
 - **The Action:** The Dashboard filters the data specifically for his Unit for the current year.
@@ -172,6 +157,7 @@ Gains:
 - **Comparing Options:** He uses the dashboard's comparison feature to look at the alternative: traveling by train or Car on the same route. The data visualizes that while the train takes roughly 1.5 hours longer door-to-door, the CO₂ emissions are reduced by over 80%, and the financial cost is significantly lower.
 
 **The Outcome:**
+
 Mark exports this visualization from the dashboard and shares it in his next team meeting. Using the clear data, he establishes a new internal guideline: All travel to Frankfurt must now be done by train unless there is an urgent exception. Mark is happy because he successfully reduced his unit's footprint and saved money, without needing to be a data expert to find this insight.
 
 ## Situation Assessment
