@@ -116,7 +116,24 @@ Analyse the target audience of the visualization product and create at least 2 p
 - Improved decision-making capabilities based on data-driven insights
 - Enhanced communication of sustainability efforts to stakeholders through clear visualizations
 
-#### **Use Case Scenario: Persona 1**
+#### **Use Case Scenario: Sustainability Manager**
+
+**Context:**
+
+ It is the end of the year, and Laura needs to prepare the annual sustainability report for the executive board. She has to present the overall trends in business travel emissions from the past few years and propose new emission reduction strategies for the upcoming year.
+
+**The Action:**
+
+ Instead of spending days manually collecting Excel sheets from different departments and building complex pivot tables, Laura opens the Business Travel Dashboard on her desktop monitor. She navigates to the "Time Series & Overview" tab to analyze the company's total carbon footprint over the last few years.
+
+**The Insight (How the dashboard helps):**
+
+- **Instant Trend Identification:** The dashboard shows her a clear line chart of CO₂ emissions over time. She filters the data by transport mode and quickly identifies a trend: while flight emissions have slowly decreased, emissions from rental cars have spiked significantly in the last two years.
+- **Effortless Reporting:** She uses the dashboard's filtering to dive deeper and sees that these rental car emissions are mostly coming from trips under 300 km, which could easily be replaced by train travel.
+
+**The Outcome:**
+
+Because the visualizations are already clean and professional, Laura simply exports the charts and copies them directly into her presentation for the board. The dashboard saved her hours of frustrating manual data aggregation. In the board meeting, she confidently uses the insights to successfully argue for a new company-wide policy that mandates train travel for all distances under 300 km.
 
 
 ### Persona 2: Business Unit Manager
