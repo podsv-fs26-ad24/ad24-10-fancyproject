@@ -55,23 +55,30 @@ Quantitative success criteria:
 List the people involved in and affected by the project. Describe their goals and relationships with each other. Visualisation in the form of a stakeholder map can provide a quick overview.
 ?????? Séverine Stadler
 
+| Stakeholder | Project Role | Goals and Interests | Power | Interest |
+| :--- | :--- | :--- | :--- | :--- |
+| **Laura Smith (Sustainability Manager / SM)** | Primary User | Needs accurate data to monitor corporate CO₂ targets, generate annual reports, and justify new sustainable travel policies. | High | High |
+| **Mark Johnson (Business Unit Manager / BUM)** | Key User | Wants to balance financial travel budgets with allocated CO₂ limits while maintaining team productivity. | High | High |
+| **Management** | Project Sponsors | Focused on overarching corporate goals, achieving ESG mandates, and reducing overall business costs. | High | Medium |
+| **Employees**| Affected Group | Directly impacted by travel policies derived from the dashboard. Interested in transparency and efficient routes. | Low | High |
+| **IT / Web-Administration** | Support and Infrastructure | Responsible for the technical integration of the dashboard into the company’s website. Focused on security and stability. | High | Low |
+| **Project Team** | Creators and Developers | Goal is to successfully clean the data, build an intuitive dashboard, and meet the project requirements. | Medium | High |
+| **Travel Agency** | Data Provider (External) | Processes bookings and provides raw data. No direct interest in the internal visualization. | Low | Low |
+
 ```{mermaid}
-%%{init: {"theme": "base", "themeVariables": {"quadrant1Fill": "#ccffcc", "quadrant2Fill": "#cce5ff", "quadrant3Fill": "#ffffcc", "quadrant4Fill": "#ffcccc"}}}%%
+%%{init: {"theme": "base", "themeVariables": {"quadrant1Fill": "#b1facc", "quadrant2Fill": "#bbdcff", "quadrant3Fill": "#ffb9b9" , "quadrant4Fill": "#ffffb7"}}}%%
 quadrantChart
     title Stakeholder Matrix
     x-axis "Low interest" --> "High interest"
     y-axis "Low Power" --> "High Power"
-    quadrant-1 "Manage Closely"
-    quadrant-2 "Keep Satisfied"
-    quadrant-3 "Monitor"
-    quadrant-4 "Keep Informed"
-    
-    "Laura Smith": [0.85, 0.85]
-    "Management": [0.65, 0.90]
-    "Business Unit Manager": [0.75, 0.70]
-    "Project Team": [0.90, 0.60]
-    "IT / Web-Admin": [0.25, 0.75]
+
+    "SM": [0.95, 0.85]
+    "Management": [0.52, 0.90]
+    "BUM": [0.75, 0.80]
+    "Project Team": [0.75, 0.50]
+    "IT / Web-Admin": [0.25, 0.90]
     "Employee": [0.80, 0.10]
+    "Travel Agency": [0.10, 0.10]
 
 ```
 
@@ -83,29 +90,49 @@ Analyse the target audience of the visualization product and create at least 2 p
 * **Gains**: What outcomes and benefits do users expect or desire? What would exceed their expectations?
 
 ### **Persona 1: Sustainability Manager**
+![Laura Smith](laura_smith.png){width=150px fig-align="left"}
+
 - **Name**: Laura Smith
+- **Age**: 32
 - **Role**: Sustainability Manager
+- **Nationality**: British
+- **Degree**: Master’s in Environmental Science
 - **Domain Expertise**: High (expert in sustainability and environmental impact)
 - **Data Literacy**: Medium (comfortable with data but not an expert)
-- **Technical Environment**: Desktop computer with large monitor, occasional use of mobile devices
-- **Frequency of Use**: Weekly
+- **Technical Environment**: Desktop computer with a large monitor for analysis, but manages everything via cloud tools on her tablet and phone while agile working.
+- **Frequency of Use**: Daily (for monitoring and reporting purposes)
+
+Laura lifes in a minimlist, shared apartment in Zurich-West, filled with upcycled furniture and numerous indoor plants. She prefers plant-based meals and avoids single-use plastics. She commutes daily by bicycle, valuing the physical activity and the zero-emission travel. Sundays are spent hiking in the Alps, combining her love for nature with physical challenge. She speaks fluent English and professional German. Curreently she is trying to learn some basic Swiss German to better connect with her local colleagues and stakeholders.
+
+She joined the company 1.5 years ago as a Senior Sustainability Analyst and was promoted to Manager 4 months ago due to her ambition and early successes in automating initial reporting workflows. She expects tools to work instantly. A clunky, buggy software experience causes her immediate frustration. Her philosophy is: "Let the data flow, then let the analysis begin." 
+
+As a digital native, Laura treats data as a product. She doesn't just analyze it; she expects it to be auditable, scalable, and beautifully visual. She is passionate about using data to drive real change in corporate sustainability and is always looking for ways to make complex information more accessible and actionable for her colleagues and senior leadership. 
+
+Her main goal is to reduce the company's carbon footprint from business travel and to communicate the company's sustainability efforts effectively to stakeholders. She is also focused on identifying trends in travel behaviour and emissions to inform future strategies and policies. Laura is under pressure to deliver quick results due to new regulations and corporate commitments, but she is determined to use data-driven insights to make a meaningful impact on the company's sustainability performance.
 
 **User Tasks:**
 
 - Monitor and report on the company's CO₂ emissions from business travel
 - Identify trends and patterns in travel behaviour and emissions
 - prepare reports and presentations for senior management and stakeholders
+- Convince skeptical senior leadership of sustainable investments using hard financial and environmental data.
 
 **Pains:**
 
-- Difficulty in accessing and analyzing travel data from multiple sources
-- Time-consuming process to create reports and visualizations manually
+- **Data Mess:** Spends 70% of her time chasing incomplete Excel sheets from different departments instead of analyzing data.
+- **Resistance:** Faced with "We’ve always done it this way" from older managers when she proposes train travel over short-haul flights.
+- **Pressure:** The board expects instant, ESG results due to new regulations.
+- **Difficulty:** accessing and analyzing travel data from multiple sources
+- **Time-consuming:** process to create reports and visualizations manually
 
 **Gains:**
 
-- Ability to quickly identify and analyze travel patterns and emissions
-- Improved decision-making capabilities based on data-driven insights
-- Enhanced communication of sustainability efforts to stakeholders through clear visualizations
+- **A "Single Source of Truth":** An interactive dashboard where all travel data flows together automatically and cleanly.
+- **Automated Reporting:** Being able to generate the annual travel emission report with three clicks, saving days of manual work.
+- **Visual Power:** Professional, undeniable visualizations that make the argument for a "Train First" policy obvious to anyone.
+- **Ability to quickly identify and analyze** travel patterns and emissions
+- **Improved decision-making** capabilities based on data-driven insights
+- **Enhanced communication** of sustainability efforts to stakeholders through clear visualizations
 
 #### **Use Case Scenario: Sustainability Manager**
 
@@ -167,6 +194,54 @@ Because the visualizations are already clean and professional, Laura simply expo
 **The Outcome:**
 
 Mark exports this visualization from the dashboard and shares it in his next team meeting. Using the clear data, he establishes a new internal guideline: All travel to Frankfurt must now be done by train unless there is an urgent exception. Mark is happy because he successfully reduced his unit's footprint and saved money, without needing to be a data expert to find this insight.
+
+### **Persona 3: Employee - Frequent Business Traveler**
+- **Name:** Alex Chen
+- **Age:** 35
+- **Role:** Senior Sales Consultant
+- **Domain Expertise:** Low in sustainability; High in client management and sales.
+- **Data Literacy:** Low (needs simple, clear visuals; no time for complex data exploration).
+- **Technical Environment:** Primarily mobile phone while traveling, laptop in hotels or home office.
+- **Frequency of Use:** whenever planning a new trip or right after completing one.
+
+**User Tasks (Jobs):**
+
+- Plan upcoming business trips to client meetings efficiently.
+- Compare travel options (time vs. CO₂ emissions) to comply with company guidelines.
+- Track their personal annual travel footprint.
+- Justify travel choices to their manager.
+
+**Pains:**
+
+- **Information Overload:** It is frustrating and time-consuming to figure out which travel route is actually the most sustainable. Alex just wants a quick answer without needing to read through complex data or policies.
+- **Time Pressure:** "I just need to get to the client quickly. Figuring out the greenest route takes too much time. I feel like I have to choose the flight to save time, even if I want to be more sustainable."
+- **Guilt vs. Efficiency:** Wants to travel sustainably but feels pressured to choose the fastest option (usually flying) to maximize working hours. 
+
+**Gains:**
+
+- **Quick Comparisons:** A very simple visual comparison (e.g., Train vs. Flight for a specific distance) showing the exact CO₂ savings at a glance. 
+- **Personal Impact:** A clear, gamified view of their own travel footprint (e.g., "You saved 200kg of CO₂ this month by taking the train!"). 
+- **Easy Decision Making:** Feeling confident that they are making the right choice according to company policy without having to read long rulebooks.
+
+#### **Use Case Scenario: Frequent Business Traveler**
+
+**Context:** 
+
+Alex needs to visit a key client in Munich (from the Zurich headquarters). Usually, Alex would just book a quick flight out of habit to save time.
+
+**Action:** 
+
+Before booking, Alex opens the Business Travel Dashboard on their mobile phone and looks at the "Transport Mode Comparison" for short-haul distances (under 400 km).
+
+**The Insight (How the dashboard helps):**
+
+- **Realizing the Impact:** The dashboard shows a striking bar chart comparing the Zurich-Munich route. Alex instantly sees that the flight produces around 120 kg of CO₂, while the train only produces about 15 kg.
+- **Time vs. CO₂:** The scatter plot reveals that when factoring in airport security and travel to the city center, the flight only saves about 45 minutes door-to-door compared to the train, but causes 8 times the emissions.
+
+**The Outcome:**
+
+Alex decides to book the train instead of the flight. The visual evidence was so clear and easy to understand that the decision took less than a minute. Alex uses the continuous 3.5-hour train ride to prepare the sales presentation, which wouldn't be possible on a fragmented flight journey, and feels good about actively reducing their personal carbon footprint.
+
 
 ## Situation Assessment
 Dataset:
