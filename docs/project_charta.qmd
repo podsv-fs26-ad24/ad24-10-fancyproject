@@ -192,7 +192,7 @@ Personnel:
 - Anna Kaufmann
 
 Material: 
-?
+- Personal laptops
 
 software/tools:
 - Python for data exploration
@@ -244,10 +244,9 @@ For each design decision, articulate the intended value along three dimensions:
 
 * **Cognitive and analytical value**: How does the design amplify the user's ability to detect patterns, identify outliers, understand distributions or discover relationships [@card1999; @vanwijk2005]?
 The dashboard helps users understand patterns in travel data.
-Users can see trends over time, understand the role of travel purpose, and compare transport modes.
-* **Communicative value**: How does the design support the communication of information to the target audience profile(s)?
+line charts should show trends over time and show how emissions develop also during events such as the COVID-19 pandemic. Bar charts allow users to compare emissions across different travel purposes and transport modes, making it easier to identify which options have the biggest impact on emissions. The scatter plot helps users see the relationship between travel duration and emissions for individual trips.
 
-The dashboard presents information in a clear and structured way. Simple charts such as bar charts and line charts make the data easy to understand, even for users with limited data experience. Labels, titles, and short explanations help communicate the key insights 
+* **Communicative value**: TThe dashboard presents key information clearly without interpreting or evaluating the results. It is designed as an exploratory tool that allows users to analyse the data and draw their own conclusions.
 * **Experiential and aesthetic value**: How do the visual and interactive qualities of the design foster engagement, trust and willingness to adopt the product in practice?
 
 The dashboard is designed to be simple and easy to use. A clean layout and interactive elements such as filters and tooltips make it more engaging. Users can explore the data themselves, which increases interest and helps them better understand the information.
