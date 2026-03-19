@@ -35,14 +35,15 @@ From a stakeholder perspective, the project aims to:
 The final result will be an interactive dashboard that allows users to explore the dataset
 
 
-**Success Criteria**
 Qualitative success criteria:
+
 - The dashboard allows users to quickly understand travel emissions and patterns without needing manual data preparation
 - Users can identify trends over time and detect changes in travel behaviour (e.g. increase or decrease of emissions).
 - Users can clearly see which travel purposes cause the most CO₂ emissions and reflect on whether these trips are necessary.
 - The dashboard supports users in communicating insights (e.g. for reports or presentations) using clear and simple visualizations.
 
 Quantitative success criteria:
+
 - Users are able to identify key trends (e.g. increase or decrease in emissions) within 30–60 seconds.
 - Users can filter the data by at least two attributes (e.g., year, transport mode).
 - Test users can identify at least two insights about travel patterns within one minute of interacting with the dashboard.
@@ -169,7 +170,9 @@ Mark exports this visualization from the dashboard and shares it in his next tea
 
 ## Situation Assessment
 Dataset:
+
 The dataset contains approcimately 25,000 business travel recorde with variables such as:
+
 - `date` - of travel
 - `transport_mode` - transport mode (e.g., flight, train, rental car, etc.)
 - `km` - travel distance 
@@ -177,19 +180,23 @@ The dataset contains approcimately 25,000 business travel recorde with variables
 - `travel_purpose` - reason for the travel
 
 Personnel:
+
 - Jasmin Fankhauser
 - Séverine Stadler
 - Lia Sifrig
 - Anna Kaufmann
 
 Material: 
+
 - Personal laptops
 
 software/tools:
+
 - Python for data exploration
 - Quarto for visualization / dashboard development
 
 Constraints and risks:
+
 - Limited time for data exploration and visualization development
 - Possible missing or incomplete data in the dataset
 - Learning new tool for dashboard development (Quarto) takes time
@@ -197,38 +204,46 @@ Constraints and risks:
 ## Visualization Concept
 The project will create a simple and focused interactive dashboard that helps users understand business travel and emissions.
 
-* **Product form**: 
+**Product form**: 
+
 We will create an interactive dashboard that allows users to explore business travel data and CO₂ emissions. The dashboard is designed to help users understand travel purposes, transport modes, and emission patterns.
 
-* **Visual encodings**: 
-- A *line chart* showing CO₂ emissions over time (`date`, `CO2e`) This helps users see trends in business travel.
-- A *bar chart* will show emissions by travel purpose (`travel_purpose`, `CO2e`). This helps users understand which types of trips contribute most to emissions.
-- A *bar chart* will show emissions by transport mode (`transport_mode`, `CO2e`). This allows users to compare the environmental impact of different travel options.
-- A *scatter plot* will compare travel duration and CO₂ emissions for individual trips. Each point represents one trip and is colored by transport mode.
+**Visual encodings**: 
+
+- A line chart showing CO₂ emissions over time (`date`, `CO2e`) This helps users see trends in business travel.
+- A bar chart will show emissions by travel purpose (`travel_purpose`, `CO2e`). This helps users understand which types of trips contribute most to emissions.
+- A bar chart will show emissions by transport mode (`transport_mode`, `CO2e`). This allows users to compare the environmental impact of different travel options.
+- A scatter plot will compare travel duration and CO₂ emissions for individual trips. Each point represents one trip and is colored by transport mode.
 
 Tooltips will show additional details such as travel purpose and transport mode.
 
 
-* **Interactivity**:
+**Interactivity**:
+
 The dashboard will include simple interactive elements such as filters for year, transport mode, and travel purpose. Users will also be able to see additional information through tooltips.
 These interactive features help users focus on specific parts of the data and compare travel options more easily.
 
-* **Narrative and annotation**: 
+**Narrative and annotation**: 
+
 The dashboard will include clear titles, labels, and short text explanations to help users understand the visualizations. Each chart will have a descriptive title and simple labels so that the meaning of the data is easy to interpret.
 
 Short annotations may be used to highlight important patterns, such as high emission transport modes or noticeable trends over time. These elements guide users through the dashboard and make it easier to understand the key insights without needing detailed background knowledge.
 
-* **Target medium and integration**: 
+**Target medium and integration**: 
+
 The dashboard will be presented as a web-based prototype, using Quarto, and can be viewed in a browser on a laptop or desktop computer. It is mainly intended for use within the course and for presentation purposes. In a realworld scenario, a similar dashboard could be integrated into a company intranet or reporting system to support internal analysis.
 
-* **Cognitive and analytical value**: 
+**Cognitive and analytical value**: 
+
 The dashboard helps users understand patterns in travel data.
 Line charts should show trends over time and show how emissions develop also during events such as the COVID-19 pandemic. The Bar charts allow users to compare emissions across different travel purposes and transport modes, making it easier to identify which options have the biggest impact on emissions and could be improved to reduce their environmental footprint. The scatter plot helps users see the relationship between travel duration and emissions for individual trips.
 
-* **Communicative value**: 
+**Communicative value**: 
+
 The dashboard presents key information clearly without interpreting or evaluating the results. It is designed as an exploratory tool that allows users to analyse the data and draw their own conclusions.
 
-* **Experiential and aesthetic value**: 
+**Experiential and aesthetic value**: 
+
 The dashboard is designed to be simple and easy to use. The layout is clear and not overloaded, so users can quickly understand what they see.
 Interactive elements like filters and tooltips allow users to explore the data step by step and focus on what is important for them. This makes the dashboard more interesting to use.
 The clear structure helps users trust the data and understand how the charts are connected. Because the dashboard is easy to use and shows useful information, users are more likely to use it in practice.
