@@ -136,7 +136,7 @@ Analyse the target audience of the visualization product and create at least 2 p
 Because the visualizations are already clean and professional, Laura simply exports the charts and copies them directly into her presentation for the board. The dashboard saved her hours of frustrating manual data aggregation. In the board meeting, she confidently uses the insights to successfully argue for a new company-wide policy that mandates train travel for all distances under 300 km.
 
 
-### Persona 2: Business Unit Manager
+### **Persona 2: Business Unit Manager**
 - **Name**: Mark Johnson
 - **Role**: Business Unit Manager
 - **Domain Expertise**: High in business operations; Medium in sustainability (growing awareness due to new corporate ESG mandates).
