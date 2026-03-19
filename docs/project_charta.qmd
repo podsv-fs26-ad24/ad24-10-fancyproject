@@ -4,20 +4,27 @@ Describe the context (domain/business area) and topic of the visualization proje
 
 Business travel is common in many companies. Employees travel for meetings, conferences, or to work with colleagues in other locations. However, business travel - especially flights - also produces CO₂ emissions, which has an impact on the environment.
 
-In this project, we will analyse and visualize a dataset about business travel. The dataset contains information about trips such as transport mode, travel distance, travel duration, costs, and estimated CO₂ emissions.
+In this project, we will analyse and visualize a dataset about business travel. The dataset includes information about transport mode, travel distance, travel purpose, and estimated CO₂ emissions.
 
-The dataset covers business trips from 2017 to early 2026 and seems to represent travel activities within one company with several business units.
+The dataset covers business trips from 2017 to early 2026 and represents travel activities within one company with several business units.
+
+The goal of this project is to create an interactive dashboard that helps users understand:
+
+- how travel behaviour changes over time
+- why people travel (travel purpose)
+- how transport choices affect CO₂ emissions
 
 The dashboard should help answer questions such as:
 
 - How have travel emissions changed over time?
 - Which transport modes produce the most CO₂ emissions?
-- Which business units travel the most?
-- How are emissions related to travel distance?
+- Which travel purposes (e.g. meetings, conferences) occur most often and contribute most to CO₂ emissions?
 - How do different travel options compare in terms of CO₂ emissions and travel duration?
 
-The dashboard should also help users compare different travel options and support decisions about how to travel. For example, if a trip can be done by train instead of plane, the dashboard can show the potential emissions savings.
-When the company has a budget for travel, the dashboard can help to decide if the travel is possible to make. 
+
+The dashboard should also support simple decisions by allowing users to compare transport modes and understand how much CO₂ different trips produce.
+
+In addition, the dashboard helps users understand which travel purposes cause high CO₂ emissions. This can support reflection on whether certain trips are necessary or if alternative solutions, such as online meetings, could be considered.
 
 The visualization product will be available on a website.
 
@@ -30,24 +37,24 @@ It is also helpful to specify what is explicitly excluded from the project objec
 
 From a stakeholder perspective, the project aims to:
 
-- Provide a clear visual overview of business travel activities and their CO₂ emissions
+- Provide a clear overview of business travel and CO₂ emissions
+- Show how emissions develop over time
+- Identify which travel purposes generate the most emissions
+- Compare transport modes and their environmental impact
+- Support users in understanding and comparing travel options
 
-- Allow users to explore travel data across categories such as transport mode, travel distance, business unit, and time
-- Enable comparisons between different travel options in terms of emissions and travel duration
-- Support users in identifying travel patterns and emission-intensive travel behaviour
+The final result will be an interactive dashboard that allows users to explore the dataset
 
-The final outcome of the project will be an interactive dashboard that enables exploratory analysis of the travel dataset.
 
 Success Criteria
 Qualitative success criteria:
 - Users can easily understand the relationship between travel behaviour and CO₂ emissions.
-- The dashboard provides a clear overview of travel patterns in the dataset.
 - Users are able to compare transportation options and recognize differences in emissions and travel duration.
-- Users are able to compare transportation options and recognize differences in emissions and travel duration.
+- User can see which travel purpose cause most emissions and reflect on whether certain trips are necessary.
 
 Quantitative success criteria:
 - The dashboard contains at least five different visualizations presenting key aspects of the dataset.
-- Users can filter the data by at least three attributes (e.g., year, transport mode, business unit).
+- Users can filter the data by at least two attributes (e.g., year, transport mode).
 - Test users can identify at least two insights about travel patterns within one minute of interacting with the dashboard.
 
 
@@ -133,7 +140,7 @@ The dataset contains approcimately 25,000 business travel recorde with variables
 - `transport_mode` - transport mode (e.g., flight, train, rental car, etc.)
 - `km` - travel distance 
 - `CO2e` - estimated CO₂ emissions
-- `cost_CHF` - travel costs in Swiss Francs
+- `travel_purpose` - reason for the travel
 
 Personnel:
 - Jasmin Fankhauser
@@ -145,26 +152,62 @@ Material:
 ?
 
 software/tools:
-- Python for data exploration and visualization
-- matplotlib for data visualization
+- Python for data exploration
+- Quarto for visualization / dashboard development
 
 Constraints and risks:
-??
+- Limited time for data exploration and visualization development
+- Possible missing or incomplete data in the dataset
+- Learning new tool for dashboard development (Quarto) takes time
 
 ## Visualization Concept Lia
 Translate the project objectives into a concrete visualization concept. This corresponds to the value map side of the Value Proposition Canvas [@Osterwalder2014] – describe how the proposed visualization product addresses the users' tasks, relieves their pains and creates gains. Address the following aspects:
 
-* **Product form**: Composition of the visualization product – dashboard, data story, infographic, exploratory tool, etc.
-* **Visual encodings**: Types of charts and visualizations to be used – e.g. bar chart, line chart, scatter plot, map, etc.
+The project will create a simple and focused interactive dashboard that helps users understand business travel and emissions.
+
+* **Product form**: We will create an interactive dashboard that allows users to explore business travel data and CO₂ emissions. The dashboard is designed to help users understand travel purposes, transport modes, and emission patterns.
+
+* **Visual encodings**: 
+- A *line chart* showing CO₂ emissions over time (`date`, `CO2e`) This helps users see trends in business travel.
+- A *bar chart* will show emissions by travel purpose (`travel_purpose`, `CO2e`). This helps users understand which types of trips contribute most to emissions.
+- A *bar chart* will show emissions by transport mode (`transport_mode`, `CO2e`). This allows users to compare the environmental impact of different travel options.
+- A *scatter plot* will compare travel duration and CO₂ emissions for individual trips. Each point represents one trip and is colored by transport mode.
+
+Tooltips will show additional details such as travel purpose and transport mode.
+
+
+
 * **Interactivity**: Static vs. dynamic/interactive elements – filtering, drill-down, tooltips, linked views, etc.
+
+The dashboard will include simple interactive elements such as filters for year, transport mode, and travel purpose. Users will also be able to see additional information through tooltips.
+
+These interactive features help users focus on specific parts of the data and compare travel options more easily.
+
 * **Narrative and annotation**: Text elements, storytelling structure, annotations and contextual information.
+
+The dashboard will include clear titles, labels, and short text explanations to help users understand the visualizations. Each chart will have a descriptive title and simple labels so that the meaning of the data is easy to interpret.
+
+Short annotations may be used to highlight important patterns, such as high-emission transport modes or noticeable trends over time. These elements guide users through the dashboard and make it easier to understand the key insights without needing detailed background knowledge.
+
 * **Target medium and integration**: Embedding in the target environment – e.g. website, intranet, app, print, etc.
+
+The dashboard will be presented as a web-based prototype, for example using Quarto, and can be viewed in a browser on a laptop or desktop computer.
+
+It is mainly intended for use within the course and for presentation purposes. In a real-world scenario, a similar dashboard could be integrated into a company intranet or reporting system to support internal analysis and decision-making.
+
+The simple web-based format makes the dashboard easy to access and share.
 
 For each design decision, articulate the intended value along three dimensions:
 
 * **Cognitive and analytical value**: How does the design amplify the user's ability to detect patterns, identify outliers, understand distributions or discover relationships [@card1999; @vanwijk2005]?
-* **Communicative value**: How does the design support the communication of information to the target audience profile(s)? 
+The dashboard helps users understand patterns in travel data.
+Users can see trends over time, understand the role of travel purpose, and compare transport modes.
+* **Communicative value**: How does the design support the communication of information to the target audience profile(s)?
+
+The dashboard presents information in a clear and structured way. Simple charts such as bar charts and line charts make the data easy to understand, even for users with limited data experience. Labels, titles, and short explanations help communicate the key insights 
 * **Experiential and aesthetic value**: How do the visual and interactive qualities of the design foster engagement, trust and willingness to adopt the product in practice?
+
+The dashboard is designed to be simple and easy to use. A clean layout and interactive elements such as filters and tooltips make it more engaging. Users can explore the data themselves, which increases interest and helps them better understand the information.
 
 Justify the concept by mapping it explicitly to the project objectives and the user needs identified in the user analysis.
 
