@@ -84,23 +84,27 @@ Analyse the target audience of the visualization product and create at least 2 p
 * **Pains**: What obstacles, risks or undesired outcomes do users currently face? What makes their current approach frustrating or inefficient?
 * **Gains**: What outcomes and benefits do users expect or desire? What would exceed their expectations?
 
-Persona 1: Sustainability Manager
-Name: Laura Smith
-Role: Sustainability Manager
-Domain Expertise: High (expert in sustainability and environmental impact)
-Data Literacy: Medium (comfortable with data but not an expert)
-Technical Environment: Desktop computer with large monitor, occasional use of mobile devices
-Frequency of Use: Weekly
+### **Persona 1: Sustainability Manager**
+- **Name**: Laura Smith
+- **Role**: Sustainability Manager
+- **Domain Expertise**: High (expert in sustainability and environmental impact)
+- **Data Literacy**: Medium (comfortable with data but not an expert)
+- **Technical Environment**: Desktop computer with large monitor, occasional use of mobile devices
+- **Frequency of Use**: Weekly
 
-User Tasks:
+**User Tasks:**
+
 - Monitor and report on the company's CO₂ emissions from business travel
 - Identify trends and patterns in travel behaviour and emissions
 - prepare reports and presentations for senior management and stakeholders
 
-Pains:
+**Pains:**
+
 - Difficulty in accessing and analyzing travel data from multiple sources
 - Time-consuming process to create reports and visualizations manually
-Gains:
+
+**Gains:**
+
 - Ability to quickly identify and analyze travel patterns and emissions
 - Improved decision-making capabilities based on data-driven insights
 
