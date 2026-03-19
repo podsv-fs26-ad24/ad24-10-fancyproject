@@ -163,7 +163,7 @@ Because the visualizations are already clean and professional, Laura simply expo
 - **Target Tracking:** A simple, visual overview showing how the business unit is performing against corporate CO₂ reduction targets.
 - **Data-Driven Leadership:** Easy-to-export visuals that help communicate the "why" behind travel policies to the team and foster a more sustainable mindset.
 
-#### **Use Case Scenario: Persona 2**
+#### **Use Case Scenario: Business Unit Manager**
 
 - **Context:** Mark is preparing for a meeting where he needs to report on his unit's budget and progress toward the CO₂ reduction targets.
 - **The Action:** The Dashboard filters the data specifically for his Unit for the current year.
