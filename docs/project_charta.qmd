@@ -123,6 +123,7 @@ Gains:
 - Simplified access to relevant travel information
 - Enhanced ability to communicate travel insights effectively
 
+### Persona 2: Business Unit Manager
 - **Name**: Mark Johnson
 - **Role**: Business Unit Manager
 - **Domain Expertise**: High in business operations; Medium in sustainability (growing awareness due to new corporate ESG mandates).
@@ -139,11 +140,9 @@ Gains:
 
 **Pains:**
 
-**Conflicting Goals:** High pressure from upper management to reduce the unit's carbon footprint without negatively impacting business performance or client relationships.
-
-**Lack of Visibility:** It is currently very difficult to assess the exact environmental impact of team travel and identify the biggest "CO₂ drivers" within the unit.
-
-**Persuasion Hurdle:** Hard to convince employees to take longer, more sustainable routes (like trains) instead of quick flights without having clear, hard data to justify the decision.
+- **Conflicting Goals:** High pressure from upper management to reduce the unit's carbon footprint without negatively impacting business performance or client relationships.
+- **Lack of Visibility:** It is currently very difficult to assess the exact environmental impact of team travel and identify the biggest "CO₂ drivers" within the unit.
+- **Persuasion Hurdle:** Hard to convince employees to take longer, more sustainable routes (like trains) instead of quick flights without having clear, hard data to justify the decision.
 
 **Gains:**
 
@@ -151,7 +150,7 @@ Gains:
 - **Target Tracking:** A simple, visual overview showing how the business unit is performing against corporate CO₂ reduction targets.
 - **Data-Driven Leadership:** Easy-to-export visuals that help communicate the "why" behind travel policies to the team and foster a more sustainable mindset.
 
-**Use Case Scenario: Mark Johnson (Business Unit Manager)**
+#### **Use Case Scenario: Mark Johnson (Business Unit Manager)**
 
 - **Context:** It is the end of the quarter, and Mark is preparing for a management meeting where he needs to report on his unit's budget and progress toward corporate CO₂ reduction targets.
 - **The Action:** Mark opens the Business Travel Dashboard and filters the data specifically for his Business Unit for the current year.
