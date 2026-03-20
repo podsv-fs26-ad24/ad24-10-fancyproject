@@ -52,14 +52,11 @@ Quantitative success criteria:
 *Out of Scope:* The project will not include recommendations for specific travel options or policies. 
 
 ## <span style="color: #009a27;">Stakeholder Analysis</span>
-List the people involved in and affected by the project. Describe their goals and relationships with each other. Visualisation in the form of a stakeholder map can provide a quick overview.
-?????? Séverine Stadler
 
 | Stakeholder | Project Role | Goals and Interests | Power | Interest |
 | :--- | :--- | :--- | :--- | :--- |
 | **Laura Smith (Sustainability Manager / SM)** | Primary User | Needs accurate data to monitor corporate CO₂ targets, generate annual reports, and justify new sustainable travel policies. | High | High |
 | **Mark Johnson (Business Unit Manager / BUM)** | Key User | Wants to balance financial travel budgets with allocated CO₂ limits while maintaining team productivity. | High | High |
-| **Alex Hauser (Business Traveler / BT)** | End User | Wants to maintain travel efficiency and sales targets without being slowed down by complex ESG workflows. Needs quick travel approvals. | Low | High |
 | **Management** | Project Sponsors | Focused on overarching corporate goals, achieving ESG mandates, and reducing overall business costs. | High | Medium |
 | **Employees**| Affected Group | Directly impacted by travel policies derived from the dashboard. Interested in transparency and efficient routes. | Low | High |
 | **IT / Web-Administration** | Support and Infrastructure | Responsible for the technical integration of the dashboard into the company’s website. Focused on security and stability. | High | Low |
@@ -75,7 +72,6 @@ quadrantChart
 
     "SM": [0.95, 0.85]
     "Management": [0.52, 0.90]
-    "BUM": [0.75, 0.80]
     "Project Team": [0.75, 0.50]
     "IT / Web-Admin": [0.25, 0.90]
     "Employee": [0.80, 0.10]
@@ -87,18 +83,13 @@ quadrantChart
 
 | Quadrant | Category | Strategy | Stakeholders | Consequences |
 | :--- | :--- | :--- | :--- | :--- |
-| <span style="color: #b1facc;">**Green**</span> | High / High | **Manage Closely** | SM, BUM, Management | They decide on the project's success and have strong interest. They must be actively involved in decision-making. |
+| <span style="color: #b1facc;">**Green**</span> | High / High | **Manage Closely** | SM, Management | They decide on the project's success and have strong interest. They must be actively involved in decision-making. |
 | <span style="color: #bbdcff;">**Blue**</span> | High / Low | **Keep Satisfied** | IT / Web-Admin | Have the power but little content-related interest. You must meet their requirements. |
 | <span style="color: #f0f01b;">**Yellow**</span> | Low / High | **Keep Informed** | Project Team, BT, Employee | Highly affected by the project but have little decision-making power.|
 | <span style="color: #ffb9b9;">**Red**</span> | Low / Low | **Monitor** | Travel Agency | Neither high influence nor strong interest in the project itself.|
 
 
 ## <span style="color: #009a27;">User Analysis</span>
-Analyse the target audience of the visualization product and create at least 2 personas with **relevant attributes** such as domain expertise, data literacy, technical environment (devices, screen sizes), frequency of use etc. Amend each persona with the dimensions of the customer profile side in the Value Proposition Canvas @Osterwalder2014:
-
-* **User tasks** (jobs): What tasks are users trying to accomplish? Consider functional jobs (e.g. analysing data, making decisions), social jobs (e.g. reporting to stakeholders, collaborating with colleagues) and emotional jobs (e.g. feeling confident in their decisions).
-* **Pains**: What obstacles, risks or undesired outcomes do users currently face? What makes their current approach frustrating or inefficient?
-* **Gains**: What outcomes and benefits do users expect or desire? What would exceed their expectations?
 
 ### <span style="color: #009a27;">**Persona 1: Sustainability Manager**</span>
 ![](../charta-pictures/laura_smith.png)
@@ -167,48 +158,7 @@ Her main goal is to reduce the company's carbon footprint from business travel a
 Because the visualizations are already clean and professional, Laura simply exports the charts and copies them directly into her presentation for the board. The dashboard saved her hours of frustrating manual data aggregation. In the board meeting, she confidently uses the insights to successfully argue for a new company-wide policy that mandates train travel for all distances under 300 km.
 
 
-### <span style="color: #009a27;">**Persona 2: Business Unit Manager**</span>
-- **Name**: Mark Johnson
-- **Role**: Business Unit Manager
-- **Domain Expertise**: High in business operations; Medium in sustainability (growing awareness due to new corporate ESG mandates).
-- **Data Literacy**: Medium (comfortable with business KPIs and budget dashboards, but needs pre-processed visual data for quick insights).
-- **Technical Environment**: Desktop/Laptop with standard office software, frequent use of mobile devices while on the go.
-- **Frequency of Use**: Monthly (for reporting) and ad-hoc (when approving team travel requests).
-
-**User Tasks (Jobs):**
-
-- Manage and balance the unit's financial travel budget and their allocated CO₂ emission budget.
-- Align the team's operational needs (e.g., client meetings, conferences) with strict corporate sustainability requirements.
-- Report the business unit's ecological footprint and reduction progress to senior management.
-- Guide team members towards greener travel choices.
-
-**Pains:**
-
-- **Conflicting Goals:** High pressure from upper management to reduce the unit's carbon footprint without negatively impacting business performance or client relationships.
-- **Lack of Visibility:** It is currently very difficult to assess the exact environmental impact of team travel and identify the biggest "CO₂ drivers" within the unit.
-- **Persuasion Hurdle:** Hard to convince employees to take longer, more sustainable routes (like trains) instead of quick flights without having clear, hard data to justify the decision.
-
-**Gains:**
-
-- **Clear Trade-offs:** An intuitive dashboard that instantly compares travel options (e.g., Cost vs. Time vs. CO₂ emissions), making approvals much easier.
-- **Target Tracking:** A simple, visual overview showing how the business unit is performing against corporate CO₂ reduction targets.
-- **Data-Driven Leadership:** Easy-to-export visuals that help communicate the "why" behind travel policies to the team and foster a more sustainable mindset.
-
-#### <span style="color: #59d177;">**Use Case Scenario: Business Unit Manager**</span>
-
-- **Context:** Mark is preparing for a meeting where he needs to report on his unit's budget and progress toward the CO₂ reduction targets.
-- **The Action:** The Dashboard filters the data specifically for his Unit for the current year.
-
-**The Insight (How the dashboard helps):**
-
-- **Spotting Inefficiencies:** He immediately sees a prominent bar chart indicating that short flights account for 40% of his team's total travel emissions.
-- **Comparing Options:** He uses the dashboard's comparison feature to look at the alternative: traveling by train or Car on the same route. The data visualizes that while the train takes roughly 1.5 hours longer door-to-door, the CO₂ emissions are reduced by over 80%, and the financial cost is significantly lower.
-
-**The Outcome:**
-
-Mark exports this visualization from the dashboard and shares it in his next team meeting. Using the clear data, he establishes a new internal guideline: All travel to Frankfurt must now be done by train unless there is an urgent exception. Mark is happy because he successfully reduced his unit's footprint and saved money, without needing to be a data expert to find this insight.
-
-### <span style="color: #009a27;">**Persona 3: Employee - Frequent Business Traveler**</span>
+### <span style="color: #009a27;">**Persona 2: Employee - Frequent Business Traveler**</span>
 
 ![](../charta-pictures/alex_hauser.png)
 
@@ -297,7 +247,7 @@ software/tools:
 
 - Python for data exploration
 - Quarto for visualization / dashboard development
-- Gemini + ChatGPT for creating pictures and corrections 
+- Gemini + ChatGPT for creating pictures (Personas) and corrections 
 
 Constraints and risks:
 
@@ -353,70 +303,42 @@ Interactive elements like filters and tooltips allow users to explore the data s
 The clear structure helps users trust the data and understand how the charts are connected. Because the dashboard is easy to use and shows useful information, users are more likely to use it in practice.
 
 ## <span style="color: #009a27;">Project Plan Séverine Stadler</span>
-Divide the project into individual phases, describe them briefly and draw up a preliminary timetable, e.g. as a Gantt chart:
 
 ```{mermaid}
 %%| label: fig-project-plan
-%%| fig-cap: Preliminary project plan in the form of a Gantt chart.
+%%| fig-cap: Preliminary project plan. Milestones are not final.
 gantt
     title Project Plan
     dateFormat YYYY-MM-DD
-    tickInterval 5day
-    section Project Understanding
-        Initiation workshop and context analysis     :a1, 2024-07-01, 1d
-        Stakeholder and user analysis     :a3, 2024-07-02, 5d
-        Situation assessment    :a4, 2024-07-06, 1d
-        Project objectives and visualization concept    :a5, 2024-07-07, 1d
-        Sign project charta: milestone, m1, 2024-07-08, 1d
-    
-    section Data Acquisition and Exploration
-        Acquire data :a6, 2024-07-08, 3d
-        Exploratory data analysis   :a7, 2024-07-09, 2d
-        Discuss data report: milestone, m2, 2024-07-11, 1d
-        
-    section Visual Encoding and Design
-        Overview charts   :a8, 2024-07-11, 3d
-        Maps :a9, 2024-07-11, 5d
-        Implement Dashboard prototype :a10, 2024-07-16, 5d
-        Complete visualization report :a10, 2024-07-21, 1d
-    section Evaluation
-        Prepare presentation :a10, 2024-07-22, 2d
-        Project presentation : milestone, m2, 2024-07-24, 4m
-```
+    tickInterval 1 week
+    axisFormat %d.%m.%Y
 
-```{mermaid}
-%%| label: fig-project-plan
-%%| fig-cap: Preliminary project plan in the form of a Gantt chart based on the 2026 semester schedule.
-gantt
-    title Project Plan (Based on Semester Schedule)
-    dateFormat YYYY-MM-DD
-    tickInterval 1week
-    axisFormat %Y-%m-%d
+    section Project Initialization
+    Decision on Project Idea : milestone, m1, 2026-03-14, 2d
+    Project Charta Draft : a1, 2026-03-14, 7d
 
     section Project Understanding
-        Initiation workshop and context analysis     :a1, 2026-02-19, 2d
-        Stakeholder and user analysis (Personas)    :a3, 2026-02-21, 6d
-        Situation assessment                        :a4, 2026-02-27, 2d
-        Project objectives and visualization concept :a5, 2026-03-01, 4d
-        Sign project charta: milestone, m1, 2026-03-05, 1d
-    
-    section Data Acquisition and Exploration
-        Acquire data                                :a6, 2026-03-06, 5d
-        Exploratory data analysis                   :a7, 2026-03-11, 7d
-        Discuss data report: milestone, m2, 2026-03-19, 1d
-        
-    section Visual Encoding and Design
-        Overview charts (Feedback & coaching)       :a8, 2026-03-20, 10d
-        Maps (Visualizing Geo Data)                  :a9, 2026-03-31, 10d
-        Implement Dashboard prototype                :a10, 2026-04-10, 25d
-        Complete visualization report               :a11, 2026-05-05, 5d
-    section Evaluation
-        Presentation Training                        :a12, 2026-05-15, 6d
-        Project presentation : milestone, m3, 2026-05-21, 1d
+    Stakeholder and user analysis : a3, 2026-03-18, 8d
+    Project objectives and visualization concept : a4, 2026-03-28, 7d  
 
+    section Data Acquisition and Exploration
+    Acquire data : a5, 2026-04-01, 2d
+    EDA : a6, 2026-04-01, 8d
+    Discuss data report : milestone, m2, 2026-04-09, 0d
+
+    section Visual Encoding and Design
+    Implement Dashboard prototype : a7, 2026-04-10, 21d
+    Complete visualization report : a8, 2026-05-01, 18d
+
+    section Submission
+    Draft Presentation Submission : milestone, m3, 2026-05-18, 0d
+    Project Submission : milestone, m4, 2026-06-01, 0d
+
+    section Presentation
+    Prepare presentation : a10, 2026-05-30, 9d
+    Project presentation - exam period : a11, 2026-06-08, 21d
 ```
 
-See [Mermaid syntax for Gantt charts](https://mermaid.js.org/syntax/gantt.html). It might not be displayed correctly in Safari &#8594; use Chrome. [Live editor with export functionality](https://mermaid.live/)
 
 ## <span style="color: #009a27;">Roles and Contact Details</span>
 - Jasmin Fankhauser - Dashboard Visualization and Presentation (fankhjas@students.zhaw.ch)
