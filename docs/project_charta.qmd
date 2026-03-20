@@ -1,5 +1,5 @@
 # Project Charta
-## Context and Scope
+## <span style="color: #009a27;">Context and Scope</span>
 Business travel is common in many companies. Employees travel for meetings, conferences, or to work with colleagues in other locations. However, business travel, especially flights, also produces CO₂ emissions, which has an impact on the environment.
 
 In this project, we will analyse and visualize a dataset about business travel. The dataset includes information about transport mode, travel distance, travel purpose, and estimated CO₂ emissions.
@@ -23,7 +23,7 @@ In addition, the dashboard helps users understand which travel purposes cause hi
 
 The visualization product will be available on a website.
 
-## Project Objectives and Success Criteria
+## <span style="color: #009a27;">Project Objectives and Success Criteria</span>
 From a stakeholder perspective, the project aims to:
 
 - Provide a clear overview of business travel and CO₂ emissions
@@ -51,7 +51,7 @@ Quantitative success criteria:
 
 *Out of Scope:* The project will not include recommendations for specific travel options or policies. 
 
-## Stakeholder Analysis
+## <span style="color: #009a27;">Stakeholder Analysis</span>
 List the people involved in and affected by the project. Describe their goals and relationships with each other. Visualisation in the form of a stakeholder map can provide a quick overview.
 ?????? Séverine Stadler
 
@@ -59,6 +59,7 @@ List the people involved in and affected by the project. Describe their goals an
 | :--- | :--- | :--- | :--- | :--- |
 | **Laura Smith (Sustainability Manager / SM)** | Primary User | Needs accurate data to monitor corporate CO₂ targets, generate annual reports, and justify new sustainable travel policies. | High | High |
 | **Mark Johnson (Business Unit Manager / BUM)** | Key User | Wants to balance financial travel budgets with allocated CO₂ limits while maintaining team productivity. | High | High |
+| **Alex Hauser (Business Traveler / BT)** | End User | Wants to maintain travel efficiency and sales targets without being slowed down by complex ESG workflows. Needs quick travel approvals. | Low | High |
 | **Management** | Project Sponsors | Focused on overarching corporate goals, achieving ESG mandates, and reducing overall business costs. | High | Medium |
 | **Employees**| Affected Group | Directly impacted by travel policies derived from the dashboard. Interested in transparency and efficient routes. | Low | High |
 | **IT / Web-Administration** | Support and Infrastructure | Responsible for the technical integration of the dashboard into the company’s website. Focused on security and stability. | High | Low |
@@ -79,28 +80,31 @@ quadrantChart
     "IT / Web-Admin": [0.25, 0.90]
     "Employee": [0.80, 0.10]
     "Travel Agency": [0.10, 0.10]
+    "BT": [0.55, 0.4]
 
 ```
 
-## User Analysis
+## <span style="color: #009a27;">User Analysis</span>
 Analyse the target audience of the visualization product and create at least 2 personas with **relevant attributes** such as domain expertise, data literacy, technical environment (devices, screen sizes), frequency of use etc. Amend each persona with the dimensions of the customer profile side in the Value Proposition Canvas @Osterwalder2014:
 
 * **User tasks** (jobs): What tasks are users trying to accomplish? Consider functional jobs (e.g. analysing data, making decisions), social jobs (e.g. reporting to stakeholders, collaborating with colleagues) and emotional jobs (e.g. feeling confident in their decisions).
 * **Pains**: What obstacles, risks or undesired outcomes do users currently face? What makes their current approach frustrating or inefficient?
 * **Gains**: What outcomes and benefits do users expect or desire? What would exceed their expectations?
 
-### **Persona 1: Sustainability Manager**
+### <span style="color: #009a27;">**Persona 1: Sustainability Manager**</span>
 ![](../charta-pictures/laura_smith.png)
 
-- **Name**: Laura Smith
-- **Age**: 32
-- **Role**: Sustainability Manager
-- **Nationality**: British
-- **Degree**: Master’s in Environmental Science
-- **Domain Expertise**: High (expert in sustainability and environmental impact)
-- **Data Literacy**: Medium (comfortable with data but not an expert)
-- **Technical Environment**: Desktop computer with a large monitor for analysis, but manages everything via cloud tools on her tablet and phone while agile working.
-- **Frequency of Use**: Daily (for monitoring and reporting purposes)
+| | |
+|---|---|   
+|**Name**| Laura Smith|
+|**Age**| 32|
+|**Role**| Sustainability Manager|
+|**Nationality**| British|
+|**Degree**| Master’s in Environmental Science|
+|**Domain Expertise**| High (expert in sustainability and environmental impact)|
+|**Data Literacy**| Medium (comfortable with data but not an expert)|
+|**Technical Environment**| Desktop computer with a large monitor for analysis, but manages everything via cloud tools on her tablet and phone while agile working.|
+|**Frequency of Use**| Daily (for monitoring and reporting purposes)|
 
 Laura lifes in a minimalistic, shared apartment in Zurich-West, filled with upcycled furniture and numerous indoor plants. She commutes daily by bicycle or train, valuing the physical activity and the emission consequences travel. Sundays are spent hiking in the Alps, combining her love for nature with physical challenge. She speaks fluent English and professional German. Curreently she is trying to learn some basic Swiss German to better connect with her local colleagues and stakeholders.
 
@@ -134,7 +138,7 @@ Her main goal is to reduce the company's carbon footprint from business travel a
 - **Improved decision-making** capabilities based on data-driven insights
 - **Enhanced communication** of sustainability efforts to stakeholders through clear visualizations
 
-#### **Use Case Scenario: Sustainability Manager**
+#### <span style="color: #59d177;">**Use Case Scenario: Sustainability Manager**</span>
 
 **Context:**
 
@@ -154,7 +158,7 @@ Her main goal is to reduce the company's carbon footprint from business travel a
 Because the visualizations are already clean and professional, Laura simply exports the charts and copies them directly into her presentation for the board. The dashboard saved her hours of frustrating manual data aggregation. In the board meeting, she confidently uses the insights to successfully argue for a new company-wide policy that mandates train travel for all distances under 300 km.
 
 
-### **Persona 2: Business Unit Manager**
+### <span style="color: #009a27;">**Persona 2: Business Unit Manager**</span>
 - **Name**: Mark Johnson
 - **Role**: Business Unit Manager
 - **Domain Expertise**: High in business operations; Medium in sustainability (growing awareness due to new corporate ESG mandates).
@@ -181,7 +185,7 @@ Because the visualizations are already clean and professional, Laura simply expo
 - **Target Tracking:** A simple, visual overview showing how the business unit is performing against corporate CO₂ reduction targets.
 - **Data-Driven Leadership:** Easy-to-export visuals that help communicate the "why" behind travel policies to the team and foster a more sustainable mindset.
 
-#### **Use Case Scenario: Business Unit Manager**
+#### <span style="color: #59d177;">**Use Case Scenario: Business Unit Manager**</span>
 
 - **Context:** Mark is preparing for a meeting where he needs to report on his unit's budget and progress toward the CO₂ reduction targets.
 - **The Action:** The Dashboard filters the data specifically for his Unit for the current year.
@@ -195,20 +199,21 @@ Because the visualizations are already clean and professional, Laura simply expo
 
 Mark exports this visualization from the dashboard and shares it in his next team meeting. Using the clear data, he establishes a new internal guideline: All travel to Frankfurt must now be done by train unless there is an urgent exception. Mark is happy because he successfully reduced his unit's footprint and saved money, without needing to be a data expert to find this insight.
 
-### **Persona 3: Employee - Frequent Business Traveler**
+### <span style="color: #009a27;">**Persona 3: Employee - Frequent Business Traveler**</span>
 
 ![](../charta-pictures/alex_hauser.png)
 
-
-- **Name:** Alex Hauser
-- **Age:** 55
-- **Role:** Senior Sales Consultant
-- **Nationality:** Swiss
-- **Degree:** Master in Business Administration
-- **Domain Expertise:** Low in sustainability / High in client management and sales.
-- **Data Literacy:** Low
-- **Technical Environment:** Primarily mobile phone while traveling, laptop in hotels or home office. At work he uses a simple desktop setup for client management software and email. Prefers simple, intuitive interfaces.
-- **Frequency of Use:** whenever planning a new trip or right after completing one.
+|| |
+|---|---|
+|**Name**| Alex Hauser|
+|**Age**| 55|
+|**Role**| Senior Sales Consultant|
+|**Nationality**| Swiss|
+|**Degree**| Master in Business Administration|
+|**Domain Expertise**| Low in sustainability / High in client management and sales.|
+|**Data Literacy**| Low|
+|**Technical Environment**| Primarily mobile phone while traveling, laptop in hotels or home office. At work he uses a simple desktop setup for client management software and email. Prefers simple, intuitive interfaces.|
+|**Frequency of Use**| whenever planning a new trip or right after completing one.|
 
 Alex Hauser is an experienced sales veteran. He is 55 years old and originally from Liestal, near Basel, but moved years ago with his family to a suburban house near Zurich to be closer to the corporate headquarters. Alex has been working continuously at the company for 20 years, most of that time as a Senior Key Account Manager for major international clients. He is married and the proud father of two children who are both studying at the university of Zurich. 
 
@@ -237,7 +242,7 @@ He feels that younger sustainability staff, like Laura, do not understand the pr
 - **Personal Impact:** A clear, simplified view of their individual or units travel footprint (e.g., "You saved 200kg of CO₂ this month by taking the train!"). 
 - **Easy Decision Making:** Feeling confident that they are making the right choice according to company policy without having to read long rulebooks.
 
-#### **Use Case Scenario: Frequent Business Traveler**
+#### <span style="color: #59d177;">**Use Case Scenario: Frequent Business Traveler**</span>
 
 **Context:** 
 
@@ -257,7 +262,7 @@ Before booking, Alex opens the Business Travel Dashboard on their mobile phone a
 Alex decides to book the train instead of the flight. The visual evidence was so clear and easy to understand that the decision took less than a minute. Alex uses the continuous 3.5-hour train ride to prepare the sales presentation, which wouldn't be possible on a fragmented flight journey, and feels good about actively reducing their personal carbon footprint.
 
 
-## Situation Assessment
+## <span style="color: #009a27;">Situation Assessment</span>
 Dataset:
 
 The dataset contains approcimately 25,000 business travel recorde with variables such as:
@@ -291,7 +296,7 @@ Constraints and risks:
 - Possible missing or incomplete data in the dataset
 - Learning new tool for dashboard development (Quarto) takes time
 
-## Visualization Concept
+## <span style="color: #009a27;">Visualization Concept</span>
 The project will create a simple and focused interactive dashboard that helps users understand business travel and emissions.
 
 **Product form**: 
@@ -338,7 +343,7 @@ The dashboard is designed to be simple and easy to use. The layout is clear and 
 Interactive elements like filters and tooltips allow users to explore the data step by step and focus on what is important for them. This makes the dashboard more interesting to use.
 The clear structure helps users trust the data and understand how the charts are connected. Because the dashboard is easy to use and shows useful information, users are more likely to use it in practice.
 
-## Project Plan Séverine Stadler
+## <span style="color: #009a27;">Project Plan Séverine Stadler</span>
 Divide the project into individual phases, describe them briefly and draw up a preliminary timetable, e.g. as a Gantt chart:
 
 ```{mermaid}
@@ -404,7 +409,7 @@ gantt
 
 See [Mermaid syntax for Gantt charts](https://mermaid.js.org/syntax/gantt.html). It might not be displayed correctly in Safari &#8594; use Chrome. [Live editor with export functionality](https://mermaid.live/)
 
-## Roles and Contact Details
+## <span style="color: #009a27;">Roles and Contact Details</span>
 - Jasmin Fankhauser - Dashboard Visualization and Presentation (fankhjas@students.zhaw.ch)
 - Séverine Stadler - Project Charta and Dashboard Visualization (stadlsev@students.zhaw.ch)
 - Lia Sifrig - Project Charta and Dashboard Visualization (sifrilia@students.zhaw.ch)
