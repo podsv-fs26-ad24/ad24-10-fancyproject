@@ -90,7 +90,7 @@ Analyse the target audience of the visualization product and create at least 2 p
 * **Gains**: What outcomes and benefits do users expect or desire? What would exceed their expectations?
 
 ### **Persona 1: Sustainability Manager**
-![Laura Smith](laura_smith.jpg){width=150px fig-align="left"}
+![](../charta-pictures/laura_smith.png)
 
 - **Name**: Laura Smith
 - **Age**: 32
@@ -102,11 +102,11 @@ Analyse the target audience of the visualization product and create at least 2 p
 - **Technical Environment**: Desktop computer with a large monitor for analysis, but manages everything via cloud tools on her tablet and phone while agile working.
 - **Frequency of Use**: Daily (for monitoring and reporting purposes)
 
-Laura lifes in a minimlist, shared apartment in Zurich-West, filled with upcycled furniture and numerous indoor plants. She prefers plant-based meals and avoids single-use plastics. She commutes daily by bicycle, valuing the physical activity and the zero-emission travel. Sundays are spent hiking in the Alps, combining her love for nature with physical challenge. She speaks fluent English and professional German. Curreently she is trying to learn some basic Swiss German to better connect with her local colleagues and stakeholders.
+Laura lifes in a minimalistic, shared apartment in Zurich-West, filled with upcycled furniture and numerous indoor plants. She commutes daily by bicycle or train, valuing the physical activity and the emission consequences travel. Sundays are spent hiking in the Alps, combining her love for nature with physical challenge. She speaks fluent English and professional German. Curreently she is trying to learn some basic Swiss German to better connect with her local colleagues and stakeholders.
 
 She joined the company 1.5 years ago as a Senior Sustainability Analyst and was promoted to Manager 4 months ago due to her ambition and early successes in automating initial reporting workflows. She expects tools to work instantly. A clunky, buggy software experience causes her immediate frustration. Her philosophy is: "Let the data flow, then let the analysis begin." 
 
-As a digital native, Laura treats data as a product. She doesn't just analyze it; she expects it to be auditable, scalable, and beautifully visual. She is passionate about using data to drive real change in corporate sustainability and is always looking for ways to make complex information more accessible and actionable for her colleagues and senior leadership. 
+As a digital native, Laura treats data as a product. She doesn't just analyze it, she expects it to be auditable, scalable, and beautifully visual. She is passionate about using data to drive real change in corporate sustainability and is always looking for ways to make complex information more accessible and actionable for her colleagues and senior leadership. 
 
 Her main goal is to reduce the company's carbon footprint from business travel and to communicate the company's sustainability efforts effectively to stakeholders. She is also focused on identifying trends in travel behaviour and emissions to inform future strategies and policies. Laura is under pressure to deliver quick results due to new regulations and corporate commitments, but she is determined to use data-driven insights to make a meaningful impact on the company's sustainability performance.
 
@@ -196,7 +196,9 @@ Because the visualizations are already clean and professional, Laura simply expo
 Mark exports this visualization from the dashboard and shares it in his next team meeting. Using the clear data, he establishes a new internal guideline: All travel to Frankfurt must now be done by train unless there is an urgent exception. Mark is happy because he successfully reduced his unit's footprint and saved money, without needing to be a data expert to find this insight.
 
 ### **Persona 3: Employee - Frequent Business Traveler**
-![Alex Hauser](alex_hauser.jpg){width=150px fig-align="left"}
+
+![](../charta-pictures/alex_hauser.png)
+
 
 - **Name:** Alex Hauser
 - **Age:** 55
@@ -208,13 +210,13 @@ Mark exports this visualization from the dashboard and shares it in his next tea
 - **Technical Environment:** Primarily mobile phone while traveling, laptop in hotels or home office.
 - **Frequency of Use:** whenever planning a new trip or right after completing one.
 
-Alex Hauser is an experienced "old school" sales veteran. He is 55 years old and originally from Liestal, near Basel, but moved years ago with his family to a suburban house near Zurich to be closer to the corporate headquarters. Alex has been working continuously at the company for 20 years, most of that time as a Senior Key Account Manager for major international clients. He is married and the proud father of two children who are both studying at university. 
+Alex Hauser is an experienced sales veteran. He is 55 years old and originally from Liestal, near Basel, but moved years ago with his family to a suburban house near Zurich to be closer to the corporate headquarters. Alex has been working continuously at the company for 20 years, most of that time as a Senior Key Account Manager for major international clients. He is married and the proud father of two children who are both studying at the university of Zurich. 
 
-His main motivation has always been closing deals and nurturing long-term client relationships, which he views as crucial for business success. Traveling was never a passion for him, but rather a pragmatic, necessary prerequisite to achieve his sales targets and secure his commissions. He is respected in the industry and known for his negotiation skills.
+His main motivation has always been closing deals and nurturing long-term client relationships. Traveling was never a passion for him, but rather necessary to achieve his sales targets and secure his commissions. He is respected in the industry and known for his negotiation skills.
 
 For Alex technology is a pure tool. He uses his smartphone constantly for calls, emails, and WhatsApp communication with clients while he travels. Personal interaction are more important to him than data-driven analytics. He hates complex software that forces him to learn new dashboards just to create a simple visualization. He has shown interest in exploring CO₂ trends over the last few months but feels overwhelmed by the complexity and feels pressured. His main concern is getting to his destination quickly and efficiently, without having to fight through bureaucratic hurdles. He values clear, uncomplicated solutions that save him time, as he sees his value in direct client contact.
 
-He feels that younger sustainability staff, like Laura, do not understand the pressure of sales. He is frustrated that he now has to justify his travel decisions, which he made instinctively for years. The biggest challenge for him is the fear that the new CO₂ guidelines could impair his ability to achieve sales targets. He also has a subtle feeling of guilt regarding CO₂ emissions, as his children sometimes criticize him for flying so much, but he still prioritizes business efficiency.
+He feels that younger sustainability staff, like Laura, do not understand the pressure of sales. He is frustrated that he now has to justify his travel decisions, which he made instinctively for years. The biggest challenge for him is the fear that the new CO₂ guidelines could be in his way of achieving sales targets. He also has a subtle feeling of guilt regarding CO₂ emissions, as his children sometimes criticize him for flying so much.
 
 **User Tasks (Jobs):**
 
@@ -281,6 +283,7 @@ software/tools:
 
 - Python for data exploration
 - Quarto for visualization / dashboard development
+- Gemini for creating pictures of personas
 
 Constraints and risks:
 
