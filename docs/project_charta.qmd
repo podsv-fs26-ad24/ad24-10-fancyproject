@@ -204,10 +204,10 @@ Mark exports this visualization from the dashboard and shares it in his next tea
 - **Age:** 55
 - **Role:** Senior Sales Consultant
 - **Nationality:** Swiss
-- **Degree:** Master in international business administration
-- **Domain Expertise:** Low in sustainability; High in client management and sales.
-- **Data Literacy:** Low (needs simple, clear visuals; no time for complex data exploration).
-- **Technical Environment:** Primarily mobile phone while traveling, laptop in hotels or home office.
+- **Degree:** Master in Business Administration
+- **Domain Expertise:** Low in sustainability / High in client management and sales.
+- **Data Literacy:** Low
+- **Technical Environment:** Primarily mobile phone while traveling, laptop in hotels or home office. At work he uses a simple desktop setup for client management software and email. Prefers simple, intuitive interfaces.
 - **Frequency of Use:** whenever planning a new trip or right after completing one.
 
 Alex Hauser is an experienced sales veteran. He is 55 years old and originally from Liestal, near Basel, but moved years ago with his family to a suburban house near Zurich to be closer to the corporate headquarters. Alex has been working continuously at the company for 20 years, most of that time as a Senior Key Account Manager for major international clients. He is married and the proud father of two children who are both studying at the university of Zurich. 
@@ -234,7 +234,7 @@ He feels that younger sustainability staff, like Laura, do not understand the pr
 **Gains:**
 
 - **Quick Comparisons:** A very simple visual comparison (e.g., Train vs. Flight for a specific distance) showing the exact CO₂ savings at a glance. 
-- **Personal Impact:** A clear, gamified view of their own travel footprint (e.g., "You saved 200kg of CO₂ this month by taking the train!"). 
+- **Personal Impact:** A clear, simplified view of their individual or units travel footprint (e.g., "You saved 200kg of CO₂ this month by taking the train!"). 
 - **Easy Decision Making:** Feeling confident that they are making the right choice according to company policy without having to read long rulebooks.
 
 #### **Use Case Scenario: Frequent Business Traveler**
@@ -283,7 +283,7 @@ software/tools:
 
 - Python for data exploration
 - Quarto for visualization / dashboard development
-- Gemini for creating pictures of personas
+- Gemini + ChatGPT for creating pictures and corrections 
 
 Constraints and risks:
 
