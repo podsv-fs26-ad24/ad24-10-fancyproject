@@ -90,7 +90,7 @@ Analyse the target audience of the visualization product and create at least 2 p
 * **Gains**: What outcomes and benefits do users expect or desire? What would exceed their expectations?
 
 ### **Persona 1: Sustainability Manager**
-![Laura Smith](laura_smith.png){width=150px fig-align="left"}
+![Laura Smith](laura_smith.jpg){width=150px fig-align="left"}
 
 - **Name**: Laura Smith
 - **Age**: 32
@@ -196,13 +196,25 @@ Because the visualizations are already clean and professional, Laura simply expo
 Mark exports this visualization from the dashboard and shares it in his next team meeting. Using the clear data, he establishes a new internal guideline: All travel to Frankfurt must now be done by train unless there is an urgent exception. Mark is happy because he successfully reduced his unit's footprint and saved money, without needing to be a data expert to find this insight.
 
 ### **Persona 3: Employee - Frequent Business Traveler**
-- **Name:** Alex Chen
-- **Age:** 35
+![Alex Hauser](alex_hauser.jpg){width=150px fig-align="left"}
+
+- **Name:** Alex Hauser
+- **Age:** 55
 - **Role:** Senior Sales Consultant
+- **Nationality:** Swiss
+- **Degree:** Master in international business administration
 - **Domain Expertise:** Low in sustainability; High in client management and sales.
 - **Data Literacy:** Low (needs simple, clear visuals; no time for complex data exploration).
 - **Technical Environment:** Primarily mobile phone while traveling, laptop in hotels or home office.
 - **Frequency of Use:** whenever planning a new trip or right after completing one.
+
+Alex Hauser is an experienced "old school" sales veteran. He is 55 years old and originally from Liestal, near Basel, but moved years ago with his family to a suburban house near Zurich to be closer to the corporate headquarters. Alex has been working continuously at the company for 20 years, most of that time as a Senior Key Account Manager for major international clients. He is married and the proud father of two children who are both studying at university. 
+
+His main motivation has always been closing deals and nurturing long-term client relationships, which he views as crucial for business success. Traveling was never a passion for him, but rather a pragmatic, necessary prerequisite to achieve his sales targets and secure his commissions. He is respected in the industry and known for his negotiation skills.
+
+For Alex technology is a pure tool. He uses his smartphone constantly for calls, emails, and WhatsApp communication with clients while he travels. Personal interaction are more important to him than data-driven analytics. He hates complex software that forces him to learn new dashboards just to create a simple visualization. He has shown interest in exploring CO₂ trends over the last few months but feels overwhelmed by the complexity and feels pressured. His main concern is getting to his destination quickly and efficiently, without having to fight through bureaucratic hurdles. He values clear, uncomplicated solutions that save him time, as he sees his value in direct client contact.
+
+He feels that younger sustainability staff, like Laura, do not understand the pressure of sales. He is frustrated that he now has to justify his travel decisions, which he made instinctively for years. The biggest challenge for him is the fear that the new CO₂ guidelines could impair his ability to achieve sales targets. He also has a subtle feeling of guilt regarding CO₂ emissions, as his children sometimes criticize him for flying so much, but he still prioritizes business efficiency.
 
 **User Tasks (Jobs):**
 
@@ -214,8 +226,8 @@ Mark exports this visualization from the dashboard and shares it in his next tea
 **Pains:**
 
 - **Information Overload:** It is frustrating and time-consuming to figure out which travel route is actually the most sustainable. Alex just wants a quick answer without needing to read through complex data or policies.
-- **Time Pressure:** "I just need to get to the client quickly. Figuring out the greenest route takes too much time. I feel like I have to choose the flight to save time, even if I want to be more sustainable."
-- **Guilt vs. Efficiency:** Wants to travel sustainably but feels pressured to choose the fastest option (usually flying) to maximize working hours. 
+- **Time Pressure:** "I just need to get to the client quickly. Figuring out the greenest route takes too much time. I choose to fly to save time."
+- **Guilt vs. Efficiency:** Wants to look into traveling more sustainably but feels pressured to choose the fastest option (usually flying) to maximize working hours. 
 
 **Gains:**
 
