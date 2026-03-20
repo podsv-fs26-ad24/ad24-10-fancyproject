@@ -84,6 +84,15 @@ quadrantChart
 
 ```
 
+
+| Quadrant | Category | Strategy | Stakeholders | Consequences |
+| :--- | :--- | :--- | :--- | :--- |
+| <span style="color: #b1facc;">**Green**</span> | High / High | **Manage Closely** | SM, BUM, Management | They decide on the project's success and have strong interest. They must be actively involved in decision-making. |
+| <span style="color: #bbdcff;">**Blue**</span> | High / Low | **Keep Satisfied** | IT / Web-Admin | Have the power but little content-related interest. You must meet their requirements. |
+| <span style="color: #f0f01b;">**Yellow**</span> | Low / High | **Keep Informed** | Project Team, BT, Employee | Highly affected by the project but have little decision-making power.|
+| <span style="color: #ffb9b9;">**Red**</span> | Low / Low | **Monitor** | Travel Agency | Neither high influence nor strong interest in the project itself.|
+
+
 ## <span style="color: #009a27;">User Analysis</span>
 Analyse the target audience of the visualization product and create at least 2 personas with **relevant attributes** such as domain expertise, data literacy, technical environment (devices, screen sizes), frequency of use etc. Amend each persona with the dimensions of the customer profile side in the Value Proposition Canvas @Osterwalder2014:
 
