@@ -56,7 +56,8 @@ Quantitative success criteria:
 | Stakeholder | Project Role | Goals and Interests | Power | Interest |
 | :--- | :--- | :--- | :--- | :--- |
 | **Laura Smith (Sustainability Manager / SM)** | Primary User | Needs accurate data to monitor corporate CO₂ targets, generate annual reports, and justify new sustainable travel policies. | High | High |
-| **Mark Johnson (Business Unit Manager / BUM)** | Key User | Wants to balance financial travel budgets with allocated CO₂ limits while maintaining team productivity. | High | High |
+| **Alex Hauser (Head of HR / HR)** | Primary User | Holds formal authority over the company's travel policy. Sets CO₂ budgets per subunit, decides on permitted transport modes, and enforces compliance. Needs a clear, up-to-date overview to make timely and justifiable policy decisions. | High | High |
+| **Business Unit Manager** | Key User | Wants to balance financial travel budgets with allocated CO₂ limits while maintaining team productivity. | High | High |
 | **Management** | Project Sponsors | Focused on overarching corporate goals, achieving ESG mandates, and reducing overall business costs. | High | Medium |
 | **Employees**| Affected Group | Directly impacted by travel policies derived from the dashboard. Interested in transparency and efficient routes. | Low | High |
 | **IT / Web-Administration** | Support and Infrastructure | Responsible for the technical integration of the dashboard into the company’s website. Focused on security and stability. | High | Low |
@@ -76,22 +77,86 @@ quadrantChart
     "IT / Web-Admin": [0.25, 0.90]
     "Employee": [0.80, 0.10]
     "Travel Agency": [0.10, 0.10]
-    "BT": [0.55, 0.4]
+    "HR": [0.90, 0.80]
 
 ```
 
 
 | Quadrant | Category | Strategy | Stakeholders | Consequences |
 | :--- | :--- | :--- | :--- | :--- |
-| <span style="color: #b1facc;">**Green**</span> | High / High | **Manage Closely** | SM, Management | They decide on the project's success and have strong interest. They must be actively involved in decision-making. |
+| <span style="color: #b1facc;">**Green**</span> | High / High | **Manage Closely** | SM, Management, HR | They decide on the project's success and have strong interest. They must be actively involved in decision-making. |
 | <span style="color: #bbdcff;">**Blue**</span> | High / Low | **Keep Satisfied** | IT / Web-Admin | Have the power but little content-related interest. You must meet their requirements. |
-| <span style="color: #f0f01b;">**Yellow**</span> | Low / High | **Keep Informed** | Project Team, BT, Employee | Highly affected by the project but have little decision-making power.|
+| <span style="color: #f0f01b;">**Yellow**</span> | Low / High | **Keep Informed** | Project Team, Employee | Highly affected by the project but have little decision-making power.|
 | <span style="color: #ffb9b9;">**Red**</span> | Low / Low | **Monitor** | Travel Agency | Neither high influence nor strong interest in the project itself.|
 
 
 ## <span style="color: #009a27;">User Analysis</span>
 
-### <span style="color: #009a27;">**Persona 1: Sustainability Manager**</span>
+### <span style="color: #009a27;">**Persona 1: Head of HR**</span>
+![](../charta-pictures/alex_hauser.png)
+
+| | |
+|---|---|
+|**Name**| Alex Hauser|
+|**Age**| 48|
+|**Role**| Head of HR|
+|**Nationality**| Swiss|
+|**Degree**| Master's in Human Resources Management|
+|**Domain Expertise**| High (expert in HR policy, organizational governance, and compliance)|
+|**Data Literacy**| Low to Medium (comfortable reading dashboards and KPIs, but not a data analyst — relies on clear visuals rather than raw numbers)|
+|**Technical Environment**| Desktop computer at the office, occasionally tablet in meetings.|
+|**Frequency of Use**| Monthly (for policy reviews and budget decisions), ad hoc when a specific subunit requires intervention|
+
+Alex Hauser grew up near Basel and has lived in the Zurich area for the past fifteen years. He studied HR Management and has spent his entire career in human resources, working his way up from HR Business Partner to his current role as Head of HR at the company, where he has been for six years. He is known for being decisive, fair, and politically savvy — he understands how to get things done in a large organization without creating unnecessary conflict.
+
+Outside of work, Alex is an avid hiker and spends most weekends in the mountains with his partner. He is practical by nature and has little patience for complexity that does not add value. He trusts data when it is presented clearly, but switches off quickly when faced with charts that require too much interpretation.
+
+In his role, Alex holds the formal authority to set and enforce the company's travel policy. This means he decides which transport modes are permitted for which types of trips, sets annual CO₂ budgets per business unit, and determines consequences for subunits that consistently exceed their limits. He does not do the analysis himself — that is Laura's job — but he is the one who turns insights into binding decisions. He works closely with the Sustainability Manager and receives regular briefings from her, but when it comes to actually changing the policy, the decision is his.
+
+He is under pressure from the executive board to demonstrate measurable progress on the company's ESG (Environmental, Social, and Governance) commitments, while also keeping travel costs under control. These two goals are not always easy to reconcile, and he needs clear, trustworthy data to justify the trade-offs he makes.
+
+**User Tasks:**
+
+- Review CO₂ budget status per subunit for the current year and identify which units are at risk
+- Monitor overall travel costs to ensure spending stays within approved limits
+- Assess travel purpose distribution to spot patterns that may indicate policy misuse
+- Compare transport options (CO₂ and cost) when considering updates to the travel policy
+- Make binding decisions on permitted transport modes, budget limits, and policy enforcement
+
+**Pains:**
+
+- **No single overview:** Without a central tool, getting a clear picture of where each subunit stands requires chasing reports from multiple people — time he does not have.
+- **Conflicting pressures:** The board wants lower CO₂ and lower costs, but these do not always point in the same direction. He needs data to justify the trade-offs publicly.
+- **Delayed information:** By the time summary reports reach him, decisions have already been made at the employee level and are difficult to reverse.
+- **Resistance to policy change:** Business unit managers push back on new travel restrictions. He needs clear, undeniable evidence to hold his ground.
+
+**Gains:**
+
+- **Immediate budget clarity:** A dashboard that shows him within seconds which subunits are on track and which are not, without needing to ask anyone.
+- **Justifiable decisions:** Clear transport option comparisons that give him a solid, data-backed reason for why a policy change is necessary.
+- **Cost control at a glance:** A simple cost overview so he can flag overspending early and act before it becomes a problem.
+- **Confidence:** Knowing the data he is basing his decisions on is current, accurate, and easy to explain to others.
+
+#### <span style="color: #59d177;">**Use Case Scenario: Head of HR**</span>
+
+**Context:**
+
+It is mid-year and Alex is preparing for his quarterly meeting with the executive board. One of the agenda items is the company's progress against its annual CO₂ travel budget. He needs to know which business units are on track and whether any immediate policy action is required.
+
+**The Action:**
+
+Alex opens the Decision Overview page of the dashboard. He uses the subunit filter to check each unit's CO₂ budget status and immediately notices that one subunit has already used 78% of its annual allocation by July — well ahead of pace. He checks the travel purpose breakdown for that subunit and sees that a disproportionate share of trips are categorized as internal meetings. He then glances at the travel cost summary and notices that this subunit is also among the highest spenders — further reinforcing that something needs to change.
+**The Insight (How the dashboard helps):**
+
+- **Budget at a glance: The CO₂ budget visualization immediately shows him which subunits are on track and which are at risk — no manual calculation or data request needed.
+- **Travel purpose check: The travel purpose breakdown reveals that the over-budget subunit's emissions are largely driven by internal meetings — a category where remote alternatives are readily available and no transport comparison is needed.
+- **Cost confirmation: The travel cost summary shows that the same subunit is also one of the highest spenders, making the case for intervention clear from both an environmental and a financial perspective.
+
+**The Outcome:**
+
+Based on what he sees, Alex makes an immediate policy decision: all internal meetings for that subunit must be held remotely for the remainder of the year, with no exceptions unless approved by him personally. He communicates this directly to the relevant business unit manager before the board meeting. The dashboard gave him everything he needed to act in under ten minutes — no reports requested, no analysis delegated, no delays.
+
+### <span style="color: #009a27;">**Persona 2: Sustainability Manager**</span>
 ![](../charta-pictures/laura_smith.png)
 
 | | |
@@ -142,83 +207,23 @@ Her main goal is to reduce the company's carbon footprint from business travel a
 
 **Context:**
 
- It is the end of the year, and Laura needs to prepare the annual sustainability report for the executive board. She has to present the overall trends in business travel emissions from the past few years and propose new emission reduction strategies for the upcoming year.
+It is the end of the year, and Laura needs to prepare the annual sustainability report for the executive board. She has to present the overall trends in business travel emissions from the past few years and propose new emission reduction strategies for the upcoming year.
 
 **The Action:**
 
- Instead of spending days manually collecting Excel sheets from different departments and building complex pivot tables, Laura opens the Business Travel Dashboard on her desktop monitor. She navigates to the "Time Series & Overview" tab to analyze the company's total carbon footprint over the last few years.
+Instead of spending days manually collecting Excel sheets from different departments and building complex pivot tables, Laura opens the Analysis & Reports page of the Business Travel Dashboard on her desktop monitor. She uses the year and subunit filters to explore the company's total carbon footprint across different dimensions.
 
 **The Insight (How the dashboard helps):**
 
-- **Instant Trend Identification:** The dashboard shows her a clear line chart of CO₂ emissions over time. She filters the data by transport mode and quickly identifies a trend: while flight emissions have slowly decreased, emissions from rental cars have spiked significantly in the last two years.
-- **Effortless Reporting:** She uses the dashboard's filtering to dive deeper and sees that these rental car emissions are mostly coming from trips under 300 km, which could easily be replaced by train travel.
+- **Long-term trend at a glance:** The cumulative CO₂ emissions line chart immediately shows her how the company's total emissions have developed since 2017 — including the visible dip during the pandemic years and the recovery afterwards.
+- **Transport mode breakdown:** The CO₂ emissions by transport mode chart reveals that flights account for the vast majority of emissions despite being used less frequently than trains — a striking insight that is easy to communicate to the board.
+- **Budget compliance overview:** The CO₂ budget limit chart shows her at a glance which subunits have consistently used a high proportion of their annual budget, allowing her to identify where policy interventions are most needed.
+- **Travel purpose detail:** The detailed travel purpose breakdown (showing both percentage and absolute counts) helps her identify which trip categories are driving emissions and whether those trips could be substituted with remote alternatives.
+- **Single-year view:** She switches to the single-year CO₂ chart to show how emissions accumulated month by month against the budget threshold — a compelling visual for demonstrating near-limit situations to senior leadership.
 
 **The Outcome:**
 
-Because the visualizations are already clean and professional, Laura simply exports the charts and copies them directly into her presentation for the board. The dashboard saved her hours of frustrating manual data aggregation. In the board meeting, she confidently uses the insights to successfully argue for a new company-wide policy that mandates train travel for all distances under 300 km.
-
-
-### <span style="color: #009a27;">**Persona 2: Employee - Frequent Business Traveler**</span>
-
-![](../charta-pictures/alex_hauser.png)
-
-|| |
-|---|---|
-|**Name**| Alex Hauser|
-|**Age**| 55|
-|**Role**| Senior Sales Consultant|
-|**Nationality**| Swiss|
-|**Degree**| Master in Business Administration|
-|**Domain Expertise**| Low in sustainability / High in client management and sales.|
-|**Data Literacy**| Low|
-|**Technical Environment**| Primarily mobile phone while traveling, laptop in hotels or home office. At work he uses a simple desktop setup for client management software and email. Prefers simple, intuitive interfaces.|
-|**Frequency of Use**| whenever planning a new trip or right after completing one.|
-
-Alex Hauser is an experienced sales veteran. He is 55 years old and originally from Liestal, near Basel, but moved years ago with his family to a suburban house near Zurich to be closer to the corporate headquarters. Alex has been working continuously at the company for 20 years, most of that time as a Senior Key Account Manager for major international clients. He is married and the proud father of two children who are both studying at the university of Zurich. 
-
-His main motivation has always been closing deals and nurturing long-term client relationships. Traveling was never a passion for him, but rather necessary to achieve his sales targets and secure his commissions. He is respected in the industry and known for his negotiation skills.
-
-For Alex technology is a pure tool. He uses his smartphone constantly for calls, emails, and WhatsApp communication with clients while he travels. Personal interaction are more important to him than data-driven analytics. He hates complex software that forces him to learn new dashboards just to create a simple visualization. He has shown interest in exploring CO₂ trends over the last few months but feels overwhelmed by the complexity and feels pressured. His main concern is getting to his destination quickly and efficiently, without having to fight through bureaucratic hurdles. He values clear, uncomplicated solutions that save him time, as he sees his value in direct client contact.
-
-He feels that younger sustainability staff, like Laura, do not understand the pressure of sales. He is frustrated that he now has to justify his travel decisions, which he made instinctively for years. The biggest challenge for him is the fear that the new CO₂ guidelines could be in his way of achieving sales targets. He also has a subtle feeling of guilt regarding CO₂ emissions, as his children sometimes criticize him for flying so much.
-
-**User Tasks (Jobs):**
-
-- Plan upcoming business trips to client meetings efficiently.
-- Compare travel options (time vs. CO₂ emissions) to comply with company guidelines.
-- Track their personal annual travel footprint.
-- Justify travel choices to their manager.
-
-**Pains:**
-
-- **Information Overload:** It is frustrating and time-consuming to figure out which travel route is actually the most sustainable. Alex just wants a quick answer without needing to read through complex data or policies.
-- **Time Pressure:** "I just need to get to the client quickly. Figuring out the greenest route takes too much time. I choose to fly to save time."
-- **Guilt vs. Efficiency:** Wants to look into traveling more sustainably but feels pressured to choose the fastest option (usually flying) to maximize working hours. 
-
-**Gains:**
-
-- **Quick Comparisons:** A very simple visual comparison (e.g., Train vs. Flight for a specific distance) showing the exact CO₂ savings at a glance. 
-- **Personal Impact:** A clear, simplified view of their individual or units travel footprint (e.g., "You saved 200kg of CO₂ this month by taking the train!"). 
-- **Easy Decision Making:** Feeling confident that they are making the right choice according to company policy without having to read long rulebooks.
-
-#### <span style="color: #59d177;">**Use Case Scenario: Frequent Business Traveler**</span>
-
-**Context:** 
-
-Alex needs to visit a key client in Munich (from the Zurich headquarters). Usually, Alex would just book a quick flight out of habit to save time.
-
-**Action:** 
-
-Before booking, Alex opens the Business Travel Dashboard on their mobile phone and looks at the "Transport Mode Comparison" for short-haul distances (under 400 km).
-
-**The Insight (How the dashboard helps):**
-
-- **Realizing the Impact:** The dashboard shows a striking bar chart comparing the Zurich-Munich route. Alex instantly sees that the flight produces around 120 kg of CO₂, while the train only produces about 15 kg.
-- **Time vs. CO₂:** The scatter plot reveals that when factoring in airport security and travel to the city center, the flight only saves about 45 minutes door-to-door compared to the train, but causes 8 times the emissions.
-
-**The Outcome:**
-
-Alex decides to book the train instead of the flight. The visual evidence was so clear and easy to understand that the decision took less than a minute. Alex uses the continuous 3.5-hour train ride to prepare the sales presentation, which wouldn't be possible on a fragmented flight journey, and feels good about actively reducing their personal carbon footprint.
+Laura exports the charts she needs directly from the dashboard and pastes them into her board presentation. The dashboard saved her days of manual data preparation. In the board meeting, she confidently uses the transport mode breakdown and budget compliance charts to argue for a strengthened train-first policy for all routes under 400 km, backed by clear and undeniable visual evidence.
 
 
 ## <span style="color: #009a27;">Situation Assessment</span>
@@ -246,61 +251,70 @@ Material:
 software/tools:
 
 - Python for data exploration
-- Quarto for visualization / dashboard development
+- Streamlit for visualization / dashboard development
 - Gemini + ChatGPT for creating pictures (Personas) and corrections 
 
 Constraints and risks:
 
 - Limited time for data exploration and visualization development
 - Possible missing or incomplete data in the dataset
-- Learning new tool for dashboard development (Quarto) takes time
+- Learning new tool for dashboard development (Streamlit) takes time
 
 ## <span style="color: #009a27;">Visualization Concept</span>
-The project will create a simple and focused interactive dashboard that helps users understand business travel and emissions.
+The project will create a focused interactive dashboard with two separate pages, each tailored to a specific user role. Users can navigate freely between the two pages using a top-level navigation menu.
 
 **Product form**: 
 
-We will create an interactive dashboard that allows users to explore business travel data and CO₂ emissions. The dashboard is designed to help users understand travel purposes, transport modes, and emission patterns.
+The dashboard consists of two role-based pages — a Decision Overview page for the Head of HR and an Analysis & Reports page for the Sustainability Manager. Both pages are web-based and built with Streamlit. It is assumed that the travel options data is maintained and updated regularly by a responsible person within the company. In a real-world implementation, views could additionally be role-restricted by login.
 
-**Visual encodings**: 
+**Page 1 — Decision Overview (Head of HR):**
 
-- A line chart showing CO₂ emissions over time (`date`, `CO2e`) This helps users see trends in business travel.
-- A bar chart will show emissions by travel purpose (`travel_purpose`, `CO2e`). This helps users understand which types of trips contribute most to emissions.
-- A bar chart will show emissions by transport mode (`transport_mode`, `CO2e`). This allows users to compare the environmental impact of different travel options.
-- A scatter plot will compare travel duration and CO₂ emissions for individual trips. Each point represents one trip and is colored by transport mode.
+This page is designed for quick, operational decision-making based on current-year data. It includes a subunit filter and is fixed to the current year only, keeping the view focused and uncluttered.
 
-Tooltips will show additional details such as travel purpose and transport mode.
+- A CO₂ budget gauge or progress bar per subunit showing how much of the annual CO₂ allocation has already been used (`CO2e`, subunit). This gives an immediate sense of budget status at a glance.
+- A travel cost summary displaying key cost figures for the current year, allowing the Head of HR to monitor spending across subunits.
+- A travel purpose pie chart showing the percentage breakdown of trips by purpose (`travel_purpose`). This helps identify whether trips are distributed as expected or whether certain categories are unexpectedly dominant.
+- A travel options comparison table showing available transport options for common routes (departure, destination, CO₂ emissions, cost), supporting informed policy decisions about which modes to recommend or restrict.
 
+**Page 2 — Analysis & Reports (Sustainability Manager):**
+
+This page supports in-depth exploration and reporting. It includes filters for year and subunit — applicable to all charts except where noted — and all charts are exportable for use in reports and presentations.
+
+- A cumulative CO₂ emissions line chart showing total emissions summed over all years (`date`, `CO2e`). This allows users to see the long-term progression of emissions, including the effect of external events such as the COVID-19 pandemic. Filterable by subunit.
+- A single-year CO₂ emissions line chart (Jan–Dec) with a horizontal budget limit line, showing how emissions accumulated over the course of one year relative to the annual threshold (`CO2e`, budget limit). Filterable by year and subunit.
+- A CO₂ emissions by transport mode chart showing the total emissions contribution of each transport mode (`transport_mode`, `CO2e`). This helps identify which modes drive the most emissions, even if they are used less frequently. Filterable by year and subunit.
+- Key performance indicators (KPIs) showing total number of trips, number of flights, and number of train journeys. Filterable by year and subunit.
+- A detailed travel purpose breakdown showing both percentage share and absolute counts per purpose (`travel_purpose`), giving more granular insight than the simplified view on Page 1. Filterable by year and subunit.
+- A CO₂ budget limit chart showing, per subunit and per year, how much of the annual budget was used (e.g. 50% in 2017, 80% in 2018). This makes it easy to spot trends in budget compliance across subunits over time.
+- A raw data table providing access to the underlying dataset for further manual analysis or verification.
+- Export functionality allowing users to save individual charts for use in reports and presentations.
+
+Tooltips will show additional details on all charts where relevant.
 
 **Interactivity**:
 
-The dashboard will include simple interactive elements such as filters for year, transport mode, and travel purpose. Users will also be able to see additional information through tooltips.
-These interactive features help users focus on specific parts of the data and compare travel options more easily.
+Page 1 (Decision Overview) includes a subunit filter and is fixed to the current year. Page 2 (Analysis & Reports) includes filters for year and subunit, applicable across all charts. Both pages include tooltips for additional detail. Page 2 additionally supports chart export for reporting purposes. These interactive features allow each user to focus on what is relevant to their role without being overwhelmed by unnecessary complexity.
 
 **Narrative and annotation**: 
 
-The dashboard will include clear titles, labels, and short text explanations to help users understand the visualizations. Each chart will have a descriptive title and simple labels so that the meaning of the data is easy to interpret.
-
-Short annotations may be used to highlight important patterns, such as high emission transport modes or noticeable trends over time. These elements guide users through the dashboard and make it easier to understand the key insights without needing detailed background knowledge.
+Each chart will have a descriptive title and clear axis labels so that the meaning is easy to interpret without prior technical knowledge. Short annotations may highlight important patterns, such as a subunit approaching its CO₂ budget limit or a notable shift in transport mode usage over time. These guide users through the dashboard and help them draw conclusions quickly.
 
 **Target medium and integration**: 
 
-The dashboard will be presented as a web-based prototype, using Quarto, and can be viewed in a browser on a laptop or desktop computer. It is mainly intended for use within the course and for presentation purposes. In a realworld scenario, a similar dashboard could be integrated into a company intranet or reporting system to support internal analysis.
+The dashboard will be presented as a web-based prototype using Streamlit, viewable in a browser on a laptop or desktop computer. It is primarily intended for use within the course and for presentation purposes. In a real-world scenario, a similar dashboard could be integrated into a company intranet or sustainability reporting system.
 
 **Cognitive and analytical value**: 
 
-The dashboard helps users understand patterns in travel data.
-Line charts should show trends over time and show how emissions develop also during events such as the COVID-19 pandemic. The Bar charts allow users to compare emissions across different travel purposes and transport modes, making it easier to identify which options have the biggest impact on emissions and could be improved to reduce their environmental footprint. The scatter plot helps users see the relationship between travel duration and emissions for individual trips.
+The two-page structure reduces cognitive load by ensuring each user only sees what is relevant to their role. The Decision Overview page allows the Head of HR to assess the situation and act quickly. The Analysis & Reports page supports deeper pattern recognition over time — identifying emission trends, budget compliance issues, and the environmental impact of different transport modes. Together the pages cover both operational and strategic information needs.
 
 **Communicative value**: 
 
-The dashboard presents key information clearly without interpreting or evaluating the results. It is designed as an exploratory tool that allows users to analyse the data and draw their own conclusions.
+The dashboard presents key information clearly without interpreting or evaluating the results. It is designed as an exploratory tool that allows users to analyse the data and draw their own conclusions. The export functionality specifically supports the communicative needs of the Sustainability Manager, who regularly needs to present findings to senior leadership.
 
 **Experiential and aesthetic value**: 
 
-The dashboard is designed to be simple and easy to use. The layout is clear and not overloaded, so users can quickly understand what they see.
-Interactive elements like filters and tooltips allow users to explore the data step by step and focus on what is important for them. This makes the dashboard more interesting to use.
-The clear structure helps users trust the data and understand how the charts are connected. Because the dashboard is easy to use and shows useful information, users are more likely to use it in practice.
+The dashboard is designed to be simple and easy to use. Each page has a clear, uncluttered layout so users can quickly find and understand what they see. Interactive elements like filters, tooltips, and export options allow users to explore the data at their own pace. The two-page structure ensures that neither user is confronted with charts or filters that are irrelevant to their goals, making the experience more intuitive and trustworthy.
+
 
 ## <span style="color: #009a27;">Project Plan Séverine Stadler</span>
 
