@@ -604,13 +604,13 @@ if st.session_state.dashboard_view == "Overview":
                 </div>
                 <div class="progress-bg">
                     <div class="progress-fill" style="width: {progress_width}%; background: {progress_color};"></div>
-                    <div class="budget-marker" style="left: {marker_pos}%;" title="100% Budget Limit"></div>
+                    <div class="budget-marker" style="left: {marker_pos}%;" title="100% Budgetlimit"></div>
                 </div>
                 <div class="budget-row">
                     <div class="budget-percent">{format_percent(usage_pct)}</div>
                     <div class="budget-detail">
-                        von Budget<br>
-                        {format_tonnes(used_co2)} von {format_tonnes(budget)}
+                        Budget used<br>
+                        {format_tonnes(used_co2)} of {format_tonnes(budget)}
                     </div>
                 </div>
             </div>
