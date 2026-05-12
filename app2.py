@@ -610,7 +610,7 @@ if st.session_state.dashboard_view == "Overview":
                     <div class="budget-percent">{format_percent(usage_pct)}</div>
                     <div class="budget-detail">
                         Budget used<br>
-                        {format_tonnes(used_co2)} of {format_tonnes(budget)}
+                        {format_tonnes(used_co2)} out of {format_tonnes(budget)}
                     </div>
                 </div>
             </div>
