@@ -496,37 +496,6 @@ used_co2 = 0
 # =========================
 # HEADER
 # =========================
-# header_left, header_mid, header_right = st.columns([4.5, 1.5, 1.8])
-# 
-# with header_left:
-    # st.markdown(
-        # f"<h1 style='text-align:left; margin-top:0.4rem; margin-bottom:0;'>Travel Insights Dashboard</h1>"
-        # f"<div style='font-size: 2rem; font-weight: 600; color: rgba(255,255,255,0.8); margin-top: 2px;'>Year {current_year}</div>",
-        # unsafe_allow_html=True,
-    # )
-# 
-# with header_mid:
-    # st.markdown(
-        # f"<div class='date-box'>current Date<br>{date.today().strftime('%d.%m.%Y')}</div>",
-        # unsafe_allow_html=True,
-    # )
-# 
-# with header_right:
-    # st.markdown('<div class="small-filter-box">', unsafe_allow_html=True)
-    # st.markdown('<div class="small-filter-title">Ansicht</div>', unsafe_allow_html=True)
-# 
-    # b1, b2 = st.columns(2)
-    # with b1:
-        # if st.button("Overview", use_container_width=True):
-            # st.session_state.dashboard_view = "Overview"
-    # with b2:
-        # if st.button("Analysis", use_container_width=True):
-            # st.session_state.dashboard_view = "Analysis"
-# 
-    # st.markdown("</div>", unsafe_allow_html=True)
-# 
-# st.markdown("<hr>", unsafe_allow_html=True)
-
 header_left, header_right = st.columns([6, 2.2])
 
 with header_left:
