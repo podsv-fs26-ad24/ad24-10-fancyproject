@@ -418,7 +418,7 @@ def panel_end():
 def get_budget(budgets_df, selected_subunit, selected_year):
     b = budgets_df[budgets_df["year"] == selected_year].copy()
 
-    if selected_subunit != "Alle":
+    if selected_subunit != "All":
         b = b[b["subunit"] == selected_subunit]
 
     valid = b["co2_budget_t"].dropna()
@@ -488,7 +488,7 @@ if "dashboard_view" not in st.session_state:
 current_year = 2025
 max_analysis_year = 2025
 
-year_options = ["All"] + sorted([y for y in df["year"].dropna().unique().tolist() if y <= max_analysis_year])
+year_options = ["All"] + sorted([y for y in df["year"].dropna().unique().tolist() if y <= max_analysis_year], reverse=True)
 subunit_options = ["All"] + sorted(df["subunit"].dropna().unique().tolist())
 all_departures = ["All"] + sorted(df["departure_iata"].dropna().unique().tolist())
 all_arrivals = ["All"] + sorted(df["arrival_iata"].dropna().unique().tolist())
@@ -782,7 +782,7 @@ else:
 
             cumulative_chart = (
                 alt.Chart(yearly_co2)
-                .mark_line(point=alt.OverlayMarkDef(color="white", size=30, filled=True), strokeWidth=4, color="#2cb67a")
+                .mark_line(point=alt.OverlayMarkDef(color="white", size=30, filled=True), strokeWidth=2, color="#2cb67a")
                 .encode(
                     x=alt.X("year:O", title="Year", axis=alt.Axis(labelAngle=-45)),
                     y=alt.Y("cumulative_co2:Q", title="Cumulative CO₂ Emissions (t)"),
@@ -837,7 +837,7 @@ else:
             
             co2_line = (
                 alt.Chart(line_df)
-                .mark_line(point=alt.OverlayMarkDef(color="white", size=30, filled=True), strokeWidth=4, color="#ffa73a")
+                .mark_line(point=alt.OverlayMarkDef(color="white", size=30, filled=True), strokeWidth=2, color="#ffa73a")
                 .encode(
                     x=alt.X(
                         "month:T", 
@@ -875,15 +875,15 @@ else:
                     .mark_text(
                         align="left", 
                         baseline="bottom", 
-                        dy=-6,             # Verschiebt den Text 6 Pixel nach oben, weg von der Linie
+                        dy=-6,       
                         color="#dc2626", 
                         fontWeight=600,
                         fontSize=13
                     )
                     .encode(
                         y="budget:Q",
-                        x=alt.value(10),   # Setzt den Text 10 Pixel vom linken inneren Rand entfernt
-                        text=alt.value("Budgetlimit")
+                        x=alt.value(10),   
+                        text=alt.value(f'Budgetlimit {line_budget:,.1f} t')
                     )
                 )
 
@@ -950,40 +950,39 @@ else:
             })
 
             last_hist = yearly_hist.iloc[-1:].copy()
-            pred_df = pd.concat([last_hist, future_df], ignore_index=True)
+            pred_df = pd.concat([last_hist.assign(type="Prediction"), future_df.assign(type="Prediction")], ignore_index=True)
+            hist_df_plot = yearly_hist.assign(type="Historical")
+            plot_df = pd.concat([hist_df_plot, pred_df], ignore_index=True)
 
-            hist_line = (
-                alt.Chart(yearly_hist)
-                .mark_line(point=alt.OverlayMarkDef(color="white", size=30, filled=True), strokeWidth=4, color="#63acff")
+            pred_chart = (
+                alt.Chart(plot_df)
+                .mark_line(point=alt.OverlayMarkDef(color="white", size=30, filled=True), strokeWidth=2)
                 .encode(
                     x=alt.X(
                         "year:O", 
-                        title="Jahr", 
+                        title="Year", 
                         axis=alt.Axis(labelAngle=0)
                     ),
                     y=alt.Y("co2:Q", title="CO₂ Emissions (t)"),
+                    color=alt.Color(
+                        "type:N",
+                        scale=alt.Scale(
+                            domain=["Historical", "Prediction"],
+                            range=["#63acff", "#ec082e"]
+                        ),
+                        legend=alt.Legend(title=None, orient="right", direction="vertical")
+                    ),
+                    strokeDash=alt.condition(
+                        alt.datum.type == "Prediction",
+                        alt.value([6, 4]),
+                        alt.value([])
+                    ),
                     tooltip=[
                         alt.Tooltip("year:O", title="Year"), 
-                        alt.Tooltip("co2:Q", title="Historical CO₂ Emissions (t)", format=",.1f")
+                        alt.Tooltip("co2:Q", title="CO₂ Emissions (t)", format=",.1f"),
+                        alt.Tooltip("type:N", title="Series")
                     ]
                 )
-            )
-
-            pred_line = (
-                alt.Chart(pred_df)
-                .mark_line(point=alt.OverlayMarkDef(color="white", size=30, filled=True), strokeWidth=4, color="#ec082e", strokeDash=[6, 4])
-                .encode(
-                    x=alt.X("year:O"),
-                    y=alt.Y("co2:Q"),
-                    tooltip=[
-                        alt.Tooltip("year:O", title="Predicted Year"), 
-                        alt.Tooltip("co2:Q", title="CO₂-Prediction (t)", format=",.1f")
-                    ]
-                    )
-                )
-
-            pred_chart = (
-                (hist_line + pred_line)
                 .properties(
                     title=f"Prediction of CO₂ Emissions – {analysis_subunit}",
                     height=280,
