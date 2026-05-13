@@ -1,6 +1,7 @@
 # aktuellste version 03.05-26 bessseres als travel_dashboard
 import streamlit as st
 import pandas as pd
+import numpy as np
 import altair as alt
 from pathlib import Path
 from datetime import date
@@ -905,7 +906,100 @@ else:
 
             st.altair_chart(line_chart, use_container_width=True)
 
+        # ==========================================
+        # PREDICTION
+        # ==========================================
+
+        hist_df = df[df["year"] <= max_analysis_year].copy()
+        if analysis_subunit != "All":
+            hist_df = hist_df[hist_df["subunit"] == analysis_subunit]
+
+        yearly_hist = (
+            hist_df.groupby("year", as_index=False)
+            .agg(co2=("CO2e RFI2.7 (t)", "sum"))
+            .sort_values("year")
+        )
+        
+        yearly_hist = yearly_hist.dropna(subset=["year", "co2"]) 
+        trend_hist = yearly_hist[yearly_hist["year"] >= 2022].copy()
+
+        if len(trend_hist) >= 2:
+            
+            n = len(trend_hist)
+            x = trend_hist["year"].astype(float) - 2000
+            y = trend_hist["co2"].astype(float)
+            
+            sum_x = x.sum()
+            sum_y = y.sum()
+            sum_x2 = (x**2).sum()
+            sum_xy = (x*y).sum()
+            
+            divisor = (n * sum_x2 - sum_x**2)
+            if divisor != 0:
+                m = (n * sum_xy - sum_x * sum_y) / divisor
+                b = (sum_y - m * sum_x) / n
+            else:
+                m, b = 0, 0
+            
+            future_years = [int(max_analysis_year) + 1, int(max_analysis_year) + 2, int(max_analysis_year) + 3]
+            future_co2 = [max(0, m * (yr - 2000) + b) for yr in future_years] 
+
+            future_df = pd.DataFrame({
+                "year": future_years,
+                "co2": future_co2
+            })
+
+            last_hist = yearly_hist.iloc[-1:].copy()
+            pred_df = pd.concat([last_hist, future_df], ignore_index=True)
+
+            hist_line = (
+                alt.Chart(yearly_hist)
+                .mark_line(point=alt.OverlayMarkDef(color="white", size=30, filled=True), strokeWidth=4, color="#63acff")
+                .encode(
+                    x=alt.X(
+                        "year:O", 
+                        title="Jahr", 
+                        axis=alt.Axis(labelAngle=0)
+                    ),
+                    y=alt.Y("co2:Q", title="CO₂ Emissions (t)"),
+                    tooltip=[
+                        alt.Tooltip("year:O", title="Year"), 
+                        alt.Tooltip("co2:Q", title="Historical CO₂ Emissions (t)", format=",.1f")
+                    ]
+                )
+            )
+
+            pred_line = (
+                alt.Chart(pred_df)
+                .mark_line(point=alt.OverlayMarkDef(color="white", size=30, filled=True), strokeWidth=4, color="#ec082e", strokeDash=[6, 4])
+                .encode(
+                    x=alt.X("year:O"),
+                    y=alt.Y("co2:Q"),
+                    tooltip=[
+                        alt.Tooltip("year:O", title="Predicted Year"), 
+                        alt.Tooltip("co2:Q", title="CO₂-Prediction (t)", format=",.1f")
+                    ]
+                    )
+                )
+
+            pred_chart = (
+                (hist_line + pred_line)
+                .properties(
+                    title=f"Prediction of CO₂ Emissions – {analysis_subunit}",
+                    height=280,
+                    padding={"top": 20}
+                )
+            )
+
+            st.altair_chart(pred_chart, use_container_width=True)
+        else:
+            st.info("Not enough historical data to generate a prediction. At least 2 years of data are required.")
+        
+# ================================ Prediction End ===========================================
+
         panel_end()
+
+
 
     with right:
         context_year = "All Years" if analysis_year == "All" else str(analysis_year)
@@ -1097,3 +1191,5 @@ else:
         st.dataframe(show_budget_summary, use_container_width=True, hide_index=True)
 
         panel_end()
+
+    
