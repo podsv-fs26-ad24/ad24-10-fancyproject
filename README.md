@@ -19,11 +19,6 @@ Code and configurations used in the different project phases are stored in the c
 | Project Understanding | -  | Project Charta | project_charta.qmd  |
 | Data Acquisition and Exploration | `eda` | Data Report | data_report.qmd  |
 | Visual Encoding and Design | `encoding-design`  | Visual Encoding and Design | viz_encoding_design.qmd  |
-| Evaluation | `evaluation`  | Evaluation | evaluation.qmd  |
-| Deployment | `deployment` | Deployment | deplyoment.qmd |
-
-
-> To do: Adjust accoding to your specific project needs - ensure consistency with readme, documentation, etc.
 
 > To do: add link to documentation website for convenience.
 
