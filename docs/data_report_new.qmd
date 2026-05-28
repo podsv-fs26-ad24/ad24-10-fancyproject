@@ -9,12 +9,11 @@ All information on the data used in this project is compiled here to ensure trac
 
 | Name | Quelle | Storage location |
 |---|---|---|
-| traveldata-export.xlsx | Von wo? | shared team folder on GitHub (?)  |
-| co2_budgets (sheet 2 of same file) | Von wo? | Same file as above |
+| traveldata-export.xlsx | Internal company travel booking system (exported by travel agency) | Shared team folder on GitHub |
+| co2_budgets (sheet 2 of same file) | Internal company travel booking system (exported by travel agency) | Same file as above |
 
 ### Details: traveldata-export.xlsx
 
-- Contains business travel records from ??
 - Data covers the years 2017–2025
 - 25'527 trips recorded, 27 columns
 - Source: exported from the organization's travel booking system
@@ -64,6 +63,8 @@ plt.show()
 
 The chart shows a clear dip in emissions around 2020–2021, which corresponds to the COVID-19 pandemic and the associated reduction in business travel. Emissions have been recovering since. This trend is meaningful and worth showing in the dashboard — it gives users important context when interpreting current emission levels. The cumulative line chart in the dashboard was designed to make this long-term pattern visible.
 
+To extend the long-term view forward, a linear regression was fitted on post-pandemic years (2022 onwards) to project emissions for the next three years. This forms the basis of the prediction chart on the Analysis & Reports page, giving the Sustainability Manager a data-backed starting point for proposing future reduction targets.
+
 ---
 
 **2. Do subunits differ in CO₂ consumption vs their budget?**
@@ -107,7 +108,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-Subunits differ considerably in both their total CO₂ consumption and how close they are to their budget limit. Some subunits consistently stay well within their budget while others exceed it. This confirms that the subunit filter is a meaningful feature in the dashboard — without it, these differences would be hidden in the overall totals.
+Subunits differ considerably in both their total CO₂ consumption and how close they are to their budget limit. Some subunits stay well within their budget in certain years while others exceed it. This confirms that the subunit filter is a meaningful feature in the dashboard — without it, these differences would be hidden in the overall totals.
 
 ---
 
@@ -147,94 +148,46 @@ plt.tight_layout()
 plt.show()
 ```
 
-Flights are by far the largest contributor to CO₂ emissions, even though they may not always be the most frequent travel mode. This finding directly supports the dashboard design decision to highlight transport mode as a key dimension and to show flight counts separately in the KPI metrics.
+Flights are by far the largest contributor to CO₂ emissions and also the most frequent travel mode. This finding directly supports the dashboard design decision to highlight transport mode as a key dimension and to show flight counts separately in the KPI metrics.
 
 ---
 
-**4. Is there a relationship between distance, CO₂ and transport mode?**
+**4. What are the most common travel purposes?**
 
-This analysis checks whether distance and CO₂ are correlated, and whether the relationship differs by transport mode — relevant for the travel options comparison table in the dashboard.
+This analysis shows the distribution of trips by travel purpose. This is relevant for the travel purpose pie chart on the Analysis & Reports page.
 
 ```{python}
-#| label: fig-co2-distance-mode
-#| fig-cap: "Relationship between distance, CO₂ emissions and transport mode."
+#| label: fig-purpose-trips
+#| fig-cap: "Number of trips by travel purpose."
 #| echo: true
 #| code-fold: true
 import pandas as pd
 import matplotlib.pyplot as plt
 
 df = pd.read_excel("../traveldata-export.xlsx", sheet_name="travel_data")
-df["CO2e RFI2.7 (t)"] = pd.to_numeric(df["CO2e RFI2.7 (t)"], errors="coerce")
-df["km"] = pd.to_numeric(df["km"], errors="coerce")
-df = df.dropna(subset=["CO2e RFI2.7 (t)", "km", "transport_mode"])
-
-colors = {"flight": "#e07b39", "train": "#4C78A8", "bus": "#72b33a", "rental_car": "#b358a0"}
-
-fig, ax = plt.subplots(figsize=(8, 4))
-for mode, group in df.groupby("transport_mode"):
-    ax.scatter(group["km"], group["CO2e RFI2.7 (t)"],
-               label=mode, alpha=0.4, s=15,
-               color=colors.get(mode, "gray"))
-
-ax.set_xlabel("Distance (km)")
-ax.set_ylabel("CO₂ (tonnes)")
-ax.set_title("Distance vs. CO₂ Emissions by Transport Mode")
-ax.legend(title="Transport mode")
-ax.spines['top'].set_visible(False)
-ax.spines['right'].set_visible(False)
-plt.tight_layout()
-plt.show()
-```
-
-There is a strong positive correlation between distance and CO₂ emissions. Flights produce significantly more CO₂ per kilometer than other modes, and this gap widens with distance. Train trips cluster at low CO₂ values even for longer journeys. This confirms that both distance and transport mode need to be shown together in the travel options comparison table so users can make informed decisions.
-
----
-
-**5. What are the most common travel purposes, and which cause the most CO₂?**
-
-This analysis checks whether the most frequent travel purpose is also the biggest CO₂ contributor — relevant for both the travel purpose pie chart and the detailed breakdown in the dashboard.
-
-```{python}
-#| label: fig-purpose-co2
-#| fig-cap: "Number of trips and total CO₂ by travel purpose."
-#| echo: true
-#| code-fold: true
-import pandas as pd
-import matplotlib.pyplot as plt
-
-df = pd.read_excel("../traveldata-export.xlsx", sheet_name="travel_data")
-df["CO2e RFI2.7 (t)"] = pd.to_numeric(df["CO2e RFI2.7 (t)"], errors="coerce")
 
 purpose = df.groupby("travel_purpose").agg(
-    trips=("travel_purpose", "size"),
-    co2=("CO2e RFI2.7 (t)", "sum")
-).sort_values("co2", ascending=False).reset_index()
+    trips=("travel_purpose", "size")
+).sort_values("trips", ascending=False).reset_index()
 
-fig, axes = plt.subplots(1, 2, figsize=(12, 4))
+fig, ax = plt.subplots(figsize=(8, 4))
 
-axes[0].barh(purpose["travel_purpose"], purpose["trips"], color="#4C78A8")
-axes[0].set_xlabel("Number of trips")
-axes[0].set_title("Trips by Travel Purpose")
-axes[0].invert_yaxis()
-axes[0].spines['top'].set_visible(False)
-axes[0].spines['right'].set_visible(False)
-
-axes[1].barh(purpose["travel_purpose"], purpose["co2"], color="#e07b39")
-axes[1].set_xlabel("Total CO₂ (tonnes)")
-axes[1].set_title("CO₂ by Travel Purpose")
-axes[1].invert_yaxis()
-axes[1].spines['top'].set_visible(False)
-axes[1].spines['right'].set_visible(False)
+ax.barh(purpose["travel_purpose"], purpose["trips"], color="#4C78A8")
+ax.set_xlabel("Number of trips")
+ax.set_title("Trips by Travel Purpose")
+ax.invert_yaxis()
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
 
 plt.tight_layout()
 plt.show()
 ```
 
-The most frequent travel purpose is not necessarily the biggest CO₂ contributor — some purposes involve fewer but longer or flight-heavy trips that generate disproportionately high emissions. This is an important insight for the Sustainability Manager persona, who needs to identify which trip types to target for reduction. The dashboard therefore shows both the count and the CO₂ breakdown for travel purposes.
+Client Meeting and Internal Meeting are the most frequent travel purposes, together accounting for around half of all trips. This distribution is shown in the pie chart on the Analysis & Reports page.
 
 ---
 
-**6. How complete is the data — especially for cost?**
+**5. How complete is the data — especially for cost?**
 
 This analysis checks for missing values, particularly in `cost_CHF`, since the dashboard displays travel cost figures.
 

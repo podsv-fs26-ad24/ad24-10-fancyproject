@@ -16,7 +16,7 @@ The dashboard should help answer questions such as:
 - How have travel emissions changed over time?
 - Which transport modes produce the most CO₂ emissions?
 - Which travel purposes (e.g. meetings, conferences) occur most often and contribute most to CO₂ emissions?
-- How do different travel options compare in terms of CO₂ emissions and travel duration?
+- How do different travel options compare in terms of CO₂ emissions and cost?
 
 The dashboard should also support simple decisions by allowing users to compare transport modes and understand how much CO₂ different trips produce.
 In addition, the dashboard helps users understand which travel purposes cause high CO₂ emissions. This can support reflection on whether certain trips are necessary or if alternative solutions, such as online meetings, could be considered.
@@ -28,7 +28,7 @@ From a stakeholder perspective, the project aims to:
 
 - Provide a clear overview of business travel and CO₂ emissions
 - Show how emissions develop over time
-- Identify which travel purposes generate the most emissions
+- Identify which travel purposes occurs most frequently
 - Compare transport modes and their environmental impact
 - Support users in understanding and comparing travel options
 
@@ -39,7 +39,7 @@ Qualitative success criteria:
 
 - The dashboard allows users to quickly understand travel emissions and patterns without needing manual data preparation
 - Users can identify trends over time and detect changes in travel behaviour (e.g. increase or decrease of emissions).
-- Users can clearly see which travel purposes cause the most CO₂ emissions and reflect on whether these trips are necessary.
+- Users can clearly see which travel purposes occur most frequently and reflect on whether certain trips are necessary.
 - The dashboard supports users in communicating insights (e.g. for reports or presentations) using clear and simple visualizations.
 
 Quantitative success criteria:
@@ -48,8 +48,6 @@ Quantitative success criteria:
 - Users can filter the data by at least two attributes (e.g., year, transport mode).
 - Test users can identify at least two insights about travel patterns within one minute of interacting with the dashboard.
 
-
-*Out of Scope:* The project will not include recommendations for specific travel options or policies. 
 
 ## <span style="color: #009a27;">Stakeholder Analysis</span>
 
@@ -105,23 +103,22 @@ quadrantChart
 |**Domain Expertise**| High (expert in HR policy, organizational governance, and compliance)|
 |**Data Literacy**| Low to Medium (comfortable reading dashboards and KPIs, but not a data analyst — relies on clear visuals rather than raw numbers)|
 |**Technical Environment**| Desktop computer at the office, occasionally tablet in meetings.|
-|**Frequency of Use**| Monthly (for policy reviews and budget decisions), ad hoc when a specific subunit requires intervention|
+|**Frequency of Use**| Ad hoc, whenever a travel request comes in and a budget check is needed|
 
 Alex Hauser grew up near Basel and has lived in the Zurich area for the past fifteen years. He studied HR Management and has spent his entire career in human resources, working his way up from HR Business Partner to his current role as Head of HR at the company, where he has been for six years. He is known for being decisive, fair, and politically savvy — he understands how to get things done in a large organization without creating unnecessary conflict.
 
 Outside of work, Alex is an avid hiker and spends most weekends in the mountains with his partner. He is practical by nature and has little patience for complexity that does not add value. He trusts data when it is presented clearly, but switches off quickly when faced with charts that require too much interpretation.
 
-In his role, Alex holds the formal authority to set and enforce the company's travel policy. This means he decides which transport modes are permitted for which types of trips, sets annual CO₂ budgets per business unit, and determines consequences for subunits that consistently exceed their limits. He does not do the analysis himself — that is Laura's job — but he is the one who turns insights into binding decisions. He works closely with the Sustainability Manager and receives regular briefings from her, but when it comes to actually changing the policy, the decision is his.
+In his role, Alex holds the formal authority to set and enforce the company's travel policy. This means he decides which transport modes are permitted for which types of trips, sets annual CO₂ budgets per business unit, and determines consequences for subunits that consistently exceed their limits. He does not do the analysis himself but he is the one who turns insights into binding decisions. He works closely with the Sustainability Manager and receives regular briefings from her, but when it comes to actually changing the policy, the decision is his.
 
 He is under pressure from the executive board to demonstrate measurable progress on the company's ESG (Environmental, Social, and Governance) commitments, while also keeping travel costs under control. These two goals are not always easy to reconcile, and he needs clear, trustworthy data to justify the trade-offs he makes.
 
 **User Tasks:**
 
-- Review CO₂ budget status per subunit for the current year and identify which units are at risk
-- Monitor overall travel costs to ensure spending stays within approved limits
-- Assess travel purpose distribution to spot patterns that may indicate policy misuse
-- Compare transport options (CO₂ and cost) when considering updates to the travel policy
-- Make binding decisions on permitted transport modes, budget limits, and policy enforcement
+- Check CO₂ budget status for a specific subunit when a travel request comes in
+- Monitor overall travel costs for the current year
+- Compare available transport options (CO₂ and cost) for a given route to support approval decisions
+- Make binding decisions on whether to approve or decline individual travel requests
 
 **Pains:**
 
@@ -141,20 +138,20 @@ He is under pressure from the executive board to demonstrate measurable progress
 
 **Context:**
 
-It is mid-year and Alex is preparing for his quarterly meeting with the executive board. One of the agenda items is the company's progress against its annual CO₂ travel budget. He needs to know which business units are on track and whether any immediate policy action is required.
+An employee submits a travel request for an upcoming business trip. Alex needs to decide quickly whether to approve it, based on whether the employee's subunit still has sufficient CO₂ budget for the year.
 
 **The Action:**
 
-Alex opens the Decision Overview page of the dashboard. He uses the subunit filter to check each unit's CO₂ budget status and immediately notices that one subunit has already used 78% of its annual allocation by July — well ahead of pace. He checks the travel purpose breakdown for that subunit and sees that a disproportionate share of trips are categorized as internal meetings. He then glances at the travel cost summary and notices that this subunit is also among the highest spenders — further reinforcing that something needs to change.
+Alex opens the Decision Overview page of the dashboard. He selects the relevant subunit from the filter and immediately sees that the subunit has already used 78% of its annual CO₂ allocation — well ahead of pace for the time of year. He also glances at the travel cost summary and notes that the subunit is among the higher spenders this year. With this information in hand, he makes his decision.
+
 **The Insight (How the dashboard helps):**
 
-- **Budget at a glance: The CO₂ budget visualization immediately shows him which subunits are on track and which are at risk — no manual calculation or data request needed.
-- **Travel purpose check: The travel purpose breakdown reveals that the over-budget subunit's emissions are largely driven by internal meetings — a category where remote alternatives are readily available and no transport comparison is needed.
-- **Cost confirmation: The travel cost summary shows that the same subunit is also one of the highest spenders, making the case for intervention clear from both an environmental and a financial perspective.
+- **Budget at a glance:** The CO₂ budget progress bar immediately shows him the subunit's current usage percentage — no manual calculation or data request needed.
+- **Cost confirmation:** The travel cost summary gives him a quick read on whether the subunit is also financially overstretched, supporting a well-rounded decision. Note: cost figures are based on available data only, as some records are missing cost information.
 
 **The Outcome:**
 
-Based on what he sees, Alex makes an immediate policy decision: all internal meetings for that subunit must be held remotely for the remainder of the year, with no exceptions unless approved by him personally. He communicates this directly to the relevant business unit manager before the board meeting. The dashboard gave him everything he needed to act in under ten minutes — no reports requested, no analysis delegated, no delays.
+Alex checks the travel options table to see whether a lower-CO₂ alternative is available for the requested route. The dashboard flags the train as both the cheapest and most environmentally friendly option. He approves the request on the condition that the employee travels by train, and flags the subunit for a check-in with the relevant business unit manager.
 
 ### <span style="color: #009a27;">**Persona 2: Sustainability Manager**</span>
 ![](../charta-pictures/laura_smith.png)
@@ -167,11 +164,11 @@ Based on what he sees, Alex makes an immediate policy decision: all internal mee
 |**Nationality**| British|
 |**Degree**| Master’s in Environmental Science|
 |**Domain Expertise**| High (expert in sustainability and environmental impact)|
-|**Data Literacy**| Medium (comfortable with data but not an expert)|
+|**Data Literacy**| Medium to High (comfortable with data and analysis, but not a technical data expert)|
 |**Technical Environment**| Desktop computer with a large monitor for analysis, but manages everything via cloud tools on her tablet and phone while agile working.|
 |**Frequency of Use**| Daily (for monitoring and reporting purposes)|
 
-Laura lifes in a minimalistic, shared apartment in Zurich-West, filled with upcycled furniture and numerous indoor plants. She commutes daily by bicycle or train, valuing the physical activity and the emission consequences travel. Sundays are spent hiking in the Alps, combining her love for nature with physical challenge. She speaks fluent English and professional German. Curreently she is trying to learn some basic Swiss German to better connect with her local colleagues and stakeholders.
+Laura lives in a minimalistic, shared apartment in Zurich-West, filled with upcycled furniture and numerous indoor plants. She commutes daily by bicycle or train, valuing the physical activity and the emission consequences travel. Sundays are spent hiking in the Alps, combining her love for nature with physical challenge. She speaks fluent English and professional German. Currently she is trying to learn some basic Swiss German to better connect with her local colleagues and stakeholders.
 
 She joined the company 1.5 years ago as a Senior Sustainability Analyst and was promoted to Manager 4 months ago due to her ambition and early successes in automating initial reporting workflows. She expects tools to work instantly. A clunky, buggy software experience causes her immediate frustration. Her philosophy is: "Let the data flow, then let the analysis begin." 
 
@@ -211,25 +208,26 @@ It is the end of the year, and Laura needs to prepare the annual sustainability 
 
 **The Action:**
 
-Instead of spending days manually collecting Excel sheets from different departments and building complex pivot tables, Laura opens the Analysis & Reports page of the Business Travel Dashboard on her desktop monitor. She uses the year and subunit filters to explore the company's total carbon footprint across different dimensions.
+Instead of spending days manually collecting Excel sheets from different departments and building complex pivot tables, Laura opens the Analysis page of the Business Travel Dashboard on her desktop monitor. She uses the year and subunit filters to explore the company's total carbon footprint across different dimensions.
 
 **The Insight (How the dashboard helps):**
 
-- **Long-term trend at a glance:** The cumulative CO₂ emissions line chart immediately shows her how the company's total emissions have developed since 2017 — including the visible dip during the pandemic years and the recovery afterwards.
-- **Transport mode breakdown:** The CO₂ emissions by transport mode chart reveals that flights account for the vast majority of emissions despite being used less frequently than trains — a striking insight that is easy to communicate to the board.
-- **Budget compliance overview:** The CO₂ budget limit chart shows her at a glance which subunits have consistently used a high proportion of their annual budget, allowing her to identify where policy interventions are most needed.
-- **Travel purpose detail:** The detailed travel purpose breakdown (showing both percentage and absolute counts) helps her identify which trip categories are driving emissions and whether those trips could be substituted with remote alternatives.
-- **Single-year view:** She switches to the single-year CO₂ chart to show how emissions accumulated month by month against the budget threshold — a compelling visual for demonstrating near-limit situations to senior leadership.
+- **Single-year view:** She starts with the single-year CO₂ chart to show how emissions accumulated month by month against the budget threshold — a compelling visual for demonstrating near-limit situations to senior leadership.
+- **Transport mode breakdown:** The CO₂ emissions by transport mode chart reveals that flights account for the vast majority of emissions and are also the most frequently used transport mode — making the case for a train-first policy clear and easy to communicate to the board.
+- **Long-term trend at a glance:** The cumulative CO₂ emissions line chart shows her how the company's total emissions have developed since 2020 — including the visible dip during the pandemic years and the recovery afterwards.
+- **Forward-looking view:** The prediction chart projects emissions for the next three years based on recent trends, giving her a data-backed basis for proposing new reduction targets to the board.
+- **Budget compliance overview:** The CO₂ budget compliance section shows her, per year, how much of the annual budget was used, allowing her to identify where policy interventions are most needed.
+- **Travel purpose detail:** The travel purpose breakdown helps her identify which trip categories are driving emissions and whether those trips could be substituted with remote alternatives.
 
 **The Outcome:**
 
-Laura exports the charts she needs directly from the dashboard and pastes them into her board presentation. The dashboard saved her days of manual data preparation. In the board meeting, she confidently uses the transport mode breakdown and budget compliance charts to argue for a strengthened train-first policy for all routes under 400 km, backed by clear and undeniable visual evidence.
+Laura exports the charts she needs directly from the dashboard and pastes them into her board presentation. The dashboard saved her days of manual data preparation. In the board meeting, she confidently uses the transport mode breakdown, the prediction chart, and the budget compliance section to argue for a strengthened train-first policy for all routes under 400 km, backed by clear and undeniable visual evidence.
 
 
 ## <span style="color: #009a27;">Situation Assessment</span>
 Dataset:
 
-The dataset contains approcimately 25,000 business travel recorde with variables such as:
+The dataset contains approximately 25,000 business travel record with variables such as:
 
 - `date` - of travel
 - `transport_mode` - transport mode (e.g., flight, train, rental car, etc.)
@@ -237,6 +235,8 @@ The dataset contains approcimately 25,000 business travel recorde with variables
 - `CO2e` - estimated CO₂ emissions
 - `travel_purpose` - reason for the travel
 
+CO₂ budget data is available from 2020 to 2025; years 2017–2019 are therefore excluded from budget comparisons. 2026 is excluded as no data is available.
+ 
 Personnel:
 
 - Jasmin Fankhauser
@@ -265,35 +265,40 @@ The project will create a focused interactive dashboard with two separate pages,
 
 **Product form**: 
 
-The dashboard consists of two role-based pages — a Decision Overview page for the Head of HR and an Analysis & Reports page for the Sustainability Manager. Both pages are web-based and built with Streamlit. It is assumed that the travel options data is maintained and updated regularly by a responsible person within the company. In a real-world implementation, views could additionally be role-restricted by login.
+The dashboard consists of two role-based pages — a Decision Overview page for the Head of HR and an Analysis page for the Sustainability Manager. Both pages are web-based and built with Streamlit. It is assumed that the travel options data is maintained and updated regularly by a responsible person within the company. In a real-world implementation, views could additionally be role-restricted by login.
 
 **Page 1 — Decision Overview (Head of HR):**
 
-This page is designed for quick, operational decision-making based on current-year data. It includes a subunit filter and is fixed to the current year only, keeping the view focused and uncluttered.
+This page is designed for quick, operational decision-making based on current-year data. It includes a subunit filter and is fixed to the current year only, keeping the view focused and uncluttered. Alex uses this page to check a subunit's budget status whenever a travel request comes in.
 
-- A CO₂ budget gauge or progress bar per subunit showing how much of the annual CO₂ allocation has already been used (`CO2e`, subunit). This gives an immediate sense of budget status at a glance.
-- A travel cost summary displaying key cost figures for the current year, allowing the Head of HR to monitor spending across subunits.
-- A travel purpose pie chart showing the percentage breakdown of trips by purpose (`travel_purpose`). This helps identify whether trips are distributed as expected or whether certain categories are unexpectedly dominant.
-- A travel options comparison table showing available transport options for common routes (departure, destination, CO₂ emissions, cost), supporting informed policy decisions about which modes to recommend or restrict.
+- A CO₂ budget progress bar per subunit showing how much of the annual CO₂ allocation has already been used (`CO2e`, subunit). This gives an immediate sense of budget status at a glance.
+- A travel cost summary displaying the total travel costs for the current year for the selected subunit. Note: the `cost_CHF` field contains missing values in the raw data; cost totals are therefore based on available records only and may underestimate the true figure.
+- A travel options comparison table showing available transport options for a selected route (transport mode, number of past trips, average distance, average cost, average CO₂ emissions, and a recommendation flag for the cheapest and most environmentally friendly option), supporting informed approval decisions.
 
-**Page 2 — Analysis & Reports (Sustainability Manager):**
+**Page 2 — Analysis (Sustainability Manager):**
 
-This page supports in-depth exploration and reporting. It includes filters for year and subunit — applicable to all charts except where noted — and all charts are exportable for use in reports and presentations.
+This page supports in-depth exploration and reporting. It includes filters for year and subunit — applicable to all charts except where noted — and all charts are exportable for use in reports and presentations. The single-year CO₂ chart defaults to the current year when "All Years" is selected.
 
-- A cumulative CO₂ emissions line chart showing total emissions summed over all years (`date`, `CO2e`). This allows users to see the long-term progression of emissions, including the effect of external events such as the COVID-19 pandemic. Filterable by subunit.
+The left column presents a narrative progression from current state to long-term outlook:
+
 - A single-year CO₂ emissions line chart (Jan–Dec) with a horizontal budget limit line, showing how emissions accumulated over the course of one year relative to the annual threshold (`CO2e`, budget limit). Filterable by year and subunit.
-- A CO₂ emissions by transport mode chart showing the total emissions contribution of each transport mode (`transport_mode`, `CO2e`). This helps identify which modes drive the most emissions, even if they are used less frequently. Filterable by year and subunit.
-- Key performance indicators (KPIs) showing total number of trips, number of flights, and number of train journeys. Filterable by year and subunit.
-- A detailed travel purpose breakdown showing both percentage share and absolute counts per purpose (`travel_purpose`), giving more granular insight than the simplified view on Page 1. Filterable by year and subunit.
-- A CO₂ budget limit chart showing, per subunit and per year, how much of the annual budget was used (e.g. 50% in 2017, 80% in 2018). This makes it easy to spot trends in budget compliance across subunits over time.
-- A raw data table providing access to the underlying dataset for further manual analysis or verification.
+- A CO₂ emissions by transport mode bar chart showing the total emissions contribution of each transport mode (`transport_mode`, `CO2e`). Sorted from highest to lowest, this makes it immediately clear which modes drive the most emissions. Filterable by year and subunit.
+- A cumulative CO₂ emissions line chart showing total emissions summed over all years (`date`, `CO2e`). This allows users to see the long-term progression of emissions, including the effect of external events such as the COVID-19 pandemic. Filterable by subunit.
+- A CO₂ emissions prediction chart showing a linear trend forecast for the next three years based on historical data from 2022 onwards, helping users anticipate future emissions trajectories. Filterable by subunit.
+
+The right column provides KPIs and detailed breakdowns:
+
+- Key performance indicators (KPIs) showing total number of trips, number of flights, number of trains, number of buses, number of rental cars, and total CO₂ emissions. Filterable by year and subunit.
+- A detailed travel purpose breakdown (pie chart) showing percentage share per purpose (`travel_purpose`). Filterable by year and subunit.
+- A CO₂ budget compliance section showing, per year, how much of the annual budget was used, with colour-coded status indicators (within budget, critical, over budget).
+- A budget summary table showing, per year, the CO₂ budget, actual usage in tonnes, percentage used, and compliance status — filterable by subunit.
 - Export functionality allowing users to save individual charts for use in reports and presentations.
 
 Tooltips will show additional details on all charts where relevant.
 
 **Interactivity**:
 
-Page 1 (Decision Overview) includes a subunit filter and is fixed to the current year. Page 2 (Analysis & Reports) includes filters for year and subunit, applicable across all charts. Both pages include tooltips for additional detail. Page 2 additionally supports chart export for reporting purposes. These interactive features allow each user to focus on what is relevant to their role without being overwhelmed by unnecessary complexity.
+Page 1 (Decision Overview) includes a subunit filter and is fixed to the current year. Page 2 (Analysis) includes filters for year and subunit, applicable across all charts; the single-year CO₂ chart defaults to the current year when "All Years" is selected. Both pages include tooltips for additional detail. Page 2 additionally supports chart export for reporting purposes. These interactive features allow each user to focus on what is relevant to their role without being overwhelmed by unnecessary complexity.
 
 **Narrative and annotation**: 
 
@@ -305,7 +310,7 @@ The dashboard will be presented as a web-based prototype using Streamlit, viewab
 
 **Cognitive and analytical value**: 
 
-The two-page structure reduces cognitive load by ensuring each user only sees what is relevant to their role. The Decision Overview page allows the Head of HR to assess the situation and act quickly. The Analysis & Reports page supports deeper pattern recognition over time — identifying emission trends, budget compliance issues, and the environmental impact of different transport modes. Together the pages cover both operational and strategic information needs.
+The two-page structure reduces cognitive load by ensuring each user only sees what is relevant to their role. The Decision Overview page allows the Head of HR to assess the situation and act quickly. The Analysis page supports deeper pattern recognition over time — identifying emission trends, budget compliance issues, and the environmental impact of different transport modes. Together the pages cover both operational and strategic information needs.
 
 **Communicative value**: 
 

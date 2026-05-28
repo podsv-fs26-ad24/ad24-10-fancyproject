@@ -1,7 +1,6 @@
 # aktuellste version 03.05-26 bessseres als travel_dashboard
 import streamlit as st
 import pandas as pd
-import numpy as np
 import altair as alt
 from pathlib import Path
 from datetime import date
@@ -127,18 +126,24 @@ st.markdown(
         border: 1px solid rgba(0,0,0,0.15) !important;
         border-radius: 6px !important;
         box-shadow: 0 2px 8px rgba(0,0,0,0.18) !important;
+        padding: 1px !important;        /* ← slimmer frame around icon */
+        width: 24px !important;         /* ← tighter button size */
+        height: 24px !important;
     }
 
-    [data-testid="stElementToolbar"] button:hover {
-        background: white !important;
-    }
-
-    [data-testid="stElementToolbar"] svg,
-    [data-testid="stElementToolbar"] svg *,
-    [data-testid="stElementToolbar"] path {
+    [data-testid="stElementToolbar"] svg {
+        width: 18px !important;
+        height: 18px !important;
         color: #111827 !important;
-        fill: #111827 !important;
+    }
+
+    [data-testid="stElementToolbar"] svg path,
+    [data-testid="stElementToolbar"] svg polyline,
+    [data-testid="stElementToolbar"] svg line,
+    [data-testid="stElementToolbar"] svg rect,
+    [data-testid="stElementToolbar"] svg circle {
         stroke: #111827 !important;
+        fill: none !important;         /* ← let the icon be an outline, not a blob */
     }
 
     .vega-actions {
@@ -192,10 +197,10 @@ st.markdown(
     }
 
     .budget-card {
-        background: rgba(255,255,255,0.06);
-        border: 1px solid rgba(255,255,255,0.12);
-        border-radius: 18px;
-        padding: 24px 26px;
+        background: rgba(255,255,255,0.018);
+        # border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 14px;
+        padding: 16px 18px;
         margin-bottom: 18px;
     }
 
@@ -247,13 +252,20 @@ st.markdown(
         text-align: right;
     }
 
+    # .cost-box {
+    #     background: #49852f;
+    #     border-radius: 14px;
+    #     padding: 18px 22px;
+    #     margin-top: 18px;
+    #     margin-bottom: 18px;
+    #     box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+    # }
     .cost-box {
-        background: #49852f;
+        background: rgba(255,255,255,0.018);
         border-radius: 14px;
-        padding: 18px 22px;
+        padding: 16px 18px;
         margin-top: 18px;
         margin-bottom: 18px;
-        box-shadow: 0 4px 18px rgba(0,0,0,0.18);
     }
 
     .cost-label {
@@ -263,7 +275,7 @@ st.markdown(
     }
 
     .cost-value {
-        font-size: 30px;
+        font-size: 38px;
         font-weight: 800;
     }
 
@@ -294,7 +306,7 @@ st.markdown(
 
     .analysis-metric-card {
         background: rgba(255,255,255,0.06);
-        border: 1px solid rgba(255,255,255,0.12);
+        border: 1px solid rgba(255,255,255,0.18);
         border-radius: 12px;
         padding: 14px 16px;
     }
@@ -352,6 +364,19 @@ st.markdown(
         margin-top: 0.6rem;
         margin-bottom: 0.8rem;
     }
+
+    /* remove ghost boxes from widget wrappers only */
+    [data-testid="stWidgetLabel"],
+    [data-testid="stWidgetLabel"] > div,
+    [data-testid="stElementToolbar"] + div,
+    .stSelectbox > div:first-child,
+    [data-testid="stMarkdownContainer"] > div:empty,
+    [data-testid="element-container"]:empty {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
     </style>
     """,
     unsafe_allow_html=True,
@@ -451,9 +476,13 @@ def get_bar_color(pct):
 def altair_theme():
     return {
         "config": {
-            # "background": "#032d73",
-            "background": "#1e293b3d",
-            "view": {"stroke": "transparent"},
+            #"background": "#032d73",
+            #"background": "#1e293b3d"
+            "background": "#172133",
+            "view": {
+                "stroke": "transparent",
+                "fill": "#172133",
+                },
             "axis": {
                 "labelColor": "white",
                 "titleColor": "white",
@@ -492,7 +521,7 @@ year_options = ["All"] + sorted([y for y in df["year"].dropna().unique().tolist(
 subunit_options = ["All"] + sorted(df["subunit"].dropna().unique().tolist())
 all_departures = ["All"] + sorted(df["departure_iata"].dropna().unique().tolist())
 all_arrivals = ["All"] + sorted(df["arrival_iata"].dropna().unique().tolist())
-used_co2 = 0
+#used_co2 = 0
 
 # =========================
 # HEADER
@@ -536,7 +565,7 @@ if st.session_state.dashboard_view == "Overview":
     filter_col, spacer = st.columns([1.25, 4.75])
 
     with filter_col:
-        subunit = st.selectbox("choose subunit", subunit_options, index=0)
+        subunit = st.selectbox("Choose Subunit", subunit_options, index=0)
 
     overview_df = df[df["year"] == current_year].copy()
 
@@ -545,6 +574,8 @@ if st.session_state.dashboard_view == "Overview":
 
     used_co2 = overview_df["CO2e RFI2.7 (t)"].sum()
     travel_cost = overview_df["cost_CHF"].sum()
+    total_company_cost = df[df["year"] == current_year]["cost_CHF"].sum()
+    subunit_share = (travel_cost / total_company_cost * 100) if total_company_cost > 0 else 0
     budget = get_budget(budgets, subunit, current_year)
     usage_pct = (used_co2 / budget * 100) if budget and budget > 0 else None
     
@@ -568,20 +599,13 @@ if st.session_state.dashboard_view == "Overview":
             budget_html = f"""
             <div class="budget-card">
                 <div class="budget-title" style="margin-bottom: 10px;">CO₂ Budget</div>
-                <div style="display: flex; align-items: center; margin-bottom: 18px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.85);">
-                    <div style="width: 3px; height: 14px; background-color: #ffffff; box-shadow: 0 0 4px rgba(0,0,0,0.5); margin-right: 8px;"></div>
-                    <span>= 100% Budget Limit</span>
+                <div style="position:relative; height:18px; margin-bottom:4px;">
+                    <div style="position:absolute; left:{marker_pos}%; transform:translateX(-50%); font-size:11px; font-weight:700; color:white; white-space:nowrap; text-shadow:0 1px 3px rgba(0,0,0,0.8);">100%</div>
                 </div>
                 <div class="progress-bg">
                     <div class="progress-fill" style="width: {progress_width}%; background: {progress_color};"></div>
-                    <div class="budget-marker" style="left: {marker_pos}%;" title="100% Budgetlimit"></div>
-                </div>
-                <div class="budget-row">
-                    <div class="budget-percent">{format_percent(usage_pct)}</div>
-                    <div class="budget-detail">
-                        Budget used<br>
-                        {format_tonnes(used_co2)} out of {format_tonnes(budget)}
-                    </div>
+                    <div class="budget-marker" style="left: {marker_pos}%;" title="100% Budget limit"></div>
+                    <div style="position:absolute; left:12px; top:50%; transform:translateY(-50%); font-size:20px; font-weight:800; color:white; text-shadow:0 1px 3px rgba(0,0,0,0.5);">{format_percent(usage_pct)}</div>
                 </div>
             </div>
             """
@@ -591,63 +615,25 @@ if st.session_state.dashboard_view == "Overview":
         else:
             st.warning("For this subunit, no CO₂ budget was found for the year 2025.")
 
+        if subunit != "All":
+            cost_context = f"{subunit_share:.1f}% of total company travel costs"
+        else:
+            cost_context = "Total company travel costs"
+
         st.markdown(
             f"""
             <div class="cost-box">
                 <div class="cost-label">Travel Costs</div>
-                <div class="cost-value">{format_chf(travel_cost)}</div>
+                <div style="display:flex; align-items:baseline; gap:18px;">
+                    <div class="cost-value">{format_chf(travel_cost)}</div>
+                    <div style="font-size:18px; font-weight:600; opacity:0.75; padding-left:24px;">
+                        {cost_context}
+                    </div>
+                </div>
             </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
-        st.markdown('<div class="section-title">Travel Purposes</div>', unsafe_allow_html=True)
-
-        purpose = (
-            overview_df.groupby("travel_purpose", as_index=False)
-            .size()
-            .rename(columns={"size": "Count"})
-            .sort_values("Count", ascending=False)
-        )
-
-        if purpose.empty:
-            st.info("No travel data available for this selection.")
-        else:
-            purpose["Label"] = purpose["travel_purpose"].str.replace("_", " ").str.title()
-
-            # Prozentwerte berechnen
-            total_count = purpose["Count"].sum()
-            purpose["Percent"] = purpose["Count"] / total_count * 100
-            # Nur Werte > 3% anzeigen
-            purpose["Percent_Label"] = purpose["Percent"].apply(lambda x: f"{x:.0f}%" if x > 3 else "")
-
-            # Basis-Chart
-            base = alt.Chart(purpose).encode(
-                theta=alt.Theta("Count:Q", stack=True),
-                color=alt.Color(
-                    "Label:N",
-                    scale=alt.Scale(scheme="tableau10"
-                        ),
-                    legend=alt.Legend(title=None, orient="right"),
-                ),
-                tooltip=[
-                    alt.Tooltip("Label:N", title="Travel Purpose"),
-                    alt.Tooltip("Count:Q", format=",.0f"),
-                    alt.Tooltip("Percent:Q", title="Anteil (%)", format=".1f"),
-                ],
-            )
-
-            # Schichten übereinanderlegen
-            pie = base.mark_arc(innerRadius=0)
-            text = base.mark_text(radius=85, fontSize=13, fontWeight="bold", fill="white").encode(
-                text=alt.Text("Percent_Label:N")
-            )
-
-            final_pie = (pie + text).properties(height=290)
-
-            st.altair_chart(final_pie, use_container_width=True)
-
-        panel_end()
+        """,
+        unsafe_allow_html=True,
+    )
 
     with right:
         panel_start("Travel Options")
@@ -701,10 +687,10 @@ if st.session_state.dashboard_view == "Overview":
 
             summary["Option"] = summary["transport_mode"].replace(
                 {
-                    "flight": "Flug",
-                    "train": "Zug",
+                    "flight": "Flight",
+                    "train": "Train",
                     "bus": "Bus",
-                    "rental_car": "Mietwagen",
+                    "rental_car": "Rental Car",
                 }
             )
 
@@ -727,7 +713,7 @@ if st.session_state.dashboard_view == "Overview":
 
             show_df = summary[
                 ["Option", "trips", "Ø distance", "Ø cost", "Ø CO₂", "recommendation"]
-            ].rename(columns={"trips": "Anzahl Reisen"})
+            ].rename(columns={"trips": "Number of Trips"})
 
             st.dataframe(show_df, use_container_width=True, hide_index=True)
 
@@ -740,10 +726,10 @@ else:
     filter_col1, filter_col2, spacer = st.columns([1.2, 1.4, 3.4])
 
     with filter_col1:
-        analysis_year = st.selectbox("choose Year", year_options, index=0)
+        analysis_year = st.selectbox("Choose Year", year_options, index=0)
 
     with filter_col2:
-        analysis_subunit = st.selectbox("choose Subunit", subunit_options, index=0)
+        analysis_subunit = st.selectbox("Choose Subunit", subunit_options, index=0)
 
     analysis_df = df[df["year"] <= max_analysis_year].copy()
 
@@ -756,8 +742,126 @@ else:
     left, right = st.columns([1.15, 1], gap="large")
 
     with left:
-        panel_start("")
+        st.markdown('<div class="section-panel">', unsafe_allow_html=True)
 
+        if analysis_year == "All":
+            line_year = current_year
+        else:
+            line_year = int(analysis_year)
+
+        # ── Block 1: cumulative current year ──────────────────────────────
+        line_df = df[(df["year"] == line_year) & (df["year"] <= max_analysis_year)].copy()
+
+        if analysis_subunit != "All":
+            line_df = line_df[line_df["subunit"] == analysis_subunit]
+
+        line_df = (
+            line_df.groupby("month", as_index=False)
+            .agg(monthly_co2=("CO2e RFI2.7 (t)", "sum"))
+            .sort_values("month")
+        )
+
+        if line_df.empty:
+            st.info("No data available for the yearly trend.")
+        else:
+            all_months = pd.DataFrame(
+                {"month": pd.date_range(start=f"{line_year}-01-01", end=f"{line_year}-12-01", freq="MS")}
+            )
+            line_df = all_months.merge(line_df, on="month", how="left")
+            line_df["monthly_co2"] = line_df["monthly_co2"].fillna(0)
+            line_df["cumulative_co2"] = line_df["monthly_co2"].cumsum()
+
+            line_budget = get_budget(budgets, analysis_subunit, line_year)
+
+            co2_line = (
+                alt.Chart(line_df)
+                .mark_line(point=alt.OverlayMarkDef(color="white", size=30, filled=True), strokeWidth=2, color="#ffa73a")
+                .encode(
+                    x=alt.X("month:T", title="Month", axis=alt.Axis(format="%b", labelAngle=0)),
+                    y=alt.Y("cumulative_co2:Q", title="Cumulative CO₂ Emissions (t)"),
+                    tooltip=[
+                        alt.Tooltip("month:T", title="Month", format="%b %Y"),
+                        alt.Tooltip("monthly_co2:Q", title="CO₂ in Month (t)", format=",.1f"),
+                        alt.Tooltip("cumulative_co2:Q", title="CO₂ Cumulative (t)", format=",.1f"),
+                    ],
+                )
+            )
+
+            if line_budget and line_budget > 0:
+                budget_rule_data = pd.DataFrame({"budget": [line_budget]})
+                budget_rule = (
+                    alt.Chart(budget_rule_data)
+                    .mark_rule(color="#dc2626", strokeWidth=3, strokeDash=[6, 4])
+                    .encode(y="budget:Q", tooltip=[alt.Tooltip("budget:Q", title="Budget limit (t)", format=",.1f")])
+                )
+                budget_label = (
+                    alt.Chart(budget_rule_data)
+                    .mark_text(align="left", baseline="bottom", dy=-6, color="#dc2626", fontWeight=600, fontSize=13)
+                    .encode(y="budget:Q", x=alt.value(10), text=alt.value(f'Budget limit {line_budget:,.1f} t'))
+                )
+                line_chart = (co2_line + budget_rule + budget_label).properties(
+                    title=f"Cumulative CO₂ Emissions {line_year} – {analysis_subunit}", height=330
+                )
+            else:
+                line_chart = co2_line.properties(
+                    title=f"Cumulative CO₂ Emissions {line_year} – {analysis_subunit}", height=330
+                )
+
+            st.altair_chart(line_chart, use_container_width=True)
+
+        st.markdown('<div style="height:18px;"></div>', unsafe_allow_html=True)
+
+        # ── Block 2: CO₂ by transport mode ───────────────────────────────
+        mode_df = df[df["year"] <= max_analysis_year].copy()
+
+        if analysis_year != "All":
+            mode_df = mode_df[mode_df["year"] == int(analysis_year)]
+
+        if analysis_subunit != "All":
+            mode_df = mode_df[mode_df["subunit"] == analysis_subunit]
+
+        mode_co2 = (
+            mode_df.groupby("transport_mode", as_index=False)
+            .agg(total_co2=("CO2e RFI2.7 (t)", "sum"), trip_count=("transport_mode", "size"))
+            .sort_values("total_co2", ascending=False)
+        )
+
+        mode_co2["Label"] = mode_co2["transport_mode"].replace({
+            "flight": "Flight",
+            "train": "Train",
+            "bus": "Bus",
+            "rental_car": "Rental Car",
+        })
+
+        if mode_co2.empty:
+            st.info("No transport mode data available for this selection.")
+        else:
+            mode_chart = (
+                alt.Chart(mode_co2)
+                .mark_bar(cornerRadiusTopLeft=4, cornerRadiusTopRight=4)
+                .encode(
+                    x=alt.X("Label:N", title="Transport Mode", sort="-y", axis=alt.Axis(labelAngle=0)),
+                    y=alt.Y("total_co2:Q", title="Total CO₂ Emissions (t)"),
+                    color=alt.Color(
+                        "Label:N",
+                        scale=alt.Scale(
+                            domain=["Flight", "Train", "Bus", "Rental Car"],
+                            range=["#e05252", "#2cb67a", "#ffa73a", "#63acff"]
+                        ),
+                        legend=None,
+                    ),
+                    tooltip=[
+                        alt.Tooltip("Label:N", title="Transport Mode"),
+                        alt.Tooltip("total_co2:Q", title="Total CO₂ (t)", format=",.1f"),
+                        alt.Tooltip("trip_count:Q", title="Number of Trips", format=","),
+                    ],
+                )
+                .properties(title=f"CO₂ Emissions by Transport Mode – {analysis_subunit}", height=280)
+            )
+
+            st.altair_chart(mode_chart, use_container_width=True)
+
+        # ── Block 3: cumulative over all years ────────────────────────────
         cumulative_df = df[df["year"] <= max_analysis_year].copy()
 
         if analysis_subunit != "All":
@@ -775,7 +879,6 @@ else:
             all_years = pd.DataFrame(
                 {"year": list(range(int(df["year"].min()), max_analysis_year + 1))}
             )
-
             yearly_co2 = all_years.merge(yearly_co2, on="year", how="left")
             yearly_co2["yearly_co2"] = yearly_co2["yearly_co2"].fillna(0)
             yearly_co2["cumulative_co2"] = yearly_co2["yearly_co2"].cumsum()
@@ -788,123 +891,12 @@ else:
                     y=alt.Y("cumulative_co2:Q", title="Cumulative CO₂ Emissions (t)"),
                     tooltip=["year", "yearly_co2", "cumulative_co2"]
                 )
-                .properties(
-                    title="Cumulative CO₂ Emissions over the Years",
-                    height=300,
-                    background="#1e293b3d"
-                )
+                .properties(title="Cumulative CO₂ Emissions over the Years", height=300)
             )
 
             st.altair_chart(cumulative_chart, use_container_width=True)
 
         st.markdown('<div style="height:18px;"></div>', unsafe_allow_html=True)
-
-        if analysis_year == "All":
-            line_year = current_year
-        else:
-            line_year = int(analysis_year)
-
-        line_df = df[(df["year"] == line_year) & (df["year"] <= max_analysis_year)].copy()
-
-        if analysis_subunit != "All":
-            line_df = line_df[line_df["subunit"] == analysis_subunit]
-
-        line_df = (
-            line_df.groupby("month", as_index=False)
-            .agg(monthly_co2=("CO2e RFI2.7 (t)", "sum"))
-            .sort_values("month")
-        )
-
-        if line_df.empty:
-            st.info("No data available for the yearly trend.")
-        else:
-            all_months = pd.DataFrame(
-                {
-                    "month": pd.date_range(
-                        start=f"{line_year}-01-01",
-                        end=f"{line_year}-12-01",
-                        freq="MS",
-                    )
-                }
-            )
-
-            line_df = all_months.merge(line_df, on="month", how="left")
-            line_df["monthly_co2"] = line_df["monthly_co2"].fillna(0)
-            line_df["cumulative_co2"] = line_df["monthly_co2"].cumsum()
-
-            line_budget = get_budget(budgets, analysis_subunit, line_year)
-
-            
-            co2_line = (
-                alt.Chart(line_df)
-                .mark_line(point=alt.OverlayMarkDef(color="white", size=30, filled=True), strokeWidth=2, color="#ffa73a")
-                .encode(
-                    x=alt.X(
-                        "month:T", 
-                        title="Month", 
-                        axis=alt.Axis(
-                            format="%b",      
-                            labelAngle=0      
-                        )
-                    ),
-                    y=alt.Y("cumulative_co2:Q", title="Cumulative CO₂ Emissions (t)"),
-                    tooltip=[
-                        alt.Tooltip("month:T", title="Month", format="%b %Y"),
-                        alt.Tooltip("monthly_co2:Q", title="CO₂ in Month (t)", format=",.1f"),
-                        alt.Tooltip("cumulative_co2:Q", title="CO₂ Cumulative (t)", format=",.1f"),
-                    ],
-                )
-            )
-
-            if line_budget and line_budget > 0:
-                budget_rule_data = pd.DataFrame({"budget": [line_budget]})
-
-                budget_rule = (
-                    alt.Chart(budget_rule_data)
-                    .mark_rule(color="#dc2626", strokeWidth=3, strokeDash=[6, 4])
-                    .encode(
-                        y="budget:Q",
-                        tooltip=[
-                            alt.Tooltip("budget:Q", title="Budgetlimit (t)", format=",.1f")
-                        ],
-                    )
-                )
-
-                budget_label = (
-                    alt.Chart(budget_rule_data)
-                    .mark_text(
-                        align="left", 
-                        baseline="bottom", 
-                        dy=-6,       
-                        color="#dc2626", 
-                        fontWeight=600,
-                        fontSize=13
-                    )
-                    .encode(
-                        y="budget:Q",
-                        x=alt.value(10),   
-                        text=alt.value(f'Budgetlimit {line_budget:,.1f} t')
-                    )
-                )
-
-
-                line_chart = (
-                    (co2_line + budget_rule + budget_label)
-                    .properties(
-                        title=f"Cumulative CO₂ Emissions {line_year} – {analysis_subunit}",
-                        height=330,
-                    )
-                )
-            else:
-                line_chart = (
-                    co2_line
-                    .properties(
-                        title=f"Cumulative CO₂ Emissions {line_year} – {analysis_subunit}",
-                        height=330,
-                    )
-                )
-
-            st.altair_chart(line_chart, use_container_width=True)
 
         # ==========================================
         # PREDICTION
@@ -994,11 +986,9 @@ else:
         else:
             st.info("Not enough historical data to generate a prediction. At least 2 years of data are required.")
         
-# ================================ Prediction End ===========================================
-
         panel_end()
 
-
+# ================================ Prediction End ===========================================
 
     with right:
         context_year = "All Years" if analysis_year == "All" else str(analysis_year)
@@ -1076,7 +1066,7 @@ else:
                 tooltip=[
                     alt.Tooltip("Label:N", title="Travel Purpose"),
                     alt.Tooltip("Number:Q", format=",.0f"),
-                    alt.Tooltip("Percent:Q", title="Anteil (%)", format=".1f"),
+                    alt.Tooltip("Percent:Q", title="Share (%)", format=".1f"),
                 ],
             )
 
@@ -1089,16 +1079,7 @@ else:
 
             st.altair_chart(final_analysis_pie, use_container_width=True)
 
-        st.markdown(
-            """
-            <div class="section-title">CO₂ Budgetlimits</div>
-            <div style="display: flex; align-items: center; margin-bottom: 18px; margin-top: -4px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.85);">
-                <div style="width: 3px; height: 14px; background-color: #ffffff; box-shadow: 0 0 4px rgba(0,0,0,0.5); margin-right: 8px;"></div>
-                <span>= 100% Limit</span>
-            </div>
-            """, 
-            unsafe_allow_html=True
-        )
+        st.markdown('<div class="section-title">CO₂ Budget Limits</div>', unsafe_allow_html=True)
 
         budget_years = sorted([y for y in budgets["year"].dropna().unique().tolist() if y <= max_analysis_year])
         
@@ -1114,6 +1095,8 @@ else:
                 temp_pct = (temp_used / temp_budget) * 100
                 if temp_pct > global_max_pct:
                     global_max_pct = temp_pct
+
+        marker_pos = (100.0 / global_max_pct) * 100
                     
         # --------------------------------------------------------------------
 
@@ -1142,13 +1125,16 @@ else:
                 bar_color = get_bar_color(year_pct)
                 
                 # HTML für die Zeile generieren
+                show_label = len(budget_rows_html) == 0
+                label = f"<div style='position:absolute;top:-16px;left:{marker_pos}%;transform:translateX(-50%);font-size:10px;font-weight:700;color:white;white-space:nowrap;text-shadow:0 1px 3px rgba(0,0,0,0.8);'>100%</div>" if show_label else ""
+
                 budget_rows_html.append(
                     f"""
                     <div class="budget-history-row">
                         <div class="budget-history-year">{int(budget_year)}</div>
                         <div class="budget-history-bg">
                             <div class="budget-history-fill" style="width:{year_width}%; background:{bar_color};"></div>
-                            <div class="budget-marker" style="left:{marker_pos}%;" title="100% Limit"></div>
+                            <div class="budget-marker" style="left:{marker_pos}%;"></div>
                         </div>
                         <div class="budget-history-percent">{percent_text}</div>
                         <div class="budget-status" style="font-size: 1.2rem;" title="{status_text}">{status_icon}</div>
@@ -1168,6 +1154,14 @@ else:
 
         # Die gefilterten Balken anzeigen
         if budget_rows_html:
+            st.markdown(
+                f"<div style='display:grid;grid-template-columns:55px 1fr 70px 34px;gap:12px;margin-bottom:2px;'>"
+                f"<div></div>"
+                f"<div style='position:relative;height:14px;'>"
+                f"<div style='position:absolute;left:{marker_pos}%;transform:translateX(-50%);font-size:11px;font-weight:700;color:white;white-space:nowrap;text-shadow:0 1px 3px rgba(0,0,0,0.8);'>100%</div>"
+                f"</div><div></div><div></div></div>",
+                unsafe_allow_html=True
+            )
             st.markdown("".join(budget_rows_html), unsafe_allow_html=True)
         else:
             st.info("No budget data available for the selected filters.")
