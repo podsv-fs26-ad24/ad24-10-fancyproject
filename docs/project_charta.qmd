@@ -3,7 +3,7 @@
 Business travel is common in many companies. Employees travel for meetings, conferences, or to work with colleagues in other locations. However, business travel, especially flights, also produces CO₂ emissions, which has an impact on the environment.
 
 In this project, we will analyse and visualize a dataset about business travel. The dataset includes information about transport mode, travel distance, travel purpose, and estimated CO₂ emissions.
-The dataset covers business trips from 2017 to early 2026 and represents travel activities within one company with several business units.
+The dataset covers business trips from 2017 to 2025. The file includes 2026 but contains no travel entries for that year yet. It represents travel activities within one company with several business units.
 
 The goal of this project is to create an interactive dashboard that helps users understand:
 
@@ -54,39 +54,83 @@ Quantitative success criteria:
 | Stakeholder | Project Role | Goals and Interests | Power | Interest |
 | :--- | :--- | :--- | :--- | :--- |
 | **Laura Smith (Sustainability Manager / SM)** | Primary User | Needs accurate data to monitor corporate CO₂ targets, generate annual reports, and justify new sustainable travel policies. | High | High |
-| **Alex Hauser (Head of HR / HR)** | Primary User | Holds formal authority over the company's travel policy. Sets CO₂ budgets per subunit, decides on permitted transport modes, and enforces compliance. Needs a clear, up-to-date overview to make timely and justifiable policy decisions. | High | High |
-| **Business Unit Manager** | Key User | Wants to balance financial travel budgets with allocated CO₂ limits while maintaining team productivity. | High | High |
-| **Management** | Project Sponsors | Focused on overarching corporate goals, achieving ESG mandates, and reducing overall business costs. | High | Medium |
-| **Employees**| Affected Group | Directly impacted by travel policies derived from the dashboard. Interested in transparency and efficient routes. | Low | High |
+| **Alex Hauser (Head of HR / HHR)** | Primary User | Holds formal authority over the company's travel policy. Sets CO₂ budgets per subunit, decides on permitted transport modes, and enforces compliance. Needs a clear, up-to-date overview to make timely and justifiable policy decisions. | High | High |
 | **IT / Web-Administration** | Support and Infrastructure | Responsible for the technical integration of the dashboard into the company’s website. Focused on security and stability. | High | Low |
 | **Project Team** | Creators and Developers | Goal is to successfully clean the data, build an intuitive dashboard, and meet the project requirements. | Medium | High |
+| **Management** | Project Sponsors | Focused on overarching corporate goals, achieving ESG mandates, and reducing overall business costs. | Medium | Medium |
+| **Business Unit Manager (BUM)** | Secondary Stakeholder | Wants to balance financial travel budgets with allocated CO₂ limits while maintaining team productivity. Receives relevant insights indirectly through the HR Head and Sustainability Manager rather than accessing the dashboard directly. | Low | High |
+| **Employees**| Affected Group | Directly impacted by travel policies derived from the dashboard. Interested in transparency and efficient routes. | Low | High |
 | **Travel Agency** | Data Provider (External) | Processes bookings and provides raw data. No direct interest in the internal visualization. | Low | Low |
 
-```{mermaid}
-%%{init: {"theme": "base", "themeVariables": {"quadrant1Fill": "#b1facc", "quadrant2Fill": "#bbdcff", "quadrant3Fill": "#ffb9b9" , "quadrant4Fill": "#ffffb7"}}}%%
-quadrantChart
-    title Stakeholder Matrix
-    x-axis "Low interest" --> "High interest"
-    y-axis "Low Power" --> "High Power"
-
-    "SM": [0.95, 0.85]
-    "Management": [0.52, 0.90]
-    "Project Team": [0.75, 0.50]
-    "IT / Web-Admin": [0.25, 0.90]
-    "Employee": [0.80, 0.10]
-    "Travel Agency": [0.10, 0.10]
-    "HR": [0.90, 0.80]
-
+```{=html}
+<div style="font-family: sans-serif; padding: 1rem 0;">
+  <div style="font-size: 18px; font-weight: 500; text-align: center; margin-bottom: 1.5rem;">Stakeholder matrix</div>
+  <div style="display: flex; align-items: stretch; gap: 8px;">
+    <div style="display: flex; flex-direction: column; justify-content: space-around; align-items: center; padding-bottom: 32px;">
+      <span style="font-size: 11px; color: gray; writing-mode: vertical-rl; transform: rotate(180deg); letter-spacing: 0.05em;">HIGH POWER</span>
+      <span style="font-size: 11px; color: gray; writing-mode: vertical-rl; transform: rotate(180deg); letter-spacing: 0.05em;">MEDIUM POWER</span>
+      <span style="font-size: 11px; color: gray; writing-mode: vertical-rl; transform: rotate(180deg); letter-spacing: 0.05em;">LOW POWER</span>
+    </div>
+    <div style="flex: 1;">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-bottom: 3px;">
+        <div style="background: #185FA5; border-radius: 6px; padding: 10px; min-height: 100px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;">
+          <div style="font-size: 10px; color: #fff; text-align: center; opacity: 0.85; margin-bottom: 2px;">High / Low interest</div>
+          <span style="font-size: 12px; font-weight: 500; background: rgba(255,255,255,0.45); border-radius: 4px; padding: 2px 8px; color: #042C53;">IT / Web-Admin</span>
+        </div>
+        <div style="background: #2db8a0; border-radius: 6px; padding: 10px; min-height: 100px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;">
+          <div style="font-size: 10px; color: #fff; text-align: center; opacity: 0.85; margin-bottom: 2px;">High / Medium interest</div>
+        </div>
+        <div style="background: #3B6D11; border-radius: 6px; padding: 10px; min-height: 100px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;">
+          <div style="font-size: 10px; color: #fff; text-align: center; opacity: 0.85; margin-bottom: 2px;">High / High interest</div>
+          <span style="font-size: 12px; font-weight: 500; background: rgba(255,255,255,0.45); border-radius: 4px; padding: 2px 8px; color: #173404;">SM</span>
+          <span style="font-size: 12px; font-weight: 500; background: rgba(255,255,255,0.45); border-radius: 4px; padding: 2px 8px; color: #173404;">HHR</span>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-bottom: 3px;">
+        <div style="background: #8B5BAE; border-radius: 6px; padding: 10px; min-height: 100px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;">
+          <div style="font-size: 10px; color: #fff; text-align: center; opacity: 0.85; margin-bottom: 2px;">Medium / Low interest</div>
+        </div>
+        <div style="background: #b8906e; border-radius: 6px; padding: 10px; min-height: 100px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;">
+          <div style="font-size: 10px; color: #fff; text-align: center; opacity: 0.85; margin-bottom: 2px;">Medium / Medium interest</div>
+          <span style="font-size: 12px; font-weight: 500; background: rgba(255,255,255,0.45); border-radius: 4px; padding: 2px 8px; color: #3d2000;">Management</span>
+        </div>
+        <div style="background: #7aab3a; border-radius: 6px; padding: 10px; min-height: 100px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;">
+          <div style="font-size: 10px; color: #fff; text-align: center; opacity: 0.85; margin-bottom: 2px;">Medium / High interest</div>
+          <span style="font-size: 12px; font-weight: 500; background: rgba(255,255,255,0.45); border-radius: 4px; padding: 2px 8px; color: #173404;">Project Team</span>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-bottom: 8px;">
+        <div style="background: #A32D2D; border-radius: 6px; padding: 10px; min-height: 100px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;">
+          <div style="font-size: 10px; color: #fff; text-align: center; opacity: 0.85; margin-bottom: 2px;">Low / Low interest</div>
+          <span style="font-size: 12px; font-weight: 500; background: rgba(255,255,255,0.45); border-radius: 4px; padding: 2px 8px; color: #501313;">Travel Agency</span>
+        </div>
+        <div style="background: #d47a2a; border-radius: 6px; padding: 10px; min-height: 100px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;">
+          <div style="font-size: 10px; color: #fff; text-align: center; opacity: 0.85; margin-bottom: 2px;">Low / Medium interest</div>
+        </div>
+        <div style="background: #e6c800; border-radius: 6px; padding: 10px; min-height: 100px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;">
+          <div style="font-size: 10px; color: #fff; text-align: center; opacity: 0.85; margin-bottom: 2px;">Low / High interest</div>
+          <span style="font-size: 12px; font-weight: 500; background: rgba(255,255,255,0.45); border-radius: 4px; padding: 2px 8px; color: #3d3300;">Employee</span>
+          <span style="font-size: 12px; font-weight: 500; background: rgba(255,255,255,0.45); border-radius: 4px; padding: 2px 8px; color: #3d3300;">BUM</span>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px;">
+        <div style="text-align: center; font-size: 11px; color: gray; padding-top: 4px;">LOW INTEREST</div>
+        <div style="text-align: center; font-size: 11px; color: gray; padding-top: 4px;">MEDIUM INTEREST</div>
+        <div style="text-align: center; font-size: 11px; color: gray; padding-top: 4px;">HIGH INTEREST</div>
+      </div>
+    </div>
+  </div>
+</div>
 ```
 
-
-| Quadrant | Category | Strategy | Stakeholders | Consequences |
-| :--- | :--- | :--- | :--- | :--- |
-| <span style="color: #b1facc;">**Green**</span> | High / High | **Manage Closely** | SM, Management, HR | They decide on the project's success and have strong interest. They must be actively involved in decision-making. |
-| <span style="color: #bbdcff;">**Blue**</span> | High / Low | **Keep Satisfied** | IT / Web-Admin | Have the power but little content-related interest. You must meet their requirements. |
-| <span style="color: #f0f01b;">**Yellow**</span> | Low / High | **Keep Informed** | Project Team, Employee | Highly affected by the project but have little decision-making power.|
-| <span style="color: #ffb9b9;">**Red**</span> | Low / Low | **Monitor** | Travel Agency | Neither high influence nor strong interest in the project itself.|
-
+| Category | Strategy | Stakeholders | Consequences |
+| :--- | :--- | :--- | :--- |
+| **High / High** | **Manage Closely** | SM, HHR | Primary users with full decision-making power and direct interest. Must be actively involved in all key decisions. |
+| **High / Low** | **Keep Satisfied** | IT / Web-Admin | Have the power but little content-related interest. Must meet their technical requirements. |
+| **Medium / High** | **Keep Informed** | Project Team | Directly involved in building the dashboard but limited decision-making power. |
+| **Medium / Medium** | **Keep Informed & Satisfied** | Management | Project sponsors with medium power and moderate interest. Keep updated on progress and outcomes without requiring deep day-to-day involvement. |
+| **Low / High** | **Keep Informed** | Employee, BUM | Affected by the dashboard's outcomes but little power over it. Receive relevant insights indirectly. |
+| **Low / Low** | **Monitor** | Travel Agency | Neither high influence nor strong interest in the project itself. |
 
 ## <span style="color: #009a27;">User Analysis</span>
 
@@ -259,6 +303,7 @@ Constraints and risks:
 - Limited time for data exploration and visualization development
 - Possible missing or incomplete data in the dataset
 - Learning new tool for dashboard development (Streamlit) takes time
+- The dashboard is built as a prototype for the current project period. The Overview page is fixed to the year 2025. In a real-world implementation, this would be set dynamically based on the most recent year with available data.
 
 ## <span style="color: #009a27;">Visualization Concept</span>
 The project will create a focused interactive dashboard with two separate pages, each tailored to a specific user role. Users can navigate freely between the two pages using a top-level navigation menu.

@@ -11,7 +11,7 @@ st.set_page_config(
     layout="wide",
 )
 
-DATA_FILE = Path(__file__).with_name("traveldata-export.xlsx")
+DATA_FILE = Path(__file__).parent.parent / "data_acquisition" / "traveldata-export.xlsx"
 
 # =========================
 # STYLING
