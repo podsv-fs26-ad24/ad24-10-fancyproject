@@ -376,6 +376,88 @@ st.markdown(
         border: none !important;
         box-shadow: none !important;
     }
+    
+    div[data-baseweb="popover"],
+    div[data-baseweb="popover"] *,
+    ul[role="listbox"],
+    ul[role="listbox"] li,
+    ul[role="listbox"] li * {
+        background-color: #ffffff !important;
+        color: #111827 !important;
+        -webkit-text-fill-color: #111827 !important;
+    }
+
+    ul[role="listbox"] li:hover {
+        background-color: #f3f4f6 !important;
+    }
+
+    html[data-theme="dark"] div[role="tooltip"],
+    html[data-theme="dark"] div[role="tooltip"] *,
+    div[data-testid="stDownloadButton"] button {
+        background: transparent !important;
+        color: rgba(255,255,255,0.5) !important;
+        border: 1px solid rgba(255,255,255,0.2) !important;
+        border-radius: 4px !important;
+        font-size: 16px !important;
+        font-weight: 400 !important;
+        padding: 0px 4px !important;
+        margin-top: 0px !important;
+        margin-bottom: -12px !important;
+        min-height: 0 !important;
+        height: 24px !important;
+        width: 24px !important;
+        line-height: 1 !important;
+    }
+
+    div[data-testid="stDownloadButton"] button:hover {
+        color: rgba(255,255,255,0.95) !important;
+        background: rgba(255,255,255,0.08) !important;
+    }
+
+    div[data-testid="stDownloadButton"] button p {
+        font-size: 16px !important;
+        margin: 0 !important;
+    }
+
+    div[role="tooltip"],
+    div[role="tooltip"] * {
+        background-color: #ffffff !important;
+        color: #111827 !important;
+    }
+
+    [data-testid="element-container"]:has([data-testid="stDataFrame"][aria-label="travel_options_table"]) + div [data-testid="stElementToolbar"] {
+        display: none !important;
+    }
+
+    [data-testid="stTable"] {
+        transform: scale(0.95);
+        transform-origin: top left;
+        width: 118% !important;
+    }
+
+    [data-testid="stTable"] table {
+        font-size: 13px !important;
+        width: 100% !important;
+        border-collapse: collapse !important;
+        table-layout: auto !important;
+    }
+
+    [data-testid="stTable"] th {
+        font-size: 13px !important;
+        font-weight: 700 !important;
+        padding: 5px 6px !important;
+        color: white !important;
+        white-space: nowrap !important;
+        border-bottom: 1px solid rgba(255,255,255,0.2) !important;
+    }
+
+    [data-testid="stTable"] td {
+        font-size: 13px !important;
+        padding: 5px 6px !important;
+        color: white !important;
+        background-color: #0f172a !important;
+        white-space: nowrap !important;
+    }
 
     </style>
     """,
@@ -565,7 +647,7 @@ if st.session_state.dashboard_view == "Overview":
     filter_col, spacer = st.columns([1.25, 4.75])
 
     with filter_col:
-        subunit = st.selectbox("Choose Subunit", subunit_options, index=0)
+        subunit = st.selectbox("Choose Subunit", subunit_options, index=0, key="overview_subunit")
 
     overview_df = df[df["year"] == current_year].copy()
 
@@ -704,10 +786,14 @@ if st.session_state.dashboard_view == "Overview":
             def recommendation(row):
                 tags = []
                 if row["avg_cost"] == min_cost:
-                    tags.append("cheapest Option")
+                    tags.append("cheapest")
                 if row["avg_co2_t"] == min_co2:
-                    tags.append("most environmentally friendly Option")
-                return " & ".join(tags).capitalize() if tags else "-"
+                    tags.append("most environmentally friendly")
+                if not tags:
+                    return "—"
+                return ("Cheapest & most environmentally friendly option"
+                        if len(tags) == 2
+                        else tags[0].capitalize() + " option")
 
             summary["recommendation"] = summary.apply(recommendation, axis=1)
 
@@ -715,7 +801,7 @@ if st.session_state.dashboard_view == "Overview":
                 ["Option", "trips", "Ø distance", "Ø cost", "Ø CO₂", "recommendation"]
             ].rename(columns={"trips": "Number of Trips"})
 
-            st.dataframe(show_df, use_container_width=True, hide_index=True)
+            st.table(show_df)
 
         panel_end()
 
@@ -726,10 +812,10 @@ else:
     filter_col1, filter_col2, spacer = st.columns([1.2, 1.4, 3.4])
 
     with filter_col1:
-        analysis_year = st.selectbox("Choose Year", year_options, index=0)
+        analysis_year = st.selectbox("Choose Year", year_options, index=0, key="analysis_year")
 
     with filter_col2:
-        analysis_subunit = st.selectbox("Choose Subunit", subunit_options, index=0)
+        analysis_subunit = st.selectbox("Choose Subunit", subunit_options, index=0, key="analysis_subunit")
 
     analysis_df = df[df["year"] <= max_analysis_year].copy()
 
@@ -799,17 +885,12 @@ else:
                     .mark_text(align="left", baseline="bottom", dy=-6, color="#dc2626", fontWeight=600, fontSize=13)
                     .encode(y="budget:Q", x=alt.value(10), text=alt.value(f'Budget limit {line_budget:,.1f} t'))
                 )
-                line_chart = (co2_line + budget_rule + budget_label).properties(
-                    title=f"Cumulative CO₂ Emissions {line_year} – {analysis_subunit}", height=330
-                )
+                line_chart = (co2_line + budget_rule + budget_label).properties(title=f"Cumulative CO₂ Emissions {line_year} – {analysis_subunit}", height=330)
             else:
-                line_chart = co2_line.properties(
-                    title=f"Cumulative CO₂ Emissions {line_year} – {analysis_subunit}", height=330
-                )
+                line_chart = co2_line.properties(title=f"Cumulative CO₂ Emissions {line_year} – {analysis_subunit}", height=330)
 
+            st.download_button("⬇", data=line_chart.to_html(), file_name="co2_yearly_trend.html", mime="text/html", help="Download chart")
             st.altair_chart(line_chart, use_container_width=True)
-
-        st.markdown('<div style="height:18px;"></div>', unsafe_allow_html=True)
 
         # ── Block 2: CO₂ by transport mode ───────────────────────────────
         mode_df = df[df["year"] <= max_analysis_year].copy()
@@ -859,6 +940,7 @@ else:
                 .properties(title=f"CO₂ Emissions by Transport Mode – {analysis_subunit}", height=280)
             )
 
+            st.download_button("⬇", data=mode_chart.to_html(), file_name="co2_transport_mode.html", mime="text/html", help="Download chart")
             st.altair_chart(mode_chart, use_container_width=True)
 
         # ── Block 3: cumulative over all years ────────────────────────────
@@ -894,9 +976,8 @@ else:
                 .properties(title="Cumulative CO₂ Emissions over the Years", height=300)
             )
 
+            st.download_button("⬇", data=cumulative_chart.to_html(), file_name="co2_cumulative.html", mime="text/html", help="Download chart")
             st.altair_chart(cumulative_chart, use_container_width=True)
-
-        st.markdown('<div style="height:18px;"></div>', unsafe_allow_html=True)
 
         # ==========================================
         # PREDICTION
@@ -978,10 +1059,9 @@ else:
                 .properties(
                     title=f"Prediction of CO₂ Emissions – {analysis_subunit}",
                     height=280,
-                    padding={"top": 20}
                 )
             )
-
+            st.download_button("⬇", data=pred_chart.to_html(), file_name="co2_prediction.html", mime="text/html", help="Download chart")
             st.altair_chart(pred_chart, use_container_width=True)
         else:
             st.info("Not enough historical data to generate a prediction. At least 2 years of data are required.")
@@ -1036,7 +1116,7 @@ else:
             unsafe_allow_html=True,
         )
 
-        st.markdown('<div class="section-title">Travel Purposes</div>', unsafe_allow_html=True)
+
 
         analysis_purpose = (
             analysis_df.groupby("travel_purpose", as_index=False)
@@ -1077,9 +1157,9 @@ else:
 
             final_analysis_pie = (pie_analysis + text_analysis).properties(height=250)
 
+            st.download_button("⬇", data=final_analysis_pie.to_html(), file_name="travel_purposes.html", mime="text/html", help="Download chart")
+            st.markdown('<div class="section-title" style="margin-top:-6px; margin-bottom:4px;">Travel Purposes</div>', unsafe_allow_html=True)
             st.altair_chart(final_analysis_pie, use_container_width=True)
-
-        st.markdown('<div class="section-title">CO₂ Budget Limits</div>', unsafe_allow_html=True)
 
         budget_years = sorted([y for y in budgets["year"].dropna().unique().tolist() if y <= max_analysis_year])
         
@@ -1154,6 +1234,29 @@ else:
 
         # Die gefilterten Balken anzeigen
         if budget_rows_html:
+            budget_html_export = f"""<!DOCTYPE html><html><head><meta charset="utf-8">
+            <style>
+                body {{ background: #0f172a; color: white; font-family: sans-serif; padding: 24px; }}
+                .budget-history-row {{ display: grid; grid-template-columns: 55px 1fr 70px 34px; gap: 12px; align-items: center; margin-bottom: 12px; font-weight: 700; }}
+                .budget-history-bg {{ height: 18px; background: rgba(255,255,255,0.18); border-radius: 8px; overflow: hidden; position: relative; }}
+                .budget-history-fill {{ height: 100%; border-radius: 8px; }}
+                .budget-marker {{ position: absolute; top: 0; bottom: 0; width: 3px; background-color: #ffffff; z-index: 10; }}
+                .budget-history-percent {{ font-size: 15px; text-align: right; }}
+                .budget-status {{ font-size: 18px; text-align: center; }}
+                h2 {{ margin-bottom: 20px; }}
+            </style></head><body>
+            <h2>CO₂ Budget Limits – {analysis_subunit}</h2>
+            <div style='display:grid;grid-template-columns:55px 1fr 70px 34px;gap:12px;margin-bottom:2px;'>
+                <div></div>
+                <div style='position:relative;height:14px;'>
+                    <div style='position:absolute;left:{marker_pos}%;transform:translateX(-50%);font-size:11px;font-weight:700;color:white;white-space:nowrap;'>100%</div>
+                </div><div></div><div></div>
+            </div>
+            {"".join(budget_rows_html)}
+            </body></html>"""
+
+            st.download_button("⬇", data=budget_html_export, file_name="co2_budget_limits.html", mime="text/html", help="Download chart")
+            st.markdown('<div class="section-title" style="margin-top:-6px; margin-bottom:4px;">CO₂ Budget Limits</div>', unsafe_allow_html=True)
             st.markdown(
                 f"<div style='display:grid;grid-template-columns:55px 1fr 70px 34px;gap:12px;margin-bottom:2px;'>"
                 f"<div></div>"
@@ -1168,6 +1271,7 @@ else:
 
         budget_summary = pd.DataFrame(budget_summary_rows)
 
+        st.markdown('<div style="height:48px;"></div>', unsafe_allow_html=True)
         st.markdown('<div class="section-title">Budget Summary Table</div>', unsafe_allow_html=True)
 
         show_budget_summary = budget_summary.copy()
@@ -1181,7 +1285,7 @@ else:
             lambda x: round(x, 1) if pd.notna(x) else None
         )
 
-        st.dataframe(show_budget_summary, use_container_width=True, hide_index=True)
+        st.dataframe(show_budget_summary, use_container_width=True, hide_index=True, key="budget_summary_table")
 
         panel_end()
 
