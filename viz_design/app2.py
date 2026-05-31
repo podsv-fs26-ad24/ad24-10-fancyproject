@@ -29,14 +29,14 @@
 import streamlit as st                          # Web application interface
 import pandas as pd                             # Data manipulation and analysis
 import altair as alt                            # Generating charts and visualizations
-from pathlib import Path                        # to handle cross-platform file paths
-from datetime import date                       # to fetch and format today's date
+from pathlib import Path                        # To handle cross-platform file paths
+from datetime import date                       # To fetch and format today's date
 
 # Set the initial configuration for the Streamlit page
 st.set_page_config(                           
     page_title="Travel Insights Dashboard",    
     page_icon="✈️",                            
-    layout="wide",                              # wide layout to maximize screen space
+    layout="wide",                              # Wide layout to maximize screen space
 )
 
 # Define the path to the Excel data file dynamically based on the script's location
@@ -678,13 +678,13 @@ all_arrivals = ["All"] + sorted(df["arrival_iata"].dropna().unique().tolist())
 # The header section of the dashboard is structured using Streamlit's column layout to create a visually balanced header with the main title and year on the left, 
 # and navigation buttons and today's date on the right.
 
-# callback function to change the current view in session state when a navigation button is clicked
+# Callback function to change the current view in session state when a navigation button is clicked
 def change_view(view_name):
     st.session_state.dashboard_view = view_name
 
 header_left, header_right = st.columns([6, 2.2]) # Define header columns
 
-# dynamic header text based on current view and selected year in session state
+# Dynamic header text based on current view and selected year in session state
 if st.session_state.dashboard_view == "Overview":
     header_year_text = f"Year {current_year}"
 else:
@@ -1024,12 +1024,12 @@ else:
             "rental_car": "Rental Car",                            
         })
 
-        # checks if there is any data available for the transport mode analysis.
+        # Checks if there is any data available for the transport mode analysis.
         # If data is available, it proceeds to generate a bar chart that visualizes the total CO2 emissions by transport mode for the selected year and subunit.
         if mode_co2.empty:  
             st.info("No transport mode data available for this selection.")        
         
-        # if available --> generates bar chart using Altair
+        # If available --> generates bar chart using Altair
         else:
             # Calculate the max CO2 value
             max_co2 = mode_co2["total_co2"].max()
@@ -1084,7 +1084,7 @@ else:
                 fontSize=13,
                 fontWeight=600
             ).encode(
-                # we use the pre-formatted 'bar_label' column for the text to ensure consistent formatting and avoid issues with large numbers in tooltips
+                # We use the pre-formatted 'bar_label' column for the text to ensure consistent formatting and avoid issues with large numbers in tooltips
                 text=alt.Text("bar_label:N") 
             )
 
@@ -1164,7 +1164,7 @@ else:
             sum_x2 = (x**2).sum()       
             sum_xy = (x*y).sum()        
             
-            divisor = (n * sum_x2 - sum_x**2)               # calculate denominator for slope formula
+            divisor = (n * sum_x2 - sum_x**2)               # Calculate denominator for slope formula
             if divisor != 0:                                # Avoid division by zero
                 m = (n * sum_xy - sum_x * sum_y) / divisor  
                 b = (sum_y - m * sum_x) / n                
@@ -1252,7 +1252,7 @@ else:
         bus_count = len(analysis_df[analysis_df["transport_mode"] == "bus"])          
         car_count = len(analysis_df[analysis_df["transport_mode"] == "rental_car"])   
 
-        # render a grid of key metrics at the top of the right panel, showing total trips, counts for each transport mode, 
+        # Render a grid of key metrics at the top of the right panel, showing total trips, counts for each transport mode, 
         # and total CO2 emissions for the selected year and subunit.
         st.markdown(
             f"""
@@ -1295,15 +1295,15 @@ else:
             .sort_values("Number", ascending=False)                      # Sort descending by number of trips for better visualization in the pie chart
         )
 
-        # check if there is any data available for the travel purpose breakdown.    
+        # Check if there is any data available for the travel purpose breakdown.    
         if analysis_purpose.empty:                                     
             st.info("No travel data available for this selection.")   
         
         # If data is available, it proceeds to generate a pie chart that visualizes the distribution of travel purposes for the selected year and subunit.
         else: 
-            analysis_purpose["Label"] = analysis_purpose["travel_purpose"].str.replace("_", " ").str.title()    # clean up Labels
+            analysis_purpose["Label"] = analysis_purpose["travel_purpose"].str.replace("_", " ").str.title()    # Clean up Labels
 
-            total_num = analysis_purpose["Number"].sum()                                                        # total number of trips for percentage calculation
+            total_num = analysis_purpose["Number"].sum()                                                        # Total number of trips for percentage calculation
             analysis_purpose["Percent"] = analysis_purpose["Number"] / total_num * 100                          # Calculate percentage for each purpose
 
             analysis_purpose["Percent_Label"] = analysis_purpose["Percent"].apply(lambda x: f"{x:.0f}%" if x > 3 else "") # Create labels for >3% wedges to avoid overlap
@@ -1344,7 +1344,7 @@ else:
                 temp_used_df = df[df["year"] == budget_year].copy()          # Filter travel data for that year
                 if analysis_subunit != "All":                                # Apply subunit filter
                     temp_used_df = temp_used_df[temp_used_df["subunit"] == analysis_subunit] # Filter by subunit
-                temp_used = temp_used_df["CO2e RFI2.7 (t)"].sum()            # total CO2 used
+                temp_used = temp_used_df["CO2e RFI2.7 (t)"].sum()            # Total CO2 used
                 temp_pct = (temp_used / temp_budget) * 100                   # Calculate usage percentage
                 if temp_pct > global_max_pct:                                # Check if this year breaks current max
                     global_max_pct = temp_pct                                # Update max value
@@ -1356,8 +1356,8 @@ else:
         # This global maximum is mapped to 100% of the UI frame width to ensure 
         # bars scale uniformly and do not disrupt the CSS structure when limits are broken.
 
-        budget_rows_html = []                                                # list to hold HTML rows
-        budget_summary_rows = []                                             # list to hold table data
+        budget_rows_html = []                                                # List to hold HTML rows
+        budget_summary_rows = []                                             # List to hold table data
 
         for budget_year in budget_years:                                     # Loop through each budget year to gather travel data for progress bars
             year_budget = get_budget(budgets, analysis_subunit, budget_year) 
@@ -1402,12 +1402,12 @@ else:
 
                 # Store data dictionary for summary table below
                 budget_summary_rows.append({                    # Add to summary list
-                    "year": int(budget_year),                   # year
-                    "subunit": analysis_subunit,                # subunit name
-                    "co2_budget_t": year_budget,                # budget limit
-                    "co2_used_t": year_used,                    # used CO2
-                    "budget_used_percent": year_pct,            # percentage
-                    "status": status_text,                      # status text
+                    "year": int(budget_year),                   # Year
+                    "subunit": analysis_subunit,                # Subunit name
+                    "co2_budget_t": year_budget,                # Budget limit
+                    "co2_used_t": year_used,                    # Used CO2
+                    "budget_used_percent": year_pct,            # Percentage
+                    "status": status_text,                      # Status text
                 })
 
         # Display the custom HTML progress bars if data was found
