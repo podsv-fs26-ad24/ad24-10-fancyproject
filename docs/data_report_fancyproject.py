@@ -1,7 +1,7 @@
 import pandas as pd
 from ydata_profiling import ProfileReport
 
-df = pd.read_excel("traveldata-export.xlsx", sheet_name="travel_data")
+df = pd.read_excel("../data_acquisition/traveldata-export.xlsx", sheet_name="travel_data")
 profile = ProfileReport(df, title="Travel Data Report",
     type_schema={
         "transport_mode": "text",
