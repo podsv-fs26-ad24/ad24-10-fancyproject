@@ -233,4 +233,4 @@ The dashboard uses the raw data directly after the cleaning steps described abov
 - `year` — extracted from `date`
 - `month` — extracted from `date`, used for monthly trend charts
 
-These transformations are handled in `co2_emission_dashboard.py` and do not modify the source Excel file.
+These transformations are handled in `travel_insights_dashboard.py` and do not modify the source Excel file.
