@@ -680,10 +680,18 @@ all_arrivals = ["All"] + sorted(df["arrival_iata"].dropna().unique().tolist())
 
 header_left, header_right = st.columns([6, 2.2]) # Define header columns
 
+# Determine the year text to display in the header based on the current view and selected filters
+if st.session_state.dashboard_view == "Overview":
+    header_year_text = f"Year {current_year}"
+else:
+    # Analysis view: display the selected year or "All Years" if no specific year is selected
+    selected_year = st.session_state.get("analysis_year", "All")
+    header_year_text = f"Year {selected_year}" if selected_year != "All" else "All Years"
+
 with header_left:
-    st.markdown(                                                # Display dashboard title and year
+    st.markdown(                                                            # Display dashboard title and dynamic year
         f"<h1 style='text-align:left; margin-top:0.4rem; margin-bottom:0;'>Travel Insights Dashboard</h1>"
-        f"<div style='font-size: 2rem; font-weight: 600; color: rgba(255,255,255,0.8); margin-top: 2px;'>Year {current_year}</div>",
+        f"<div style='font-size: 2rem; font-weight: 600; color: rgba(255,255,255,0.8); margin-top: 2px;'>{header_year_text}</div>",
         unsafe_allow_html=True,
     )
 
