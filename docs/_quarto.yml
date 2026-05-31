@@ -32,7 +32,7 @@ csl: vancouver-brackets.csl
 jupyter: python3
 
 execute:
-  freeze: false
+  freeze: auto
 
 editor:
   render-on-save: true
