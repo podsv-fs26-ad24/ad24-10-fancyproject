@@ -327,7 +327,7 @@ This page supports in-depth exploration and reporting. It includes filters for y
 The left column presents a narrative progression from current state to long-term outlook:
 
 - A single-year CO₂ emissions line chart (Jan–Dec) with a horizontal budget limit line, showing how emissions accumulated over the course of one year relative to the annual threshold (`CO2e`, budget limit). Filterable by year and subunit.
-- A CO₂ emissions by transport mode bar chart showing the total emissions contribution of each transport mode (`transport_mode`, `CO2e`). Sorted from highest to lowest, this makes it immediately clear which modes drive the most emissions. Filterable by year and subunit.
+- A CO₂ emissions by transport mode bar chart showing the total emissions in tonnes, with the number of trips displayed alongside for better data interpretation. The transport modes are not sorted by volume; instead, they remain in a fixed, consistent order. This static layout allows users to quickly spot changes at a glance and easily compare differences between transport modes across various years or subunits, without needing to constantly re-read the axis labels. The title—along with the associated data—updates dynamically depending on which specific year or subunit is selected in the filters.
 - A cumulative CO₂ emissions line chart showing total emissions summed over all years (`date`, `CO2e`). This allows users to see the long-term progression of emissions, including the effect of external events such as the COVID-19 pandemic. Filterable by subunit.
 - A CO₂ emissions prediction chart showing a linear trend forecast for the next three years based on historical data from 2022 onwards, helping users anticipate future emissions trajectories. Filterable by subunit.
 
