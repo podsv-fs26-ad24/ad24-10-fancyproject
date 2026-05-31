@@ -23,4 +23,4 @@ profile = ProfileReport(df, title="Travel Data Report",
     }
 )
 
-profile.to_file("data_report.html")
+profile.to_file("ydata_report.html")
