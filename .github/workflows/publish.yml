@@ -29,6 +29,9 @@ jobs:
         with:
           tinytex: true
 
+      - name: Install Python dependencies
+        run: pip install -r docs/requirements.txt
+
       - name: Render Quarto project
         uses: quarto-dev/quarto-actions/render@v2
         with:
