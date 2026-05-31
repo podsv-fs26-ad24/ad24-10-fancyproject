@@ -45,7 +45,7 @@
     "href": "data_report.html#processed-data",
     "title": "Data Report",
     "section": "2 Processed Data",
-    "text": "2 Processed Data\nThe dashboard uses the raw data directly after the cleaning steps described above (numeric coercion, whitespace stripping, date parsing). No separate processed dataset was created. Two additional columns are derived at load time:\n\nyear — extracted from date\nmonth — extracted from date, used for monthly trend charts\n\nThese transformations are handled in app2.py and do not modify the source Excel file.",
+    "text": "2 Processed Data\nThe dashboard uses the raw data directly after the cleaning steps described above (numeric coercion, whitespace stripping, date parsing). No separate processed dataset was created. Two additional columns are derived at load time:\n\nyear — extracted from date\nmonth — extracted from date, used for monthly trend charts\n\nThese transformations are handled in travel_insights_dashboard.py and do not modify the source Excel file.",
     "crumbs": [
       "Data Report"
     ]

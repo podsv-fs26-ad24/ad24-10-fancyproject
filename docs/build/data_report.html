@@ -261,7 +261,7 @@ Table&nbsp;1: Overview of raw datasets used in the project.
 <li>Source: exported from the organization’s travel booking system</li>
 <li>The file contains two sheets: <code>travel_data</code> (individual trips) and <code>co2_budgets</code> (annual CO₂ budget targets per subunit)</li>
 <li>Data governance: internal business data, not publicly available</li>
-<li>The full automated data profile can be found in the <a href="eda_report.html">ydata profiling report</a></li>
+<li>The full automated data profile can be found in the <a href="data_report.html">ydata profiling report</a></li>
 </ul>
 <section id="data-catalogue" class="level4" data-number="1.2.1">
 <h4 data-number="1.2.1" class="anchored" data-anchor-id="data-catalogue"><span class="header-section-number">1.2.1</span> Data Catalogue</h4>
@@ -270,7 +270,7 @@ Table&nbsp;1: Overview of raw datasets used in the project.
 </section>
 <section id="data-characteristics-and-quality" class="level4" data-number="1.2.2">
 <h4 data-number="1.2.2" class="anchored" data-anchor-id="data-characteristics-and-quality"><span class="header-section-number">1.2.2</span> Data Characteristics and Quality</h4>
-<p>The following exploratory analyses were conducted to understand the data and inform the design of the dashboard visualizations. The full automated profile is available in the <a href="eda_report.html">ydata profiling report</a>.</p>
+<p>The following exploratory analyses were conducted to understand the data and inform the design of the dashboard visualizations. The full automated profile is available in the <a href="data_report.html">ydata profiling report</a>.</p>
 <p><strong>1. How do CO₂ emissions develop over time?</strong></p>
 <p>This analysis checks whether there is a meaningful trend in emissions over the years — a key question for the cumulative CO₂ line chart in the dashboard.</p>
 <div id="cell-fig-co2-over-time" class="cell" data-execution_count="1">
@@ -505,7 +505,7 @@ Figure&nbsp;5: Missing value counts per column (only columns with missing values
 <li><code>year</code> — extracted from <code>date</code></li>
 <li><code>month</code> — extracted from <code>date</code>, used for monthly trend charts</li>
 </ul>
-<p>These transformations are handled in <code>app2.py</code> and do not modify the source Excel file.</p>
+<p>These transformations are handled in <code>travel_insights_dashboard.py</code> and do not modify the source Excel file.</p>
 
 
 </section>
