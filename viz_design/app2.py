@@ -678,13 +678,17 @@ all_arrivals = ["All"] + sorted(df["arrival_iata"].dropna().unique().tolist())
 # The header section of the dashboard is structured using Streamlit's column layout to create a visually balanced header with the main title and year on the left, 
 # and navigation buttons and today's date on the right.
 
+# callback function to change the current view in session state when a navigation button is clicked
+def change_view(view_name):
+    st.session_state.dashboard_view = view_name
+
 header_left, header_right = st.columns([6, 2.2]) # Define header columns
 
-# Determine the year text to display in the header based on the current view and selected filters
+# dynamic header text based on current view and selected year in session state
 if st.session_state.dashboard_view == "Overview":
     header_year_text = f"Year {current_year}"
 else:
-    # Analysis view: display the selected year or "All Years" if no specific year is selected
+    # Analysis view: show selected year or "All Years" if no specific year is selected
     selected_year = st.session_state.get("analysis_year", "All")
     header_year_text = f"Year {selected_year}" if selected_year != "All" else "All Years"
 
@@ -696,27 +700,24 @@ with header_left:
     )
 
 with header_right:
-    st.markdown('<div class="small-filter-box" style="margin-bottom: 5px;">', unsafe_allow_html=True) # Open filter box HTML
+    st.markdown('<div class="small-filter-box" style="margin-bottom: 5px;">', unsafe_allow_html=True)   # Open filter box HTML
     
-    b1, b2 = st.columns(2)                                      # Create columns for navigation buttons
+    b1, b2 = st.columns(2)                # Create columns for navigation buttons
     with b1:
-        if st.button("Overview", use_container_width=True):     # Render Overview button
-            st.session_state.dashboard_view = "Overview"
+        # On click and args are used to update the session state when a button is clicked, instead of relying on if st.button() which can lead to issues with multiple buttons
+        st.button("Overview", use_container_width=True, on_click=change_view, args=("Overview",))
     with b2:
-        if st.button("Analysis", use_container_width=True):     # Render Analysis button
-            st.session_state.dashboard_view = "Analysis"
+        # On click and args to update the session state when a button is clicked
+        st.button("Analysis", use_container_width=True, on_click=change_view, args=("Analysis",))
 
-    st.markdown("</div>", unsafe_allow_html=True)               # Close filter box HTML
+    st.markdown("</div>", unsafe_allow_html=True)                           # Close filter box HTML
     
-    st.markdown(                                                # Display current dynamic date
+    st.markdown(                                                            # Display current dynamic date
         f"<div class='date-box' style='padding-right: 10px;'>TODAY: {date.today().strftime('%d.%m.%Y')}</div>",
         unsafe_allow_html=True,
     )
 
-st.markdown("<hr>", unsafe_allow_html=True)                     # Display horizontal line divider
-
-
-
+st.markdown("<hr>", unsafe_allow_html=True)                                 # Display horizontal line divider
 
 # ===============================
 # --- OVERVIEW DASHBOARD VIEW ---
