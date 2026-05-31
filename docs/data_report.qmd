@@ -19,7 +19,7 @@ All information on the data used in this project is compiled here to ensure trac
 - Source: exported from the organization's travel booking system
 - The file contains two sheets: `travel_data` (individual trips) and `co2_budgets` (annual CO₂ budget targets per subunit)
 - Data governance: internal business data, not publicly available
-- The full automated data profile can be found in the [ydata profiling report](eda_report.html)
+- The full automated data profile can be found in the [ydata profiling report](data_report.html)
 
 #### Data Catalogue
 
@@ -29,7 +29,7 @@ The complete data catalogue for all 27 columns can be found in the [ydata profil
 
 #### Data Characteristics and Quality
 
-The following exploratory analyses were conducted to understand the data and inform the design of the dashboard visualizations. The full automated profile is available in the [ydata profiling report](eda_report.html).
+The following exploratory analyses were conducted to understand the data and inform the design of the dashboard visualizations. The full automated profile is available in the [ydata profiling report](data_report.html).
 
 **1. How do CO₂ emissions develop over time?**
 

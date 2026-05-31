@@ -234,7 +234,6 @@ st.markdown(
 
     .budget-card {
         background: rgba(255,255,255,0.018);
-        # border: 1px solid rgba(255,255,255,0.08);
         border-radius: 14px;
         padding: 16px 18px;
         margin-bottom: 18px;
@@ -288,14 +287,6 @@ st.markdown(
         text-align: right;
     }
 
-    # .cost-box {
-    #     background: #49852f;
-    #     border-radius: 14px;
-    #     padding: 18px 22px;
-    #     margin-top: 18px;
-    #     margin-bottom: 18px;
-    #     box-shadow: 0 4px 18px rgba(0,0,0,0.18);
-    # }
     .cost-box {
         background: rgba(255,255,255,0.018);
         border-radius: 14px;

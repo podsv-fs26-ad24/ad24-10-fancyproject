@@ -186,7 +186,7 @@ An employee submits a travel request for an upcoming business trip. Alex needs t
 
 **The Action:**
 
-Alex opens the Decision Overview page of the dashboard. He selects the relevant subunit from the filter and immediately sees that the subunit has already used 78% of its annual CO₂ allocation — well ahead of pace for the time of year. He also glances at the travel cost summary and notes that the subunit is among the higher spenders this year. With this information in hand, he makes his decision.
+Alex opens the Overview page of the dashboard. He selects the relevant subunit from the filter and immediately sees that the subunit has already used 78% of its annual CO₂ allocation — well ahead of pace for the time of year. He also glances at the travel cost summary and notes that the subunit is among the higher spenders this year. With this information in hand, he makes his decision.
 
 **The Insight (How the dashboard helps):**
 
@@ -310,9 +310,9 @@ The project will create a focused interactive dashboard with two separate pages,
 
 **Product form**: 
 
-The dashboard consists of two role-based pages — a Decision Overview page for the Head of HR and an Analysis page for the Sustainability Manager. Both pages are web-based and built with Streamlit. It is assumed that the travel options data is maintained and updated regularly by a responsible person within the company. In a real-world implementation, views could additionally be role-restricted by login.
+The dashboard consists of two role-based pages — a Overview page for the Head of HR and an Analysis page for the Sustainability Manager. Both pages are web-based and built with Streamlit. It is assumed that the travel options data is maintained and updated regularly by a responsible person within the company. In a real-world implementation, views could additionally be role-restricted by login.
 
-**Page 1 — Decision Overview (Head of HR):**
+**Page 1 — Overview (Head of HR):**
 
 This page is designed for quick, operational decision-making based on current-year data. It includes a subunit filter and is fixed to the current year only, keeping the view focused and uncluttered. Alex uses this page to check a subunit's budget status whenever a travel request comes in.
 
@@ -343,7 +343,7 @@ Tooltips will show additional details on all charts where relevant.
 
 **Interactivity**:
 
-Page 1 (Decision Overview) includes a subunit filter and is fixed to the current year. Page 2 (Analysis) includes filters for year and subunit, applicable across all charts; the single-year CO₂ chart defaults to the current year when "All Years" is selected. Both pages include tooltips for additional detail. Page 2 additionally supports chart export for reporting purposes. These interactive features allow each user to focus on what is relevant to their role without being overwhelmed by unnecessary complexity.
+Page 1 (Overview) includes a subunit filter and is fixed to the current year. Page 2 (Analysis) includes filters for year and subunit, applicable across all charts; the single-year CO₂ chart defaults to the current year when "All Years" is selected. Both pages include tooltips for additional detail. Page 2 additionally supports chart export for reporting purposes. These interactive features allow each user to focus on what is relevant to their role without being overwhelmed by unnecessary complexity.
 
 **Narrative and annotation**: 
 
@@ -355,7 +355,7 @@ The dashboard will be presented as a web-based prototype using Streamlit, viewab
 
 **Cognitive and analytical value**: 
 
-The two-page structure reduces cognitive load by ensuring each user only sees what is relevant to their role. The Decision Overview page allows the Head of HR to assess the situation and act quickly. The Analysis page supports deeper pattern recognition over time — identifying emission trends, budget compliance issues, and the environmental impact of different transport modes. Together the pages cover both operational and strategic information needs.
+The two-page structure reduces cognitive load by ensuring each user only sees what is relevant to their role. The Overview page allows the Head of HR to assess the situation and act quickly. The Analysis page supports deeper pattern recognition over time — identifying emission trends, budget compliance issues, and the environmental impact of different transport modes. Together the pages cover both operational and strategic information needs.
 
 **Communicative value**: 
 
