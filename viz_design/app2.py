@@ -1029,31 +1029,70 @@ else:
         if mode_co2.empty:  
             st.info("No transport mode data available for this selection.")        
         
-        # if available --> generates bar chart using Altair to visualize the total CO2 emissions by transport mode for the selected year and subunit.
+        # if available --> generates bar chart using Altair
         else:
-            mode_chart = (                                                                              # Generate bar chart
-                alt.Chart(mode_co2)                                                                
-                .mark_bar(cornerRadiusTopLeft=4, cornerRadiusTopRight=4)                                # Style rounded bars
-                .encode(                                                                                # Configure axes and color
-                    x=alt.X("Label:N", title="Transport Mode", sort="-y", axis=alt.Axis(labelAngle=0)), # X-axis nominal
-                    y=alt.Y("total_co2:Q", title="Total CO₂ Emissions (t)"),                            # Y-axis quantitative
-                    color=alt.Color(                                                                    # Assign specific colors to modes
-                        "Label:N",                                                                      # Color by mode label (N = nominal, C = categorical, Q = quantitative)
-                        scale=alt.Scale(                                                                # Define color scale manually
-                            domain=["Flight", "Train", "Bus", "Rental Car"],                            # Categories
-                            range=["#e05252", "#2cb67a", "#ffa73a", "#63acff"]            
-                        ),
-                        legend=None,                                        # Hide legend
-                    ),
-                    tooltip=[                                               # Configure tooltips
-                        alt.Tooltip("Label:N", title="Transport Mode"),                   
-                        alt.Tooltip("total_co2:Q", title="Total CO₂ (t)", format=",.1f"), 
-                        alt.Tooltip("trip_count:Q", title="Number of Trips", format=","), 
-                    ],
-                )
-                .properties(title=f"CO₂ Emissions by Transport Mode – {analysis_subunit}", height=280) # Add title and height
+            # Calculate the max CO2 value
+            max_co2 = mode_co2["total_co2"].max()
+            if pd.isna(max_co2) or max_co2 == 0:
+                max_co2 = 100 
+
+            # Creates String : "1,556 t  /   15 Trips"
+            mode_co2["bar_label"] = mode_co2.apply(
+                lambda x: f"{x['total_co2']:,.0f} t   /    {x['trip_count']} Trips", axis=1
+            )
+            # -------------------------------------------------------
+
+            # 1. Basic chart setup with axes and scales
+            base = alt.Chart(mode_co2).encode(
+                y=alt.Y("Label:N", title=None, sort="-x", axis=alt.Axis(labelAngle=0, labelFontSize=13, grid=False)), 
+                
+                # Scale the x-axis by adding a 35% margin to the maximum CO2 value to ensure labels fit without overlap
+                x=alt.X("total_co2:Q", 
+                        title="Total CO₂ Emissions (t)", 
+                        axis=alt.Axis(grid=True),
+                        scale=alt.Scale(domain=[0, max_co2 * 1.35]) 
+                ),
             )
 
+            # 2. Draw the horizontal bars
+            bars = base.mark_bar(
+                cornerRadiusTopRight=4,    
+                cornerRadiusBottomRight=4, 
+                size=30                    
+            ).encode(
+                color=alt.Color(
+                    "Label:N",
+                    scale=alt.Scale(
+                        domain=["Flight", "Train", "Bus", "Rental Car"],
+                        range=["#e05252", "#2cb67a", "#ffa73a", "#63acff"]
+                    ),
+                    legend=None,
+                ),
+                tooltip=[
+                    alt.Tooltip("Label:N", title="Transport Mode"),
+                    alt.Tooltip("total_co2:Q", title="Total CO₂ (t)", format=",.1f"),
+                    alt.Tooltip("trip_count:Q", title="Number of Trips", format=","),
+                ]
+            )
+
+            # 3. Add text labels at the end of each bar to show the exact CO2 values, formatted with thousands separators for better readability.
+            text = base.mark_text(
+                align='left',     
+                baseline='middle',
+                dx=8,             # Offset to the right of the bar end
+                color="white",
+                fontSize=13,
+                fontWeight=600
+            ).encode(
+                # we use the pre-formatted 'bar_label' column for the text to ensure consistent formatting and avoid issues with large numbers in tooltips
+                text=alt.Text("bar_label:N") 
+            )
+
+            # 4. Layer the bars and text
+            mode_chart = (bars + text).properties(
+                title=f"CO₂ Emissions by Transport Mode – {analysis_subunit}", 
+                height=280
+            )
             st.download_button("⬇", data=mode_chart.to_html(), file_name="co2_transport_mode.html", mime="text/html", help="Download chart") # Render download button
             st.altair_chart(mode_chart, use_container_width=True) # Render Altair chart in Streamlit
 
