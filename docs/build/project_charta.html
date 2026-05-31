@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>project_charta – Sample Project</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./project_charta.html">Project Charta</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Sample Project</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./project_charta.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Project Charta</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data_report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Report</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+ <span class="menu-text">viz_design_report.qmd</span>
+  </li>
+        <li class="sidebar-item">
+ <span class="menu-text">evaluation.qmd</span>
+  </li>
+        <li class="sidebar-item">
+ <span class="menu-text">meeting_notes.qmd</span>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#project-charta" id="toc-project-charta" class="nav-link active" data-scroll-target="#project-charta"><span class="header-section-number">1</span> Project Charta</a>
+  <ul class="collapse">
+  <li><a href="#context-and-scope" id="toc-context-and-scope" class="nav-link" data-scroll-target="#context-and-scope"><span class="header-section-number">1.1</span> <span style="color: #009a27;">Context and Scope</span></a></li>
+  <li><a href="#project-objectives-and-success-criteria" id="toc-project-objectives-and-success-criteria" class="nav-link" data-scroll-target="#project-objectives-and-success-criteria"><span class="header-section-number">1.2</span> <span style="color: #009a27;">Project Objectives and Success Criteria</span></a></li>
+  <li><a href="#stakeholder-analysis" id="toc-stakeholder-analysis" class="nav-link" data-scroll-target="#stakeholder-analysis"><span class="header-section-number">1.3</span> <span style="color: #009a27;">Stakeholder Analysis</span></a></li>
+  <li><a href="#user-analysis" id="toc-user-analysis" class="nav-link" data-scroll-target="#user-analysis"><span class="header-section-number">1.4</span> <span style="color: #009a27;">User Analysis</span></a>
+  <ul class="collapse">
+  <li><a href="#persona-1-head-of-hr" id="toc-persona-1-head-of-hr" class="nav-link" data-scroll-target="#persona-1-head-of-hr"><span class="header-section-number">1.4.1</span> <span style="color: #009a27;"><strong>Persona 1: Head of HR</strong></span></a></li>
+  <li><a href="#persona-2-sustainability-manager" id="toc-persona-2-sustainability-manager" class="nav-link" data-scroll-target="#persona-2-sustainability-manager"><span class="header-section-number">1.4.2</span> <span style="color: #009a27;"><strong>Persona 2: Sustainability Manager</strong></span></a></li>
+  </ul></li>
+  <li><a href="#situation-assessment" id="toc-situation-assessment" class="nav-link" data-scroll-target="#situation-assessment"><span class="header-section-number">1.5</span> <span style="color: #009a27;">Situation Assessment</span></a></li>
+  <li><a href="#visualization-concept" id="toc-visualization-concept" class="nav-link" data-scroll-target="#visualization-concept"><span class="header-section-number">1.6</span> <span style="color: #009a27;">Visualization Concept</span></a></li>
+  <li><a href="#project-plan-séverine-stadler" id="toc-project-plan-séverine-stadler" class="nav-link" data-scroll-target="#project-plan-séverine-stadler"><span class="header-section-number">1.7</span> <span style="color: #009a27;">Project Plan Séverine Stadler</span></a></li>
+  <li><a href="#roles-and-contact-details" id="toc-roles-and-contact-details" class="nav-link" data-scroll-target="#roles-and-contact-details"><span class="header-section-number">1.8</span> <span style="color: #009a27;">Roles and Contact Details</span></a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="project-charta" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Project Charta</h1>
+<section id="context-and-scope" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="context-and-scope"><span class="header-section-number">1.1</span> <span style="color: #009a27;">Context and Scope</span></h2>
+<p>Business travel is common in many companies. Employees travel for meetings, conferences, or to work with colleagues in other locations. However, business travel, especially flights, also produces CO₂ emissions, which has an impact on the environment.</p>
+<p>In this project, we will analyse and visualize a dataset about business travel. The dataset includes information about transport mode, travel distance, travel purpose, and estimated CO₂ emissions. The dataset covers business trips from 2017 to 2025. The file includes 2026 but contains no travel entries for that year yet. It represents travel activities within one company with several business units.</p>
+<p>The goal of this project is to create an interactive dashboard that helps users understand:</p>
+<ul>
+<li>how travel behaviour changes over time</li>
+<li>why people travel (travel purpose)</li>
+<li>how transport choices affect CO₂ emissions</li>
+</ul>
+<p>The dashboard should help answer questions such as:</p>
+<ul>
+<li>How have travel emissions changed over time?</li>
+<li>Which transport modes produce the most CO₂ emissions?</li>
+<li>Which travel purposes (e.g.&nbsp;meetings, conferences) occur most often and contribute most to CO₂ emissions?</li>
+<li>How do different travel options compare in terms of CO₂ emissions and cost?</li>
+</ul>
+<p>The dashboard should also support simple decisions by allowing users to compare transport modes and understand how much CO₂ different trips produce. In addition, the dashboard helps users understand which travel purposes cause high CO₂ emissions. This can support reflection on whether certain trips are necessary or if alternative solutions, such as online meetings, could be considered.</p>
+<p>The visualization product will be available on a website.</p>
+</section>
+<section id="project-objectives-and-success-criteria" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="project-objectives-and-success-criteria"><span class="header-section-number">1.2</span> <span style="color: #009a27;">Project Objectives and Success Criteria</span></h2>
+<p>From a stakeholder perspective, the project aims to:</p>
+<ul>
+<li>Provide a clear overview of business travel and CO₂ emissions</li>
+<li>Show how emissions develop over time</li>
+<li>Identify which travel purposes occurs most frequently</li>
+<li>Compare transport modes and their environmental impact</li>
+<li>Support users in understanding and comparing travel options</li>
+</ul>
+<p>The final result will be an interactive dashboard that allows users to explore the dataset</p>
+<p>Qualitative success criteria:</p>
+<ul>
+<li>The dashboard allows users to quickly understand travel emissions and patterns without needing manual data preparation</li>
+<li>Users can identify trends over time and detect changes in travel behaviour (e.g.&nbsp;increase or decrease of emissions).</li>
+<li>Users can clearly see which travel purposes occur most frequently and reflect on whether certain trips are necessary.</li>
+<li>The dashboard supports users in communicating insights (e.g.&nbsp;for reports or presentations) using clear and simple visualizations.</li>
+</ul>
+<p>Quantitative success criteria:</p>
+<ul>
+<li>Users are able to identify key trends (e.g.&nbsp;increase or decrease in emissions) within 30–60 seconds.</li>
+<li>Users can filter the data by at least two attributes (e.g., year, transport mode).</li>
+<li>Test users can identify at least two insights about travel patterns within one minute of interacting with the dashboard.</li>
+</ul>
+</section>
+<section id="stakeholder-analysis" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="stakeholder-analysis"><span class="header-section-number">1.3</span> <span style="color: #009a27;">Stakeholder Analysis</span></h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Stakeholder</th>
+<th style="text-align: left;">Project Role</th>
+<th style="text-align: left;">Goals and Interests</th>
+<th style="text-align: left;">Power</th>
+<th style="text-align: left;">Interest</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Laura Smith (Sustainability Manager / SM)</strong></td>
+<td style="text-align: left;">Primary User</td>
+<td style="text-align: left;">Needs accurate data to monitor corporate CO₂ targets, generate annual reports, and justify new sustainable travel policies.</td>
+<td style="text-align: left;">High</td>
+<td style="text-align: left;">High</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Alex Hauser (Head of HR / HHR)</strong></td>
+<td style="text-align: left;">Primary User</td>
+<td style="text-align: left;">Holds formal authority over the company’s travel policy. Sets CO₂ budgets per subunit, decides on permitted transport modes, and enforces compliance. Needs a clear, up-to-date overview to make timely and justifiable policy decisions.</td>
+<td style="text-align: left;">High</td>
+<td style="text-align: left;">High</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>IT / Web-Administration</strong></td>
+<td style="text-align: left;">Support and Infrastructure</td>
+<td style="text-align: left;">Responsible for the technical integration of the dashboard into the company’s website. Focused on security and stability.</td>
+<td style="text-align: left;">High</td>
+<td style="text-align: left;">Low</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Project Team</strong></td>
+<td style="text-align: left;">Creators and Developers</td>
+<td style="text-align: left;">Goal is to successfully clean the data, build an intuitive dashboard, and meet the project requirements.</td>
+<td style="text-align: left;">Medium</td>
+<td style="text-align: left;">High</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Management</strong></td>
+<td style="text-align: left;">Project Sponsors</td>
+<td style="text-align: left;">Focused on overarching corporate goals, achieving ESG mandates, and reducing overall business costs.</td>
+<td style="text-align: left;">Medium</td>
+<td style="text-align: left;">Medium</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Business Unit Manager (BUM)</strong></td>
+<td style="text-align: left;">Secondary Stakeholder</td>
+<td style="text-align: left;">Wants to balance financial travel budgets with allocated CO₂ limits while maintaining team productivity. Receives relevant insights indirectly through the HR Head and Sustainability Manager rather than accessing the dashboard directly.</td>
+<td style="text-align: left;">Low</td>
+<td style="text-align: left;">High</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Employees</strong></td>
+<td style="text-align: left;">Affected Group</td>
+<td style="text-align: left;">Directly impacted by travel policies derived from the dashboard. Interested in transparency and efficient routes.</td>
+<td style="text-align: left;">Low</td>
+<td style="text-align: left;">High</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Travel Agency</strong></td>
+<td style="text-align: left;">Data Provider (External)</td>
+<td style="text-align: left;">Processes bookings and provides raw data. No direct interest in the internal visualization.</td>
+<td style="text-align: left;">Low</td>
+<td style="text-align: left;">Low</td>
+</tr>
+</tbody>
+</table>
+<div style="font-family: sans-serif; padding: 1rem 0;">
+  <div style="font-size: 18px; font-weight: 500; text-align: center; margin-bottom: 1.5rem;">Stakeholder matrix</div>
+  <div style="display: flex; align-items: stretch; gap: 8px;">
+    <div style="display: flex; flex-direction: column; justify-content: space-around; align-items: center; padding-bottom: 32px;">
+      <span style="font-size: 11px; color: gray; writing-mode: vertical-rl; transform: rotate(180deg); letter-spacing: 0.05em;">HIGH POWER</span>
+      <span style="font-size: 11px; color: gray; writing-mode: vertical-rl; transform: rotate(180deg); letter-spacing: 0.05em;">MEDIUM POWER</span>
+      <span style="font-size: 11px; color: gray; writing-mode: vertical-rl; transform: rotate(180deg); letter-spacing: 0.05em;">LOW POWER</span>
+    </div>
+    <div style="flex: 1;">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-bottom: 3px;">
+        <div style="background: #185FA5; border-radius: 6px; padding: 10px; min-height: 100px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;">
+          <div style="font-size: 10px; color: #fff; text-align: center; opacity: 0.85; margin-bottom: 2px;">High / Low interest</div>
+          <span style="font-size: 12px; font-weight: 500; background: rgba(255,255,255,0.45); border-radius: 4px; padding: 2px 8px; color: #042C53;">IT / Web-Admin</span>
+        </div>
+        <div style="background: #2db8a0; border-radius: 6px; padding: 10px; min-height: 100px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;">
+          <div style="font-size: 10px; color: #fff; text-align: center; opacity: 0.85; margin-bottom: 2px;">High / Medium interest</div>
+        </div>
+        <div style="background: #3B6D11; border-radius: 6px; padding: 10px; min-height: 100px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;">
+          <div style="font-size: 10px; color: #fff; text-align: center; opacity: 0.85; margin-bottom: 2px;">High / High interest</div>
+          <span style="font-size: 12px; font-weight: 500; background: rgba(255,255,255,0.45); border-radius: 4px; padding: 2px 8px; color: #173404;">SM</span>
+          <span style="font-size: 12px; font-weight: 500; background: rgba(255,255,255,0.45); border-radius: 4px; padding: 2px 8px; color: #173404;">HHR</span>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-bottom: 3px;">
+        <div style="background: #8B5BAE; border-radius: 6px; padding: 10px; min-height: 100px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;">
+          <div style="font-size: 10px; color: #fff; text-align: center; opacity: 0.85; margin-bottom: 2px;">Medium / Low interest</div>
+        </div>
+        <div style="background: #b8906e; border-radius: 6px; padding: 10px; min-height: 100px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;">
+          <div style="font-size: 10px; color: #fff; text-align: center; opacity: 0.85; margin-bottom: 2px;">Medium / Medium interest</div>
+          <span style="font-size: 12px; font-weight: 500; background: rgba(255,255,255,0.45); border-radius: 4px; padding: 2px 8px; color: #3d2000;">Management</span>
+        </div>
+        <div style="background: #7aab3a; border-radius: 6px; padding: 10px; min-height: 100px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;">
+          <div style="font-size: 10px; color: #fff; text-align: center; opacity: 0.85; margin-bottom: 2px;">Medium / High interest</div>
+          <span style="font-size: 12px; font-weight: 500; background: rgba(255,255,255,0.45); border-radius: 4px; padding: 2px 8px; color: #173404;">Project Team</span>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-bottom: 8px;">
+        <div style="background: #A32D2D; border-radius: 6px; padding: 10px; min-height: 100px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;">
+          <div style="font-size: 10px; color: #fff; text-align: center; opacity: 0.85; margin-bottom: 2px;">Low / Low interest</div>
+          <span style="font-size: 12px; font-weight: 500; background: rgba(255,255,255,0.45); border-radius: 4px; padding: 2px 8px; color: #501313;">Travel Agency</span>
+        </div>
+        <div style="background: #d47a2a; border-radius: 6px; padding: 10px; min-height: 100px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;">
+          <div style="font-size: 10px; color: #fff; text-align: center; opacity: 0.85; margin-bottom: 2px;">Low / Medium interest</div>
+        </div>
+        <div style="background: #e6c800; border-radius: 6px; padding: 10px; min-height: 100px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;">
+          <div style="font-size: 10px; color: #fff; text-align: center; opacity: 0.85; margin-bottom: 2px;">Low / High interest</div>
+          <span style="font-size: 12px; font-weight: 500; background: rgba(255,255,255,0.45); border-radius: 4px; padding: 2px 8px; color: #3d3300;">Employee</span>
+          <span style="font-size: 12px; font-weight: 500; background: rgba(255,255,255,0.45); border-radius: 4px; padding: 2px 8px; color: #3d3300;">BUM</span>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px;">
+        <div style="text-align: center; font-size: 11px; color: gray; padding-top: 4px;">LOW INTEREST</div>
+        <div style="text-align: center; font-size: 11px; color: gray; padding-top: 4px;">MEDIUM INTEREST</div>
+        <div style="text-align: center; font-size: 11px; color: gray; padding-top: 4px;">HIGH INTEREST</div>
+      </div>
+    </div>
+  </div>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Category</th>
+<th style="text-align: left;">Strategy</th>
+<th style="text-align: left;">Stakeholders</th>
+<th style="text-align: left;">Consequences</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>High / High</strong></td>
+<td style="text-align: left;"><strong>Manage Closely</strong></td>
+<td style="text-align: left;">SM, HHR</td>
+<td style="text-align: left;">Primary users with full decision-making power and direct interest. Must be actively involved in all key decisions.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>High / Low</strong></td>
+<td style="text-align: left;"><strong>Keep Satisfied</strong></td>
+<td style="text-align: left;">IT / Web-Admin</td>
+<td style="text-align: left;">Have the power but little content-related interest. Must meet their technical requirements.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Medium / High</strong></td>
+<td style="text-align: left;"><strong>Keep Informed</strong></td>
+<td style="text-align: left;">Project Team</td>
+<td style="text-align: left;">Directly involved in building the dashboard but limited decision-making power.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Medium / Medium</strong></td>
+<td style="text-align: left;"><strong>Keep Informed &amp; Satisfied</strong></td>
+<td style="text-align: left;">Management</td>
+<td style="text-align: left;">Project sponsors with medium power and moderate interest. Keep updated on progress and outcomes without requiring deep day-to-day involvement.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Low / High</strong></td>
+<td style="text-align: left;"><strong>Keep Informed</strong></td>
+<td style="text-align: left;">Employee, BUM</td>
+<td style="text-align: left;">Affected by the dashboard’s outcomes but little power over it. Receive relevant insights indirectly.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Low / Low</strong></td>
+<td style="text-align: left;"><strong>Monitor</strong></td>
+<td style="text-align: left;">Travel Agency</td>
+<td style="text-align: left;">Neither high influence nor strong interest in the project itself.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="user-analysis" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="user-analysis"><span class="header-section-number">1.4</span> <span style="color: #009a27;">User Analysis</span></h2>
+<section id="persona-1-head-of-hr" class="level3" data-number="1.4.1">
+<h3 data-number="1.4.1" class="anchored" data-anchor-id="persona-1-head-of-hr"><span class="header-section-number">1.4.1</span> <span style="color: #009a27;"><strong>Persona 1: Head of HR</strong></span></h3>
+<p><img src="../charta-pictures/alex_hauser.png" class="img-fluid"></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Name</strong></td>
+<td>Alex Hauser</td>
+</tr>
+<tr class="even">
+<td><strong>Age</strong></td>
+<td>48</td>
+</tr>
+<tr class="odd">
+<td><strong>Role</strong></td>
+<td>Head of HR</td>
+</tr>
+<tr class="even">
+<td><strong>Nationality</strong></td>
+<td>Swiss</td>
+</tr>
+<tr class="odd">
+<td><strong>Degree</strong></td>
+<td>Master’s in Human Resources Management</td>
+</tr>
+<tr class="even">
+<td><strong>Domain Expertise</strong></td>
+<td>High (expert in HR policy, organizational governance, and compliance)</td>
+</tr>
+<tr class="odd">
+<td><strong>Data Literacy</strong></td>
+<td>Low to Medium (comfortable reading dashboards and KPIs, but not a data analyst — relies on clear visuals rather than raw numbers)</td>
+</tr>
+<tr class="even">
+<td><strong>Technical Environment</strong></td>
+<td>Desktop computer at the office, occasionally tablet in meetings.</td>
+</tr>
+<tr class="odd">
+<td><strong>Frequency of Use</strong></td>
+<td>Ad hoc, whenever a travel request comes in and a budget check is needed</td>
+</tr>
+</tbody>
+</table>
+<p>Alex Hauser grew up near Basel and has lived in the Zurich area for the past fifteen years. He studied HR Management and has spent his entire career in human resources, working his way up from HR Business Partner to his current role as Head of HR at the company, where he has been for six years. He is known for being decisive, fair, and politically savvy — he understands how to get things done in a large organization without creating unnecessary conflict.</p>
+<p>Outside of work, Alex is an avid hiker and spends most weekends in the mountains with his partner. He is practical by nature and has little patience for complexity that does not add value. He trusts data when it is presented clearly, but switches off quickly when faced with charts that require too much interpretation.</p>
+<p>In his role, Alex holds the formal authority to set and enforce the company’s travel policy. This means he decides which transport modes are permitted for which types of trips, sets annual CO₂ budgets per business unit, and determines consequences for subunits that consistently exceed their limits. He does not do the analysis himself but he is the one who turns insights into binding decisions. He works closely with the Sustainability Manager and receives regular briefings from her, but when it comes to actually changing the policy, the decision is his.</p>
+<p>He is under pressure from the executive board to demonstrate measurable progress on the company’s ESG (Environmental, Social, and Governance) commitments, while also keeping travel costs under control. These two goals are not always easy to reconcile, and he needs clear, trustworthy data to justify the trade-offs he makes.</p>
+<p><strong>User Tasks:</strong></p>
+<ul>
+<li>Check CO₂ budget status for a specific subunit when a travel request comes in</li>
+<li>Monitor overall travel costs for the current year</li>
+<li>Compare available transport options (CO₂ and cost) for a given route to support approval decisions</li>
+<li>Make binding decisions on whether to approve or decline individual travel requests</li>
+</ul>
+<p><strong>Pains:</strong></p>
+<ul>
+<li><strong>No single overview:</strong> Without a central tool, getting a clear picture of where each subunit stands requires chasing reports from multiple people — time he does not have.</li>
+<li><strong>Conflicting pressures:</strong> The board wants lower CO₂ and lower costs, but these do not always point in the same direction. He needs data to justify the trade-offs publicly.</li>
+<li><strong>Delayed information:</strong> By the time summary reports reach him, decisions have already been made at the employee level and are difficult to reverse.</li>
+<li><strong>Resistance to policy change:</strong> Business unit managers push back on new travel restrictions. He needs clear, undeniable evidence to hold his ground.</li>
+</ul>
+<p><strong>Gains:</strong></p>
+<ul>
+<li><strong>Immediate budget clarity:</strong> A dashboard that shows him within seconds which subunits are on track and which are not, without needing to ask anyone.</li>
+<li><strong>Justifiable decisions:</strong> Clear transport option comparisons that give him a solid, data-backed reason for why a policy change is necessary.</li>
+<li><strong>Cost control at a glance:</strong> A simple cost overview so he can flag overspending early and act before it becomes a problem.</li>
+<li><strong>Confidence:</strong> Knowing the data he is basing his decisions on is current, accurate, and easy to explain to others.</li>
+</ul>
+<section id="use-case-scenario-head-of-hr" class="level4" data-number="1.4.1.1">
+<h4 data-number="1.4.1.1" class="anchored" data-anchor-id="use-case-scenario-head-of-hr"><span class="header-section-number">1.4.1.1</span> <span style="color: #59d177;"><strong>Use Case Scenario: Head of HR</strong></span></h4>
+<p><strong>Context:</strong></p>
+<p>An employee submits a travel request for an upcoming business trip. Alex needs to decide quickly whether to approve it, based on whether the employee’s subunit still has sufficient CO₂ budget for the year.</p>
+<p><strong>The Action:</strong></p>
+<p>Alex opens the Overview page of the dashboard. He selects the relevant subunit from the filter and immediately sees that the subunit has already used 78% of its annual CO₂ allocation — well ahead of pace for the time of year. He also glances at the travel cost summary and notes that the subunit is among the higher spenders this year. With this information in hand, he makes his decision.</p>
+<p><strong>The Insight (How the dashboard helps):</strong></p>
+<ul>
+<li><strong>Budget at a glance:</strong> The CO₂ budget progress bar immediately shows him the subunit’s current usage percentage — no manual calculation or data request needed.</li>
+<li><strong>Cost confirmation:</strong> The travel cost summary gives him a quick read on whether the subunit is also financially overstretched, supporting a well-rounded decision. Note: cost figures are based on available data only, as some records are missing cost information.</li>
+</ul>
+<p><strong>The Outcome:</strong></p>
+<p>Alex checks the travel options table to see whether a lower-CO₂ alternative is available for the requested route. The dashboard flags the train as both the cheapest and most environmentally friendly option. He approves the request on the condition that the employee travels by train, and flags the subunit for a check-in with the relevant business unit manager.</p>
+</section>
+</section>
+<section id="persona-2-sustainability-manager" class="level3" data-number="1.4.2">
+<h3 data-number="1.4.2" class="anchored" data-anchor-id="persona-2-sustainability-manager"><span class="header-section-number">1.4.2</span> <span style="color: #009a27;"><strong>Persona 2: Sustainability Manager</strong></span></h3>
+<p><img src="../charta-pictures/laura_smith.png" class="img-fluid"></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Name</strong></td>
+<td>Laura Smith</td>
+</tr>
+<tr class="even">
+<td><strong>Age</strong></td>
+<td>32</td>
+</tr>
+<tr class="odd">
+<td><strong>Role</strong></td>
+<td>Sustainability Manager</td>
+</tr>
+<tr class="even">
+<td><strong>Nationality</strong></td>
+<td>British</td>
+</tr>
+<tr class="odd">
+<td><strong>Degree</strong></td>
+<td>Master’s in Environmental Science</td>
+</tr>
+<tr class="even">
+<td><strong>Domain Expertise</strong></td>
+<td>High (expert in sustainability and environmental impact)</td>
+</tr>
+<tr class="odd">
+<td><strong>Data Literacy</strong></td>
+<td>Medium to High (comfortable with data and analysis, but not a technical data expert)</td>
+</tr>
+<tr class="even">
+<td><strong>Technical Environment</strong></td>
+<td>Desktop computer with a large monitor for analysis, but manages everything via cloud tools on her tablet and phone while agile working.</td>
+</tr>
+<tr class="odd">
+<td><strong>Frequency of Use</strong></td>
+<td>Daily (for monitoring and reporting purposes)</td>
+</tr>
+</tbody>
+</table>
+<p>Laura lives in a minimalistic, shared apartment in Zurich-West, filled with upcycled furniture and numerous indoor plants. She commutes daily by bicycle or train, valuing the physical activity and the emission consequences travel. Sundays are spent hiking in the Alps, combining her love for nature with physical challenge. She speaks fluent English and professional German. Currently she is trying to learn some basic Swiss German to better connect with her local colleagues and stakeholders.</p>
+<p>She joined the company 1.5 years ago as a Senior Sustainability Analyst and was promoted to Manager 4 months ago due to her ambition and early successes in automating initial reporting workflows. She expects tools to work instantly. A clunky, buggy software experience causes her immediate frustration. Her philosophy is: “Let the data flow, then let the analysis begin.”</p>
+<p>As a digital native, Laura treats data as a product. She doesn’t just analyze it, she expects it to be auditable, scalable, and beautifully visual. She is passionate about using data to drive real change in corporate sustainability and is always looking for ways to make complex information more accessible and actionable for her colleagues and senior leadership.</p>
+<p>Her main goal is to reduce the company’s carbon footprint from business travel and to communicate the company’s sustainability efforts effectively to stakeholders. She is also focused on identifying trends in travel behaviour and emissions to inform future strategies and policies. Laura is under pressure to deliver quick results due to new regulations and corporate commitments, but she is determined to use data-driven insights to make a meaningful impact on the company’s sustainability performance.</p>
+<p><strong>User Tasks:</strong></p>
+<ul>
+<li>Monitor and report on the company’s CO₂ emissions from business travel</li>
+<li>Identify trends and patterns in travel behaviour and emissions</li>
+<li>prepare reports and presentations for senior management and stakeholders</li>
+<li>Convince skeptical senior leadership of sustainable investments using hard financial and environmental data.</li>
+</ul>
+<p><strong>Pains:</strong></p>
+<ul>
+<li><strong>Data Mess:</strong> Spends 70% of her time chasing incomplete Excel sheets from different departments instead of analyzing data.</li>
+<li><strong>Resistance:</strong> Faced with “We’ve always done it this way” from older managers when she proposes train travel over short-haul flights.</li>
+<li><strong>Pressure:</strong> The board expects instant, ESG results due to new regulations.</li>
+<li><strong>Difficulty:</strong> accessing and analyzing travel data from multiple sources</li>
+<li><strong>Time-consuming:</strong> process to create reports and visualizations manually</li>
+</ul>
+<p><strong>Gains:</strong></p>
+<ul>
+<li><strong>A “Single Source of Truth”:</strong> An interactive dashboard where all travel data flows together automatically and cleanly.</li>
+<li><strong>Automated Reporting:</strong> Being able to generate the annual travel emission report with three clicks, saving days of manual work.</li>
+<li><strong>Visual Power:</strong> Professional, undeniable visualizations that make the argument for a “Train First” policy obvious to anyone.</li>
+<li><strong>Ability to quickly identify and analyze</strong> travel patterns and emissions</li>
+<li><strong>Improved decision-making</strong> capabilities based on data-driven insights</li>
+<li><strong>Enhanced communication</strong> of sustainability efforts to stakeholders through clear visualizations</li>
+</ul>
+<section id="use-case-scenario-sustainability-manager" class="level4" data-number="1.4.2.1">
+<h4 data-number="1.4.2.1" class="anchored" data-anchor-id="use-case-scenario-sustainability-manager"><span class="header-section-number">1.4.2.1</span> <span style="color: #59d177;"><strong>Use Case Scenario: Sustainability Manager</strong></span></h4>
+<p><strong>Context:</strong></p>
+<p>It is the end of the year, and Laura needs to prepare the annual sustainability report for the executive board. She has to present the overall trends in business travel emissions from the past few years and propose new emission reduction strategies for the upcoming year.</p>
+<p><strong>The Action:</strong></p>
+<p>Instead of spending days manually collecting Excel sheets from different departments and building complex pivot tables, Laura opens the Analysis page of the Business Travel Dashboard on her desktop monitor. She uses the year and subunit filters to explore the company’s total carbon footprint across different dimensions.</p>
+<p><strong>The Insight (How the dashboard helps):</strong></p>
+<ul>
+<li><strong>Single-year view:</strong> She starts with the single-year CO₂ chart to show how emissions accumulated month by month against the budget threshold — a compelling visual for demonstrating near-limit situations to senior leadership.</li>
+<li><strong>Transport mode breakdown:</strong> The CO₂ emissions by transport mode chart reveals that flights account for the vast majority of emissions and are also the most frequently used transport mode — making the case for a train-first policy clear and easy to communicate to the board.</li>
+<li><strong>Long-term trend at a glance:</strong> The cumulative CO₂ emissions line chart shows her how the company’s total emissions have developed since 2020 — including the visible dip during the pandemic years and the recovery afterwards.</li>
+<li><strong>Forward-looking view:</strong> The prediction chart projects emissions for the next three years based on recent trends, giving her a data-backed basis for proposing new reduction targets to the board.</li>
+<li><strong>Budget compliance overview:</strong> The CO₂ budget compliance section shows her, per year, how much of the annual budget was used, allowing her to identify where policy interventions are most needed.</li>
+<li><strong>Travel purpose detail:</strong> The travel purpose breakdown helps her identify which trip categories are driving emissions and whether those trips could be substituted with remote alternatives.</li>
+</ul>
+<p><strong>The Outcome:</strong></p>
+<p>Laura exports the charts she needs directly from the dashboard and pastes them into her board presentation. The dashboard saved her days of manual data preparation. In the board meeting, she confidently uses the transport mode breakdown, the prediction chart, and the budget compliance section to argue for a strengthened train-first policy for all routes under 400 km, backed by clear and undeniable visual evidence.</p>
+</section>
+</section>
+</section>
+<section id="situation-assessment" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="situation-assessment"><span class="header-section-number">1.5</span> <span style="color: #009a27;">Situation Assessment</span></h2>
+<p>Dataset:</p>
+<p>The dataset contains approximately 25,000 business travel record with variables such as:</p>
+<ul>
+<li><code>date</code> - of travel</li>
+<li><code>transport_mode</code> - transport mode (e.g., flight, train, rental car, etc.)</li>
+<li><code>km</code> - travel distance</li>
+<li><code>CO2e</code> - estimated CO₂ emissions</li>
+<li><code>travel_purpose</code> - reason for the travel</li>
+</ul>
+<p>CO₂ budget data is available from 2020 to 2025; years 2017–2019 are therefore excluded from budget comparisons. 2026 is excluded as no data is available.</p>
+<p>Personnel:</p>
+<ul>
+<li>Jasmin Fankhauser</li>
+<li>Séverine Stadler</li>
+<li>Lia Sifrig</li>
+<li>Anna Kaufmann</li>
+</ul>
+<p>Material:</p>
+<ul>
+<li>Personal laptops</li>
+</ul>
+<p>software/tools:</p>
+<ul>
+<li>Python for data exploration</li>
+<li>Streamlit for visualization / dashboard development</li>
+<li>Gemini + ChatGPT for creating pictures (Personas) and corrections</li>
+</ul>
+<p>Constraints and risks:</p>
+<ul>
+<li>Limited time for data exploration and visualization development</li>
+<li>Possible missing or incomplete data in the dataset</li>
+<li>Learning new tool for dashboard development (Streamlit) takes time</li>
+<li>The dashboard is built as a prototype for the current project period. The Overview page is fixed to the year 2025. In a real-world implementation, this would be set dynamically based on the most recent year with available data.</li>
+</ul>
+</section>
+<section id="visualization-concept" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="visualization-concept"><span class="header-section-number">1.6</span> <span style="color: #009a27;">Visualization Concept</span></h2>
+<p>The project will create a focused interactive dashboard with two separate pages, each tailored to a specific user role. Users can navigate freely between the two pages using a top-level navigation menu.</p>
+<p><strong>Product form</strong>:</p>
+<p>The dashboard consists of two role-based pages — a Overview page for the Head of HR and an Analysis page for the Sustainability Manager. Both pages are web-based and built with Streamlit. It is assumed that the travel options data is maintained and updated regularly by a responsible person within the company. In a real-world implementation, views could additionally be role-restricted by login.</p>
+<p><strong>Page 1 — Overview (Head of HR):</strong></p>
+<p>This page is designed for quick, operational decision-making based on current-year data. It includes a subunit filter and is fixed to the current year only, keeping the view focused and uncluttered. Alex uses this page to check a subunit’s budget status whenever a travel request comes in.</p>
+<ul>
+<li>A CO₂ budget progress bar per subunit showing how much of the annual CO₂ allocation has already been used (<code>CO2e</code>, subunit). This gives an immediate sense of budget status at a glance.</li>
+<li>A travel cost summary displaying the total travel costs for the current year for the selected subunit. Note: the <code>cost_CHF</code> field contains missing values in the raw data; cost totals are therefore based on available records only and may underestimate the true figure.</li>
+<li>A travel options comparison table showing available transport options for a selected route (transport mode, number of past trips, average distance, average cost, average CO₂ emissions, and a recommendation flag for the cheapest and most environmentally friendly option), supporting informed approval decisions.</li>
+</ul>
+<p><strong>Page 2 — Analysis (Sustainability Manager):</strong></p>
+<p>This page supports in-depth exploration and reporting. It includes filters for year and subunit — applicable to all charts except where noted — and all charts are exportable for use in reports and presentations. The single-year CO₂ chart defaults to the current year when “All Years” is selected.</p>
+<p>The left column presents a narrative progression from current state to long-term outlook:</p>
+<ul>
+<li>A single-year CO₂ emissions line chart (Jan–Dec) with a horizontal budget limit line, showing how emissions accumulated over the course of one year relative to the annual threshold (<code>CO2e</code>, budget limit). Filterable by year and subunit.</li>
+<li>A CO₂ emissions by transport mode bar chart showing the total emissions in tonnes, with the number of trips displayed alongside for better data interpretation. The transport modes are not sorted by volume; instead, they remain in a fixed, consistent order. This static layout allows users to quickly spot changes at a glance and easily compare differences between transport modes across various years or subunits, without needing to constantly re-read the axis labels. The title—along with the associated data—updates dynamically depending on which specific year or subunit is selected in the filters.</li>
+<li>A cumulative CO₂ emissions line chart showing total emissions summed over all years (<code>date</code>, <code>CO2e</code>). This allows users to see the long-term progression of emissions, including the effect of external events such as the COVID-19 pandemic. Filterable by subunit.</li>
+<li>A CO₂ emissions prediction chart showing a linear trend forecast for the next three years based on historical data from 2022 onwards, helping users anticipate future emissions trajectories. Filterable by subunit.</li>
+</ul>
+<p>The right column provides KPIs and detailed breakdowns:</p>
+<ul>
+<li>Key performance indicators (KPIs) showing total number of trips, number of flights, number of trains, number of buses, number of rental cars, and total CO₂ emissions. Filterable by year and subunit.</li>
+<li>A detailed travel purpose breakdown (pie chart) showing percentage share per purpose (<code>travel_purpose</code>). Filterable by year and subunit.</li>
+<li>A CO₂ budget compliance section showing, per year, how much of the annual budget was used, with colour-coded status indicators (within budget, critical, over budget).</li>
+<li>A budget summary table showing, per year, the CO₂ budget, actual usage in tonnes, percentage used, and compliance status — filterable by subunit.</li>
+<li>Export functionality allowing users to save individual charts for use in reports and presentations.</li>
+</ul>
+<p>Tooltips will show additional details on all charts where relevant.</p>
+<p><strong>Interactivity</strong>:</p>
+<p>Page 1 (Overview) includes a subunit filter and is fixed to the current year. Page 2 (Analysis) includes filters for year and subunit, applicable across all charts; the single-year CO₂ chart defaults to the current year when “All Years” is selected. Both pages include tooltips for additional detail. Page 2 additionally supports chart export for reporting purposes. These interactive features allow each user to focus on what is relevant to their role without being overwhelmed by unnecessary complexity.</p>
+<p><strong>Narrative and annotation</strong>:</p>
+<p>Each chart will have a descriptive title and clear axis labels so that the meaning is easy to interpret without prior technical knowledge. Short annotations may highlight important patterns, such as a subunit approaching its CO₂ budget limit or a notable shift in transport mode usage over time. These guide users through the dashboard and help them draw conclusions quickly.</p>
+<p><strong>Target medium and integration</strong>:</p>
+<p>The dashboard will be presented as a web-based prototype using Streamlit, viewable in a browser on a laptop or desktop computer. It is primarily intended for use within the course and for presentation purposes. In a real-world scenario, a similar dashboard could be integrated into a company intranet or sustainability reporting system.</p>
+<p><strong>Cognitive and analytical value</strong>:</p>
+<p>The two-page structure reduces cognitive load by ensuring each user only sees what is relevant to their role. The Overview page allows the Head of HR to assess the situation and act quickly. The Analysis page supports deeper pattern recognition over time — identifying emission trends, budget compliance issues, and the environmental impact of different transport modes. Together the pages cover both operational and strategic information needs.</p>
+<p><strong>Communicative value</strong>:</p>
+<p>The dashboard presents key information clearly without interpreting or evaluating the results. It is designed as an exploratory tool that allows users to analyse the data and draw their own conclusions. The export functionality specifically supports the communicative needs of the Sustainability Manager, who regularly needs to present findings to senior leadership.</p>
+<p><strong>Experiential and aesthetic value</strong>:</p>
+<p>The dashboard is designed to be simple and easy to use. Each page has a clear, uncluttered layout so users can quickly find and understand what they see. Interactive elements like filters, tooltips, and export options allow users to explore the data at their own pace. The two-page structure ensures that neither user is confronted with charts or filters that are irrelevant to their goals, making the experience more intuitive and trustworthy.</p>
+</section>
+<section id="project-plan-séverine-stadler" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="project-plan-séverine-stadler"><span class="header-section-number">1.7</span> <span style="color: #009a27;">Project Plan Séverine Stadler</span></h2>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-project-plan" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-project-plan-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-project-plan">gantt
+    title Project Plan
+    dateFormat YYYY-MM-DD
+    tickInterval 1 week
+    axisFormat %d.%m.%Y
+
+    section Project Initialization
+    Decision on Project Idea : milestone, m1, 2026-03-14, 2d
+    Project Charta Draft : a1, 2026-03-14, 7d
+
+    section Project Understanding
+    Stakeholder and user analysis : a3, 2026-03-18, 8d
+    Project objectives and visualization concept : a4, 2026-03-28, 7d  
+
+    section Data Acquisition and Exploration
+    Acquire data : a5, 2026-04-01, 2d
+    EDA : a6, 2026-04-01, 8d
+    Discuss data report : milestone, m2, 2026-04-09, 0d
+
+    section Visual Encoding and Design
+    Implement Dashboard prototype : a7, 2026-04-10, 21d
+    Complete visualization report : a8, 2026-05-01, 18d
+
+    section Submission
+    Draft Presentation Submission : milestone, m3, 2026-05-18, 0d
+    Project Submission : milestone, m4, 2026-06-01, 0d
+
+    section Presentation
+    Prepare presentation : a10, 2026-05-30, 9d
+    Project presentation - exam period : a11, 2026-06-08, 21d
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-project-plan-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Preliminary project plan. Milestones are not final.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="roles-and-contact-details" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="roles-and-contact-details"><span class="header-section-number">1.8</span> <span style="color: #009a27;">Roles and Contact Details</span></h2>
+<ul>
+<li>Jasmin Fankhauser - Dashboard Visualization and Presentation (fankhjas@students.zhaw.ch)</li>
+<li>Séverine Stadler - Project Charta and Dashboard Visualization (stadlsev@students.zhaw.ch)</li>
+<li>Lia Sifrig - Project Charta and Dashboard Visualization (sifrilia@students.zhaw.ch)</li>
+<li>Anna Kaufmann - Dashboard Visualization and Presentation (kaufma03@students.zhaw.ch)</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
